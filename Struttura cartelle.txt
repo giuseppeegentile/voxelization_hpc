@@ -4,6 +4,10 @@ repo
 |	
 +--->src								//	file sorgente
 	|
+	+--------> Common
+	|		|
+	|		+--------> Coordinate.h			//    container generico per coordinate tridimensionali
+	|
 	+--------> Main						//	contenuto della liberia
 	|		|
 	|		+-------->	Parser			//	parser del file pdb
