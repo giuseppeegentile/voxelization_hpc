@@ -46,22 +46,23 @@ class VoxelGrid
 					if( v.z > maxZ ) maxZ = v.z;
 				}
 
-				std::cout << minX << "," << maxX << std::endl;
-				std::cout << minY << "," << maxY << std::endl;
-				std::cout << minZ << "," << maxZ << std::endl;
 				// "coloro" i voxel nel cubo
 				
 				denX = maxX - minX;		// me li calcolo subito dal momento
 				denY = maxY - minY;		// che sono uguali per ogni iterazione
 				denZ = maxZ - minZ;
 				
+				float temp_coeff_x = precision/denX;
+				float temp_coeff_y = precision/denY;
+				float temp_coeff_z = precision/denZ;
+				
 				for( auto & v : V )
 				{
-					int x = static_cast<int> ( (v.x - minX) / denX * precision);	// ottiene la posizione relativa
-					int y = static_cast<int> ( (v.y - minY) / denY * precision);	// all'interno del cubo per ogni coordinata
-					int z = static_cast<int> ( (v.z - minZ) / denZ * precision);	// ovvero un numero tra 0 e 1 che rappresenta
-																					// la posizione. Moltiplicandola per la precisione
-																					// e castando ad int si ottiene l'indice
+					int x = static_cast<int> ( (v.x - minX) * temp_coeff_x);	// ottiene la posizione relativa
+					int y = static_cast<int> ( (v.y - minY) * temp_coeff_y);	// all'interno del cubo per ogni coordinata
+					int z = static_cast<int> ( (v.z - minZ) * temp_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+																				// la posizione. Moltiplicandola per la precisione
+																				// e castando ad int si ottiene l'indice
 					data[x * a + y * b + z * c] = true;	
 				}
 			};
