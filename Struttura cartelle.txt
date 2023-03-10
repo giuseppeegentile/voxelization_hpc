@@ -1,0 +1,28 @@
+repo
+|
++--->res								//	dati (file pdb, etc.)
+|	
++--->src								//	file sorgente
+	|
+	+--------> Main						//	contenuto della liberia
+	|		|
+	|		+-------->	Parser			//	parser del file pdb
+	|		|		|
+	|		|		+--------> Parser.h	
+	|		|		+--------> Parser.cpp
+	|		|
+	|		+-------->	Structure			//	classe della struttura dati
+	|				|
+	|				+--------> Structure.h
+	|				+--------> Structure.cpp
+	|					
+	|
+	|
+	+--------> Test
+			|
+			+-------->	TestParser.cpp		//	carica una proteina in memoria (test base)
+			|
+			+-------->	TestAccess.cpp		//	parametrizzato con argomento "-n" esegue n accessi sequenziali casuali 
+			|
+			+-------->	TestInfame.cpp		/*	parametrizzato con argomento "-n" esegue n accessi sequenziali cercando di 
+								 	massimizzare il ritardo dovuto alla cache	*/
