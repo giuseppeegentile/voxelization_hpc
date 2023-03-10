@@ -10,6 +10,7 @@ repo
 	|		|		|
 	|		|		+--------> Parser.h	
 	|		|		+--------> Parser.cpp
+	|		|		+--------> IR.h		// fornisce un container per la rappresentazione intermedia fillata dal parser
 	|		|
 	|		+-------->	Structure			//	classe della struttura dati
 	|				|
