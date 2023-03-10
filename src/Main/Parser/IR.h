@@ -19,10 +19,15 @@ class IR {
 		void push(Coordinate & c);
 		void push(float x,float y, float z);
 		void print();
+		
+		std::vector<Coordinate> & getData() {
+			return data;
+		}
 	private:
 		std::vector<Coordinate> data;	// Array of structures dal momento
 										// che accediamo a tutte le coordinate insieme (non ci interessa avere tutte le x
 										// ad esempio)
+		
 };
 
 #endif

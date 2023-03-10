@@ -13,20 +13,24 @@
 class Structure
 {
 	public:
-		Structure(IR & source) {
+		Structure(IR & source,int precision = 32) : voxelGrid(source, precision) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
-			
-			
 			
 		};
 		
 		inline bool operator ()(Coordinate & c) {							// getter
+			// IN : coordinate spaziali
+			// OUT: presenza della proteina
+			
 			return (*this)(c.x,c.y,c.z);
 		}
 		inline bool operator ()(float & x,float & y,float & z) {			// getter
 			return 0;
 		}
+	
+	
+	VoxelGrid & getVoxelGrid();
 	
 	private:
 		VoxelGrid voxelGrid;

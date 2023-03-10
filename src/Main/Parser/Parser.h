@@ -41,14 +41,12 @@ class Parser
 						intermediateRepresentation.push(x,y,z);
 					}
 				}
-			// check
-			intermediateRepresentation.print();
-			
 			// fine
 			
 			
 		}; 
-		
+	
+	IR & getIR();
 	private:
 		IR intermediateRepresentation;
 };

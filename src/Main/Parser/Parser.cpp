@@ -1,6 +1,6 @@
 /*Parser.cpp*/
 #include "Parser.h"
 
-int pluto() {
-	return 0;
+IR & Parser::getIR() {
+	return intermediateRepresentation;
 }
