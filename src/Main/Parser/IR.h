@@ -8,12 +8,15 @@
 
 
 #include "../../Common/Coordinate.h"
+#include <iostream>
 #include <vector>
 
 class IR {
 	public:
 		IR() {};
-		
+		void push(Coordinate & c);
+		void push(float x,float y, float z);
+		void print();
 	private:
 		std::vector<Coordinate> data;	// Array of structures dal momento
 										// che accediamo a tutte le coordinate insieme (non ci interessa avere tutte le x

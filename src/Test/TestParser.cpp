@@ -3,5 +3,5 @@
 #include <iostream>
 
 int main() {
-	std::cout << "Hello World!" << std::endl;
+	Parser P("res/2j47.pdb");
 }
