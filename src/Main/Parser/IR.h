@@ -2,6 +2,8 @@
 //		Fornisce un container per la rappresentazione intermedia
 // 		Accessibile poi per costruire la rappresentazione nella struttura
 //		Ottimizzata
+//		Implementa alcuni metodi utili che vengono utilizzati nella produzione
+//		della struttura ottimizzata
 
 #ifndef IR_H
 #define IR_H

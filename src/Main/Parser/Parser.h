@@ -1,4 +1,8 @@
 /* Parser.h */
+//	Fornisce un WRAPPER per la classe IR, che é finalizzata a contenere rappresentazioni sparse
+//  della posizione degli atomi. In particolare, il costruttore legge un file e costruisce,
+//  all'interno della classe stessa, la rappresentazione intermedia.
+
 #ifndef PARSER_H
 #define PARSER_H
 #include "IR.h"
@@ -12,7 +16,10 @@ class Parser
 {
 	public:
 		Parser( const char * filename ) {
-			// legge il file riga per riga riempiendo la struttura intermedia
+			// IN:		nome del file da leggere
+			// OUT:		costruisce la rappresentazione intermedia
+			
+			
 				// apre il file
 				std::ifstream file( filename , std::ifstream::in);
 				// inizializza una stringa che andrá a contenere la riga
@@ -35,7 +42,6 @@ class Parser
 					}
 				}
 			// check
-			
 			intermediateRepresentation.print();
 			
 			// fine
@@ -44,7 +50,6 @@ class Parser
 		}; 
 		
 	private:
-		
 		IR intermediateRepresentation;
 };
 
