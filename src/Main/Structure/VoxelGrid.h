@@ -49,11 +49,11 @@ class VoxelGrid
 				std::cout << minX << "," << maxX << std::endl;
 				std::cout << minY << "," << maxY << std::endl;
 				std::cout << minZ << "," << maxZ << std::endl;
-				// "coloro" il cubo
+				// "coloro" i voxel nel cubo
 				
-				float denX = maxX - minX;		// me li calcolo subito dal momento
-				float denY = maxY - minY;		// che sono uguali per ogni iterazione
-				float denZ = maxZ - minZ;
+				denX = maxX - minX;		// me li calcolo subito dal momento
+				denY = maxY - minY;		// che sono uguali per ogni iterazione
+				denZ = maxZ - minZ;
 				
 				for( auto & v : V )
 				{
@@ -79,7 +79,7 @@ class VoxelGrid
 			ones += data[i];
 		std::cout << ones;
 	}
-	private:
+	
 		int precision;
 		int a;	
 		int b;
@@ -89,6 +89,8 @@ class VoxelGrid
 									// permettendoci di massimizzare il numero 
 									// di dati nella cache
 		float minX,minY,minZ,maxX,maxY,maxZ;
+		float denX,denY,denZ;
+	
 };
 
 #endif
