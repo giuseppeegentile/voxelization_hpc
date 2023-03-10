@@ -1,6 +1,7 @@
 /*TestParser.cpp*/
-#include "../Parser/Parser.h"
+#include "../Main/Parser/Parser.h"
+#include <iostream>
 
 int main() {
-	std::cout << "Hello World!";
+	std::cout << "Hello World!" << std::endl;
 }
