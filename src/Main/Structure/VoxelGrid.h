@@ -52,17 +52,18 @@ class VoxelGrid
 				denY = maxY - minY;		// che sono uguali per ogni iterazione
 				denZ = maxZ - minZ;
 				
-				float temp_coeff_x = precision/denX;
-				float temp_coeff_y = precision/denY;
-				float temp_coeff_z = precision/denZ;
+				mul_coeff_x = precision/denX;		// contiene il rapporto tra precision e den* in modo da saltare
+				mul_coeff_y = precision/denY;		// una moltiplicazione
+				mul_coeff_z = precision/denZ;
 				
 				for( auto & v : V )
 				{
-					int x = static_cast<int> ( (v.x - minX) * temp_coeff_x);	// ottiene la posizione relativa
-					int y = static_cast<int> ( (v.y - minY) * temp_coeff_y);	// all'interno del cubo per ogni coordinata
-					int z = static_cast<int> ( (v.z - minZ) * temp_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
-																				// la posizione. Moltiplicandola per la precisione
-																				// e castando ad int si ottiene l'indice
+					int x = static_cast<int> ( (v.x - minX) * mul_coeff_x);	// ottiene la posizione relativa
+					int y = static_cast<int> ( (v.y - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
+					int z = static_cast<int> ( (v.z - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+																			// la posizione. Moltiplicandola per la precisione
+																			// e castando ad int si ottiene l'indice
+																			// remark: mul_coeff_x = precisione/denX = precisione/(maxX - minX)
 					data[x * a + y * b + z * c] = true;	
 				}
 			};
@@ -91,6 +92,7 @@ class VoxelGrid
 									// di dati nella cache
 		float minX,minY,minZ,maxX,maxY,maxZ;
 		float denX,denY,denZ;
+		float mul_coeff_x,mul_coeff_y,mul_coeff_z;
 	
 };
 
