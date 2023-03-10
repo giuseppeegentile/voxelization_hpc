@@ -19,8 +19,10 @@ repo
 	|		|
 	|		+-------->	Structure			//	classe della struttura dati
 	|				|
-	|				+--------> Structure.h
+	|				+--------> Structure.h	//	Wrapper di VoxelGrid ; permette di accedere alla proteina per coordinate spaziali
 	|				+--------> Structure.cpp
+	|				|
+	|				+--------> VoxelGrid.h	// 	Permette di accedere alla proteina per indici dei voxel
 	|					
 	|
 	|
