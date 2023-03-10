@@ -64,6 +64,12 @@ class VoxelGrid
 																			// la posizione. Moltiplicandola per la precisione
 																			// e castando ad int si ottiene l'indice
 																			// remark: mul_coeff_x = precisione/denX = precisione/(maxX - minX)
+					
+					// TODO (***) : questa disposizione favorisce a livello di localitá
+					// i cubetti che sono sulla stessa coordinata z. Sarebbe interessante
+					// costruire una mappa (i,j,k) |--> (x,y,z) che favorisca in egual misura
+					// tutte le possibili direzioni
+					
 					data[x * a + y * b + z * c] = true;	
 				}
 			};
@@ -72,6 +78,7 @@ class VoxelGrid
 									unsigned int y,			// ci interessa solo la lettura delle proteine
 									unsigned int z) 
 			{ 	
+				// vedi TODO (***)
 				return data[x * a + y * b + z * c];
 			}
 	

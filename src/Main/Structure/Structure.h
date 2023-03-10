@@ -26,6 +26,8 @@ class Structure
 									 float  &    y,			// ci interessa solo la lettura delle proteine
 									 float  &    z) 
 			{ 	
+				// IN : coordinate spaziali
+				// OUT: presenza della proteina
 				int i = static_cast<int> ( (x - voxelGrid.minX) * voxelGrid.mul_coeff_x);	// ottiene la posizione relativa
 				int j = static_cast<int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
 				int k = static_cast<int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
