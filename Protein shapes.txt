@@ -1,0 +1,37 @@
+Ci sono molti livelli di struttura delle proteine:
+    - Primarie
+    - Secondarie
+    - Terziarie
+    - Quaternarie
+
+Primarie
+    Sequenza di aminoacidi che compongono la proteina. Aminoacidi sono i blocchetti che compongono la proteina.
+    Sono collegati tra loro dai "peptide bonds". 
+    Nella sintesi di proteine gli aminoacidi sono aggiunti per formare una "polypeptide chain": le proteine sono formate da una o più polypeptide chains.
+    Ogni aminoacido ha un carboxyl group, un amino group, e un R group, detto anche "side chain".
+
+Secondarie
+    La Sequenza di aminoacidi può avere diverse forme:
+        - alpha HELIX
+        - beta pleated SHEET
+    Quale di queste due? Dipende da come sono disposti gli aminoacidi! 
+    Entrambe sono dovute dagli hydrogen bonds: possono accedere in una specifica area degli aminoacidi della proteina.
+
+Terziarie
+    Guardano più folding che accadono nella forma 3D della proteina.
+    Causata primariamente dalla side chain (R group).
+    Mentre l'amino group e il carboxyl groud sono quasi sempre presenti negli aminoacidi in modo "standard", gli R group negli aminoacidi possono cambiare molto.
+    Per esempio alcuni R group sono idrofobici, altri sono idrofili. Questo causa diversi comportamenti tra i vari aminoacidi, anche nella stessa proteina!
+    IMPORTANTE, durante il folding:
+        Gli aminoacidi idrofili vanno verso l'esterno della proteina, mentre gli idrofobici vanno verso l'interno della proteina.
+        Ma non solo, la forma 3D della proteina è caratterizzata da altre interazioni oltre che quelle idro/fobica-folica:
+            - Ionic bonds
+            - interazioni di Van der Waals 
+            - Disulfide bonds (Disulfide bridges)
+            - hydrogen bonds
+
+Quaternarie
+    Le proteine possono essere composte da una o più polypeptide chain. Nelle strutture Quaternarie, guardiamo proteine con più di una polypeptide chain.
+    Ogni polypeptide chain può essere una subinità, e le interazioni fra esse (hyd bonds, ecc. ecc) le tengono insieme.
+    Le interazioni sopra citate, avvengono in base agli aminoacidi della proteina -> gli aminoacidi sono importanti per capire la struttura della proteina.
+    
