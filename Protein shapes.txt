@@ -20,7 +20,7 @@ Secondarie
 Terziarie
     Guardano più folding che accadono nella forma 3D della proteina.
     Causata primariamente dalla side chain (R group).
-    Mentre l'amino group e il carboxyl groud sono quasi sempre presenti negli aminoacidi in modo "standard", gli R group negli aminoacidi possono cambiare molto.
+    Mentre l'amino group e il carboxyl groud sono quasigitk sempre presenti negli aminoacidi in modo "standard", gli R group negli aminoacidi possono cambiare molto.
     Per esempio alcuni R group sono idrofobici, altri sono idrofili. Questo causa diversi comportamenti tra i vari aminoacidi, anche nella stessa proteina!
     IMPORTANTE, durante il folding:
         Gli aminoacidi idrofili vanno verso l'esterno della proteina, mentre gli idrofobici vanno verso l'interno della proteina.
@@ -35,3 +35,14 @@ Quaternarie
     Ogni polypeptide chain può essere una subinità, e le interazioni fra esse (hyd bonds, ecc. ecc) le tengono insieme.
     Le interazioni sopra citate, avvengono in base agli aminoacidi della proteina -> gli aminoacidi sono importanti per capire la struttura della proteina.
     
+
+
+Dizionario:
+    bond angles: angles between the covalent bonds. They're determined according to a set of principles: "Valence Shell Electron Pair Repulsion Theory".
+                                                                                                    This theory aims to predict 3-D molecular geometry based on the
+                                                                                                    number of valence shell electron bond pairs among atoms in a molecule or ion.
+                                                                                                    It says that electron pairs will arrange themselves to minimize repulsion effect
+                                                                                                    from one another.
+                                                                                                    => electron pairs are a far apart as possible.
+https://www.sigmaaldrich.com/IT/it/technical-documents/technical-article/chemistry-and-synthesis/organic-reaction-toolbox/vsepr-chart-valence-shell-electron-pair-repulsion-theory
+
