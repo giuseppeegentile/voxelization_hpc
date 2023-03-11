@@ -16,7 +16,6 @@ class Structure
 		Structure(IR & source,int precision = 32) : voxelGrid(source, precision) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
-			
 		};
 		
 
@@ -32,14 +31,14 @@ class Structure
 				int j = static_cast<int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
 				int k = static_cast<int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																							// la posizione. Moltiplicandola per la precisione
-				
+				bool condition = (
+									((i<0)||(i>=voxelGrid.precision)) ||
+									((j<0)||(j>=voxelGrid.precision)) ||
+									((k<0)||(k>=voxelGrid.precision))
+								 );
 				
 				return ( 
-							(
-								(i<0||i>=voxelGrid.precision) &&
-								(j<0||j>=voxelGrid.precision) &&
-								(k<0||k>=voxelGrid.precision)
-							)
+							condition
 							? 
 							0 :
 							voxelGrid(i,j,k)

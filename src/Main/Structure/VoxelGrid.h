@@ -7,6 +7,7 @@
 #define VOXELGRID_H
 #include "../../Common/Coordinate.h"
 #include "../Parser/IR.h"
+#include <array>
 
 class VoxelGrid
 {
@@ -74,12 +75,25 @@ class VoxelGrid
 				}
 			};
 			
-			inline bool operator ()(unsigned int x,			// non abbiamo bisogno di ritornare un reference
-									unsigned int y,			// ci interessa solo la lettura delle proteine
-									unsigned int z) 
+			inline bool operator ()(int & x,			// non abbiamo bisogno di ritornare un reference
+									int & y,			// ci interessa solo la lettura delle proteine
+									int & z) 
 			{ 	
 				// vedi TODO (***)
-				return data[x * a + y * b + z * c];
+				// TODO (**) : sarebbe interessante fare un prefetching
+				// stocastico. Ovvero si da una probabilitá p di mettere
+				// una regione di spazio in cache. 
+				// ad ogni accesso di un voxel nella regione, si estrae
+				// con probabilitá ( (1 - p,0)  , (p,1) )
+				// Se esce 1, la regione viene aggiunta in cache
+				// in questo modo se una regione viene acceduta spesso
+				// la probabilitá di estrarre almeno un 1 aumenta.
+				// infatti
+				// P( {0} ) 		= 1 - p			|
+				// P( {0,0} ) 		= (1 - p)^2		|	successione decrescente
+				// P( {0,0,...,0} ) = (1 - p)^n 	V
+				return data[x * a + y * b + z];
+			
 			}
 	
 	void print() {
