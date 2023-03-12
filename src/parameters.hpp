@@ -1,0 +1,1 @@
+constexpr double smallest_voxel = 1e-12;
