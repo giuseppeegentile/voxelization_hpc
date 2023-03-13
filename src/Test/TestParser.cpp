@@ -1,4 +1,5 @@
 /*TestParser.cpp*/
+#include "../Common/Boolvector.h"
 #include "../Main/Parser/Parser.h"
 #include "../Main/Structure/Structure.h"
 #include <iostream>
@@ -38,9 +39,15 @@ private:
 
 int main() {
 	
+	BoolVector v(32);
+	v.set(0,true);
+	v.set(1,false);
+	std::cout << v.get(0) << v.get(1) << std::endl;
+	
+	return 0;
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 50);
+	Structure S(I, 500);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
 	
 	// test casuale
@@ -71,6 +78,9 @@ int main() {
 	***/
 	
 	/*** TEST 2 ***/
+	//
+	// Passeggiata aleatoria nel cubo continuo
+	//
 	float x = 0.5 * voxelGrid.denX + voxelGrid.minX;	// Non conto la generazione
 	float y = 0.5 * voxelGrid.denY + voxelGrid.minY;	// dei numeri casuali nel test
 	float z = 0.5 * voxelGrid.denZ + voxelGrid.minZ;	//
