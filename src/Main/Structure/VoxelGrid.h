@@ -5,6 +5,7 @@
 //  in indici
 #ifndef VOXELGRID_H
 #define VOXELGRID_H
+#include "../../Common/BoolVector.h"
 #include "../../Common/Coordinate.h"
 #include "../Parser/IR.h"
 #include <array>
@@ -71,7 +72,7 @@ class VoxelGrid
 					// costruire una mappa (i,j,k) |--> (x,y,z) che favorisca in egual misura
 					// tutte le possibili direzioni
 					
-					data[x * a + y * b + z * c] = true;	
+					data.set(x * a + y * b + z * c , true);	
 				}
 			};
 			
@@ -92,14 +93,14 @@ class VoxelGrid
 				// P( {0} ) 		= 1 - p			|
 				// P( {0,0} ) 		= (1 - p)^2		|	successione decrescente
 				// P( {0,0,...,0} ) = (1 - p)^n 	V
-				return data[x * a + y * b + z];
+				return data.get(x * a + y * b + z);
 			
 			}
 	
 	void print() {
 		int ones = 0;
 		for(int i = 0; i < data.size();i++) 
-			ones += data[i];
+			ones += data.get(i);
 		std::cout << ones;
 	}
 	
@@ -107,10 +108,11 @@ class VoxelGrid
 		int a;	
 		int b;
 		int c;
-		std::vector<bool> data;		// la scelta di vector<bool> non é casuale
-									// infatti utilizza 1 bit per ogni elemento
-									// permettendoci di massimizzare il numero 
-									// di dati nella cache
+		//std::vector<bool> data;		// la scelta di vector<bool> non é casuale
+										// infatti utilizza 1 bit per ogni elemento
+										// permettendoci di massimizzare il numero 
+										// di dati nella cache
+		BoolVector data;
 		float minX,minY,minZ,maxX,maxY,maxZ;
 		float denX,denY,denZ;
 		float mul_coeff_x,mul_coeff_y,mul_coeff_z;

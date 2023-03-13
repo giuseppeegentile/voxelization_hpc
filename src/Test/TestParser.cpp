@@ -38,16 +38,9 @@ private:
 ///////////////////////////////////////////////////
 
 int main() {
-	
-	BoolVector v(32);
-	v.set(0,true);
-	v.set(1,false);
-	std::cout << v.get(0) << v.get(1) << std::endl;
-	
-	return 0;
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 500);
+	Structure S(I, 100);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
 	
 	// test casuale
@@ -56,7 +49,7 @@ int main() {
 	std::uniform_real_distribution<double> distribution(0.0,1.0);
 
 	Timer tmr;
-	/*** TEST 1
+	/*** TEST 1***/
 	// test : stimo l'area della proteina con un integrazione montecarlo
 	int pieni = 0;
 	for(int i = 0;i < n;i++)
@@ -75,9 +68,9 @@ int main() {
 	// é un risultato atteso che l'area decresca con l'aumentare della precisione.
 	// infatti stiamo approssimando punti con cubetti, quindi piu diminuisce il cubetto
 	// piu diminuisce il contributo in termini di area
-	***/
 	
-	/*** TEST 2 ***/
+	
+	/*** TEST 2 
 	//
 	// Passeggiata aleatoria nel cubo continuo
 	//
@@ -94,6 +87,6 @@ int main() {
 		tmr.restart();
 		pieni += S(x,y,z);
 	}
-	std::cout << pieni << std::endl;
+	std::cout << pieni << std::endl; ***/
 	std::cout << "elapsed time = " << tmr.elapsed() << std::endl;	
 }
