@@ -12,22 +12,21 @@ class BoolVector
 {
 	public:
 	
-	static const unsigned int MAX_DIM	=  50 * 50 * 50;
-	
 	BoolVector(int size) :
-	data((size+1)/8), datasize(size)
+	data( (size/8) + 1 ,0), 
+	datasize(size)
 	{
-			
+			std::cout << "dimensione in memoria:" << size << std::endl;
+			std::cout << "dimensione in vettore:" << data.size() << std::endl;
 	}
 	
 	const bool get(int i) {
-		std::cout << i << "\t" << datasize << std::endl; 
-		char cella   = i / 8;
+		int cella   = i / 8;
 		char settore = i % 8;
 		return data[cella] & ( 1 << settore );
 	}
 	
-	void set(int i, char value) {
+	void set(int i, bool value) {
 		//	TABELLA DI VERITÁ 
 		//	old    = vecchio valore della cella
 		//	input  = codifica one hot della posizione del settore (0-7)
@@ -43,14 +42,13 @@ class BoolVector
 		//	1		1		1			|		1					// il settore é quello selezionato:     lascio invariato
 		//	----------------------------+---------------
 		
+		// if value == false:
+		//		new = old & ~input 
 		
-		// sum of products: (!v)o(!i) + v(!o)i + vo
-		//					o(!v)(!i) + (!o)vi + ov 
-		//					o(!v)(!i) + (!o)vi + ov 	
-		char cella   = i / 8;
+		int cella    = i / 8;
 		char settore = i % 8;
 		char input   = 1 << settore;
-		data[cella] = (value == false? data[cella] & ~input : (~(data[cella]) & input) | data[cella] );
+		data[cella] = (value? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
 	}	
 	
 	

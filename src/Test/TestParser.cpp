@@ -40,7 +40,7 @@ private:
 int main() {
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 100);
+	Structure S(I, 500);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
 	
 	// test casuale
@@ -89,4 +89,5 @@ int main() {
 	}
 	std::cout << pieni << std::endl; ***/
 	std::cout << "elapsed time = " << tmr.elapsed() << std::endl;	
+	//voxelGrid.print();
 }

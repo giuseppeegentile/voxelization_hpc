@@ -99,9 +99,11 @@ class VoxelGrid
 	
 	void print() {
 		int ones = 0;
-		for(int i = 0; i < data.size();i++) 
+		for(int i = 0; i < data.size();i++) {
+			std::cout << data.get(i) ;
 			ones += data.get(i);
-		std::cout << ones;
+		}
+		//std::cout << ones;
 	}
 	
 		int precision;
