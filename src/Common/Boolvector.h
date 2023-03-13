@@ -17,7 +17,7 @@ class BoolVector
 	BoolVector(int size) :
 	data((size+1)/8), datasize(size)
 	{
-			
+					
 	}
 	
 	const bool get(int i) {

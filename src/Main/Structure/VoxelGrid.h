@@ -8,6 +8,7 @@
 #include "../../Common/BoolVector.h"
 #include "../../Common/Coordinate.h"
 #include "../Parser/IR.h"
+#include "../../Traits/Map_traits.hpp"
 #include <array>
 
 class VoxelGrid
@@ -72,7 +73,7 @@ class VoxelGrid
 					// costruire una mappa (i,j,k) |--> (x,y,z) che favorisca in egual misura
 					// tutte le possibili direzioni
 					
-					data.set(x * a + y * b + z * c , true);	
+					data.set(map_to_linear(x,y,z), true);	
 				}
 			};
 			
@@ -93,7 +94,7 @@ class VoxelGrid
 				// P( {0} ) 		= 1 - p			|
 				// P( {0,0} ) 		= (1 - p)^2		|	successione decrescente
 				// P( {0,0,...,0} ) = (1 - p)^n 	V
-				return data.get(x * a + y * b + z);
+				return data.get(map_to_linear(x,y,z));
 			
 			}
 	
