@@ -4,7 +4,8 @@
 #include "../Main/Structure/Structure.h"
 #include <iostream>
 #include <random>
-
+#include <fstream>
+#include <cstdlib>
 //// stack overflow
 #include <chrono>
 
@@ -42,19 +43,30 @@ int main(){
 	using Duration = Clock::duration;
 	std::cout << Duration::period::num << " , " << Duration::period::den << '\n'; // mostra unità di misura
 	std::ofstream random_device_file("random_device_file.csv");
+	std::ofstream first_meth("first_meth.csv");
+
 	for(int i = 0; i < 300000; i++){
 		Timer tm;
 		tm.reset();
 		std::random_device rng;
 		std::mt19937 generate(rng());
-		std::uniform_int_distribution<> dis(0, 10000);
-		int random_int = dis(generate);
+		std::uniform_real_distribution<double> dis(0.0, 1.0);
+		
+		const double time = tm.elapsed();
+		random_device_file << dis(generate) << "; " << time << "; \n";
+	}
+
+	for(int i = 0; i < 300000; i++){
+		Timer tm;
+		tm.reset();
+		
+		std::default_random_engine generator;
+		std::uniform_real_distribution<double> distribution(0.0,1.0);
 
 		
 		const double time = tm.elapsed();
-		random_device_file << random_int << "; " << time << "; \n";
+		first_meth << distribution(generator)  << "; " << time << "; \n";
 	}
-
 	
 
 }
