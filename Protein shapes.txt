@@ -46,3 +46,13 @@ Dizionario:
                                                                                                     => electron pairs are a far apart as possible.
 https://www.sigmaaldrich.com/IT/it/technical-documents/technical-article/chemistry-and-synthesis/organic-reaction-toolbox/vsepr-chart-valence-shell-electron-pair-repulsion-theory
 
+
+
+
+
+Leggi geometriche dei carboxyl group:
+Tetraeidale: L'atomo di carbonio è sp3. Forma Tetraeidale con angolo tra i legami di circa 109.5 gradi.
+             Il doppio legame tra atomo di ossigeno è nel piano della molecola, mentre il gruppo idrossile sta sopra o sotto il piano.
+
+Planare: come detto sopra.
+         Il legame tra l'atomo di carbonio è di circa 120 gradi. "Geometria triangolare planare".
