@@ -5,7 +5,7 @@
 //  in indici
 #ifndef VOXELGRID_H
 #define VOXELGRID_H
-#include "../../Common/BoolVector.h"
+#include "../../Common/Boolvector.h"
 #include "../../Common/Coordinate.h"
 #include "../Parser/IR.h"
 #include "../../Traits/Map_traits.hpp"
