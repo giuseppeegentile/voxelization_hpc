@@ -1,5 +1,5 @@
 /*TestParser.cpp*/
-#include "../Common/Boolvector.h"
+#include "../Common/BoolVector.h"
 #include "../Main/Parser/Parser.h"
 #include "../Main/Structure/Structure.h"
 #include <iostream>
@@ -47,7 +47,7 @@ int main() {
 	int n = 10000000;
 	std::default_random_engine generator;
 	std::uniform_real_distribution<double> distribution(0.0,1.0);
-
+	
 	Timer tmr;
 	/*** TEST 1***/
 	// test : stimo l'area della proteina con un integrazione montecarlo
@@ -70,7 +70,7 @@ int main() {
 	// piu diminuisce il contributo in termini di area
 	
 	
-	/*** TEST 2 
+	/*** TEST 2
 	//
 	// Passeggiata aleatoria nel cubo continuo
 	//
