@@ -7,22 +7,26 @@
 #define BOOLVECTOR_H
 #include <vector>
 #include <iostream>
+#include <cstdlib>
 
 class BoolVector
 {
 	public:
+	static const int MAX_PRECISION = 300;
+	static const int MAX_SIZE = MAX_PRECISION  * MAX_PRECISION  * MAX_PRECISION  / 8 + 8;
 	
 	BoolVector(int size) :
-	data( (size/8) + 1 ,0), 
+	//data( (size/8) + 1 ,0), 
 	datasize(size)
 	{
 			std::cout << "dimensione in memoria:" << size << std::endl;
-			std::cout << "dimensione in vettore:" << data.size() << std::endl;
+			//std::cout << "dimensione in vettore:" << data.size() << std::endl;
 	}
 	
 	const bool get(int i) {
-		int cella   = i / 8;
-		char settore = i % 8;
+		auto division = div(i,8);
+		int cella   = division.quot; // i / 8;
+		char settore = division.rem; //i % 8;
 		return data[cella] & ( 1 << settore );
 	}
 	
@@ -44,6 +48,8 @@ class BoolVector
 		
 		// if value == false:
 		//		new = old & ~input 
+		// else
+		// 		new = (~old & input) | old
 		
 		int cella    = i / 8;
 		char settore = i % 8;
@@ -54,9 +60,10 @@ class BoolVector
 	
 	int size() {return datasize;}
 	int datasize;
-	std::vector<char> data;
 	
-	char True  = 127;
+	//std::vector<char> data;
+	char data[MAX_SIZE];
+	char True  = 255;
 	char False = 0;
 };
 
