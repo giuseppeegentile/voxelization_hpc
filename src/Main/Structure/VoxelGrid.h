@@ -73,8 +73,37 @@ class VoxelGrid
 					// costruire una mappa (i,j,k) |--> (x,y,z) che favorisca in egual misura
 					// tutte le possibili direzioni
 					
+<<<<<<< Updated upstream
 					data.set(map_to_linear(x,y,z), true);	
 
+=======
+					// write (x,y,z)
+					
+					// data.set(x * a + y * b + z * c , true);	
+					
+					// 1.	costruisco il cubetto di dimensione caratteristica 1.6 arm
+					const int raggio_x =  1.6 * mul_coeff_x;
+					const int raggio_y =  1.6 * mul_coeff_y;
+					const int raggio_z =  1.6 * mul_coeff_z;
+
+					// 2. per ogni punto nel rettangolo che iscrive l'ellisse
+					for ( int x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
+						for ( int y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
+							for ( int z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
+							{
+								// controllo di essere dentro l'ellisse
+								// x2/a2 + y2/b2 + z2/c2 = 1.
+								double x2 = (x_it - x)*(x_it - x);
+								double y2 = (y_it - y)*(y_it - y);
+								double z2 = (z_it - z)*(z_it - z);
+								double rx2 = raggio_x * raggio_x;
+								double ry2 = raggio_y * raggio_y;
+								double rz2 = raggio_z * raggio_z;
+								
+								if( x2 / rx2 + y2 / ry2 + z2 / rz2  < 1.0 )
+									data.set(x_it * a + y_it * b + z_it * c , true);	
+							}
+>>>>>>> Stashed changes
 				}
 			};
 			
@@ -108,7 +137,7 @@ class VoxelGrid
 		//std::cout << ones;
 	}
 	
-		int precision;
+		
 		int a;	
 		int b;
 		int c;
@@ -117,6 +146,7 @@ class VoxelGrid
 										// permettendoci di massimizzare il numero 
 										// di dati nella cache
 		BoolVector data;
+		int precision;
 		float minX,minY,minZ,maxX,maxY,maxZ;
 		float denX,denY,denZ;
 		float mul_coeff_x,mul_coeff_y,mul_coeff_z;

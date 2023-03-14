@@ -1,0 +1,1459 @@
+desc: I1 cache:         32768 B, 64 B, 8-way associative
+desc: D1 cache:         49152 B, 64 B, 12-way associative
+desc: LL cache:         25165824 B, 64 B, 12-way associative
+cmd: build/testparser
+events: Ir I1mr ILmr Dr D1mr DLmr Dw D1mw DLmw 
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Main/Parser/../../Common/Coordinate.h
+fn=Coordinate::Coordinate(float, float, float)
+13 93360 3 1 37344 0 0 42012 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Main/Parser/IR.cpp
+fn=IR::push(float, float, float)
+5 37344 1 1 0 0 0 28008 0 0
+6 42012 0 0 14004 0 0 4668 0 0
+7 23340 1 1 4668 0 0 4668 0 0
+8 14004 0 0 9336 2 0 0 0 0
+fn=_GLOBAL__sub_I__ZN2IR4pushEfff
+16 8 1 1 2 0 0 3 0 0
+fn=__static_initialization_and_destruction_0(int, int)
+16 13 1 1 4 0 0 4 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Main/Parser/Parser.cpp
+fn=Parser::getIR()
+4 5 1 0 0 0 0 3 0 0
+5 1 0 0 1 0 0 0 0 0
+6 2 0 0 2 0 0 0 0 0
+fn=_GLOBAL__sub_I__ZN6Parser5getIREv
+6 8 1 1 2 0 0 3 0 0
+fn=__static_initialization_and_destruction_0(int, int)
+6 13 1 1 4 0 0 4 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Main/Structure/Structure.cpp
+fn=Structure::getVoxelGrid()
+3 5 1 0 0 0 0 3 0 0
+4 1 0 0 1 0 0 0 0 0
+5 2 0 0 2 0 0 0 0 0
+fn=_GLOBAL__sub_I__ZN9Structure12getVoxelGridEv
+5 8 1 1 2 0 0 3 0 0
+fn=__static_initialization_and_destruction_0(int, int)
+5 13 1 1 4 0 0 4 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/../Common/Boolvector.h
+fn=BoolVector::BoolVector(int)
+18 6 2 1 0 0 0 4 0 0
+20 7 0 0 4 0 0 3 1 0
+22 11 1 1 1 0 0 3 0 0
+24 3 0 0 2 0 0 0 0 0
+fn=BoolVector::get(int)
+26 60000000 0 0 0 0 0 40000000 0 0
+27 50000000 0 0 10000000 0 0 20000000 0 0
+28 20000000 0 0 10000000 0 0 10000000 0 0
+29 20000000 0 0 10000000 0 0 10000000 0 0
+37 120000000 0 0 40000000 9781649 28746 0 0 0
+38 20000000 0 0 20000000 0 0 0 0 0
+fn=BoolVector::set(int, bool)
+40 37344 2 2 0 0 0 23340 0 0
+61 28008 0 0 4668 0 0 4668 0 0
+62 32676 0 0 4668 0 0 4668 0 0
+63 28008 0 0 4668 0 0 4668 0 0
+64 56016 1 1 32676 4190 4023 4668 0 0
+65 14004 0 0 9336 0 0 0 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/../Main/Parser/IR.h
+fn=IR::IR()
+18 11 1 1 3 0 0 4 0 0
+fn=IR::getData()
+23 5 2 0 0 0 0 3 0 0
+24 1 0 0 1 0 0 0 0 0
+25 2 0 0 2 0 0 0 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/../Main/Parser/Parser.h
+fn=Parser::Parser(char const*)
+18 10 2 2 1 0 0 6 2 2
+24 6 0 0 1 0 0 1 0 0
+26 3 1 1 0 0 0 1 0 0
+28 74621 2 2 11480 0 0 11480 0 0
+30 91824 1 1 0 0 0 17217 0 0
+33 46680 1 1 0 0 0 9336 0 0
+34 42012 0 0 0 0 0 9336 0 0
+37 23340 1 1 0 0 0 4668 0 0
+38 23340 0 0 0 0 0 4668 0 0
+39 23340 0 0 0 0 0 4668 0 0
+41 42012 0 0 18672 0 0 4668 0 0
+42 28008 0 0 0 0 0 9336 0 0
+47 10 2 2 3 0 0 2 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/../Main/Structure/Structure.h
+fn=Structure::Structure(IR&, int)
+16 13 2 2 3 0 0 6 0 0
+19 3 0 0 2 0 0 0 0 0
+fn=Structure::operator()(float&, float&, float&)
+24 80000000 1 1 0 0 0 60000000 0 0
+30 110000000 0 0 60000000 0 0 10000000 0 0
+31 110000000 1 1 60000000 0 0 10000000 0 0
+32 110000000 1 1 60000000 0 0 10000000 0 0
+34 10000000 0 0 0 0 0 10000000 0 0
+35 80000000 0 0 40000000 0 0 0 0 0
+36 110000000 1 1 40000000 0 0 0 0 0
+37 60000000 0 0 40000000 0 0 0 0 0
+42 30000000 0 0 10000000 0 0 0 0 0
+44 60000000 0 0 10000000 0 0 10000000 0 0
+45 20000000 0 0 0 0 0 0 0 0
+46 20000000 0 0 20000000 0 0 0 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/../Main/Structure/VoxelGrid.h
+fn=VoxelGrid::VoxelGrid(IR&, int)
+16 7 1 1 0 0 0 5 1 0
+17 11 0 0 5 0 0 2 1 1
+23 2 1 1 1 0 0 1 0 0
+24 3 0 0 2 0 0 1 0 0
+25 6 0 0 4 0 0 1 0 0
+29 4 0 0 1 0 0 2 0 0
+32 7 1 1 3 0 0 2 0 0
+33 7 0 0 3 0 0 2 0 0
+34 7 1 1 3 0 0 2 0 0
+36 7 0 0 3 0 0 2 0 0
+37 7 1 1 3 0 0 2 0 0
+38 7 0 0 3 0 0 2 0 0
+40 65370 2 2 3 0 0 18678 0 0
+42 28344 1 1 18924 291 0 84 0 0
+43 28300 0 0 18891 292 0 73 0 0
+44 28184 1 1 18804 292 0 44 0 0
+46 28140 1 1 18771 0 0 33 0 0
+47 28164 1 1 18789 0 0 39 0 0
+48 28232 0 0 18840 0 0 56 0 0
+53 7 1 1 5 0 0 1 0 0
+54 7 1 1 5 0 0 1 0 0
+55 7 0 0 5 0 0 1 0 0
+57 7 1 1 4 0 0 1 0 0
+58 7 0 0 4 0 0 1 0 0
+59 7 1 1 4 0 0 1 0 0
+61 65370 3 3 3 0 0 18678 0 0
+63 51348 1 1 28008 292 0 4668 0 0
+64 51348 0 0 28008 292 0 4668 0 0
+65 51348 1 1 28008 292 0 4668 0 0
+75 84024 0 0 46680 1 0 4668 0 0
+77 4 0 0 2 1 0 0 0 0
+fn=VoxelGrid::operator()(int&, int&, int&)
+79 80000000 0 0 0 0 0 60000000 0 0
+96 200000000 0 0 110000000 0 0 10000000 0 0
+98 20000000 0 0 20000000 0 0 0 0 0
+fl=/home/jellyfish/shared-folder/voxelization_hpc/voxelization_hpc/src/Test/TestParser.cpp
+fn=Timer::Timer()
+14 21 2 2 6 0 0 8 0 0
+fn=Timer::elapsed() const
+16 6 0 0 0 0 0 4 0 0
+18 23 1 1 3 0 0 7 0 0
+19 4 0 0 3 0 0 0 0 0
+fn=Timer::restart()
+24 60000000 0 0 0 0 0 40000000 0 0
+25 230000000 1 1 40000000 0 0 80000000 0 0
+26 40000000 0 0 30000000 0 0 0 0 0
+fn=Timer::stop()
+21 60000000 1 1 0 0 0 40000000 0 0
+22 30000000 0 0 10000000 0 0 20000000 0 0
+23 40000000 1 1 30000000 0 0 0 0 0
+fn=_GLOBAL__sub_I_main
+94 8 3 2 2 0 0 3 0 0
+fn=__static_initialization_and_destruction_0(int, int)
+94 13 1 1 4 0 0 4 0 0
+fn=main
+40 5 0 0 0 0 0 3 1 1
+41 4 1 1 0 0 0 1 0 0
+42 4 1 0 0 0 0 2 0 0
+43 6 0 0 1 0 0 1 0 0
+44 4 1 1 0 0 0 2 1 0
+47 1 0 0 0 0 0 1 0 0
+48 3 0 0 0 0 0 1 0 0
+49 7 1 1 2 1 1 1 0 0
+51 3 0 0 0 0 0 1 0 0
+54 1 0 0 0 0 0 1 0 0
+55 40000005 1 1 30000002 0 0 1 0 0
+57 30000000 0 0 0 0 0 10000000 0 0
+58 150000000 2 2 40000000 0 0 20000000 0 0
+59 150000000 1 1 40000000 0 0 20000000 0 0
+60 150000000 1 1 40000000 0 0 20000000 0 0
+61 30000000 0 0 0 0 0 10000000 0 0
+62 80000000 0 0 10000000 0 0 10000000 0 0
+64 11 1 1 1 0 0 3 0 0
+65 16 1 1 2 0 0 3 0 0
+91 14 1 0 0 0 0 4 0 0
+93 2 0 0 0 0 0 1 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/alloc_traits.h
+fn=std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long)
+459 84 0 0 0 0 0 56 0 0
+460 112 0 0 56 0 0 14 0 0
+fn=std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long)
+491 91 1 0 0 0 0 65 0 0
+492 117 0 0 65 0 0 13 0 0
+fn=std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&)
+543 140 14 1 0 0 0 84 0 0
+546 84 0 0 28 0 0 28 0 0
+550 56 0 0 56 0 0 0 0 0
+fn=void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&)
+507 32676 4654 0 0 0 0 23340 0 0
+512 42012 4649 0 14004 0 0 9336 0 0
+516 14004 0 0 9336 0 0 0 0 0
+fn=void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&)
+507 57337 0 0 0 0 0 40955 0 0
+512 73719 1 1 24573 0 0 16382 0 0
+516 24573 0 0 16382 0 0 0 0 0
+fn=void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*)
+527 49146 0 0 0 0 0 32764 0 0
+531 40955 0 0 16382 0 0 8191 0 0
+535 24573 0 0 16382 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/allocator.h
+fn=std::allocator<Coordinate>::allocator()
+168 11 1 1 3 0 0 4 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/basic_string.h
+fn=bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+6247 34434 15 1 0 0 0 22956 0 0
+6249 51651 2 1 22956 0 0 5739 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/ios_base.h
+fn=std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+130 46680 3 0 18672 0 0 18672 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/move.h
+fn=Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&)
+77 46750 1 1 0 0 0 28050 0 0
+78 28050 0 0 28050 0 0 0 0 0
+fn=Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&)
+77 81910 0 0 0 0 0 49146 0 0
+78 49146 0 0 49146 0 0 0 0 0
+fn=Coordinate* std::__addressof<Coordinate>(Coordinate&)
+49 122865 0 0 0 0 0 73719 0 0
+50 73719 0 0 73719 0 0 0 0 0
+fn=std::remove_reference<Coordinate&>::type&& std::move<Coordinate&>(Coordinate&)
+104 40955 1 1 0 0 0 24573 0 0
+105 24573 0 0 24573 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/random.h
+fn=double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+1860 180000000 0 0 0 0 0 120000000 0 0
+1861 300000000 1 0 150000000 0 0 30000000 0 0
+fn=double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&)
+1865 240000000 0 0 0 0 0 180000000 0 0
+1869 150000000 1 1 30000000 0 0 30000000 0 0
+1870 600000000 1 0 150000000 0 0 180000000 0 0
+1871 120000000 0 0 90000000 0 0 0 0 0
+fn=std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::_Adaptor(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+171 180000000 1 1 0 0 0 120000000 0 0
+172 180000000 0 0 120000000 0 0 30000000 0 0
+fn=std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()()
+188 150000000 0 0 0 0 0 90000000 0 0
+192 150000000 0 0 60000000 0 0 30000000 0 0
+193 90000000 1 1 60000000 0 0 0 0 0
+fn=std::__detail::_Mod<unsigned long, 2147483647ul, 16807ul, 0ul, true, true>::__calc(unsigned long)
+137 300000000 0 0 0 0 0 180000000 0 0
+139 180000000 1 1 60000000 0 0 60000000 0 0
+141 960000000 0 0 60000000 0 0 60000000 0 0
+142 60000000 0 0 60000000 0 0 0 0 0
+143 120000000 0 0 120000000 0 0 0 0 0
+fn=std::__detail::_Mod<unsigned long, 2147483647ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+137 15 2 2 0 0 0 9 0 0
+139 6 0 0 3 0 0 3 0 0
+141 48 1 1 3 0 0 3 0 0
+142 3 0 0 3 0 0 0 0 0
+143 6 0 0 6 0 0 0 0 0
+fn=std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine()
+282 9 2 2 1 0 0 4 0 0
+283 3 0 0 2 0 0 0 0 0
+fn=std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long)
+293 6 2 2 0 0 0 4 0 0
+294 8 0 0 4 0 0 1 0 0
+fn=std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::min()
+334 180000000 0 0 0 0 0 120000000 0 0
+335 180000000 0 0 120000000 0 0 0 0 0
+fn=std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()()
+358 300000000 0 0 0 0 0 180000000 0 0
+360 360000000 0 0 180000000 0 0 120000000 0 0
+361 120000000 0 0 120000000 0 0 0 0 0
+362 120000000 0 0 120000000 0 0 0 0 0
+fn=std::uniform_real_distribution<double>::param_type::a() const
+1766 300000000 0 0 0 0 0 180000000 0 0
+1767 360000000 1 0 240000000 0 0 0 0 0
+fn=std::uniform_real_distribution<double>::param_type::b() const
+1770 150000000 0 0 0 0 0 90000000 0 0
+1771 180000000 0 0 120000000 0 0 0 0 0
+fn=std::uniform_real_distribution<double>::param_type::param_type(double, double)
+1759 7 1 1 0 0 0 5 0 0
+1760 6 0 0 4 0 0 2 1 1
+1763 3 0 0 2 0 0 0 0 0
+fn=std::uniform_real_distribution<double>::uniform_real_distribution(double, double)
+1801 7 0 0 0 0 0 5 0 0
+1802 7 1 1 3 0 0 1 0 0
+1803 3 0 0 2 0 0 0 0 0
+fn=unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long)
+148 300000000 1 1 0 0 0 180000000 0 0
+155 60000000 0 0 0 0 0 60000000 0 0
+156 180000000 0 0 60000000 0 0 60000000 0 0
+158 120000000 0 0 120000000 0 0 0 0 0
+fn=unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long)
+148 15 1 0 0 0 0 9 0 0
+155 3 0 0 0 0 0 3 0 0
+156 9 1 1 3 0 0 3 0 0
+158 6 0 0 6 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/random.tcc
+fn=double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+3344 180000000 0 0 0 0 0 120000000 0 0
+3349 30000000 0 0 0 0 0 30000000 0 0
+3352 60000000 0 0 30000000 0 0 30000000 0 0
+3354 30000000 1 1 0 0 0 30000000 0 0
+3355 30000000 0 0 0 0 0 30000000 0 0
+3358 60000000 0 0 0 0 0 30000000 0 0
+3359 60000000 0 0 30000000 0 0 30000000 0 0
+3360 300000000 1 1 150000000 0 0 30000000 0 0
+3362 1020000000 1 1 180000000 0 0 180000000 0 0
+3363 240000000 0 0 120000000 0 0 60000000 0 0
+3365 90000000 0 0 60000000 0 0 30000000 0 0
+3366 210000000 0 0 60000000 0 0 0 0 0
+3375 60000000 0 0 30000000 0 0 0 0 0
+3376 120000000 0 0 90000000 0 0 0 0 0
+fn=std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long)
+116 6 1 1 0 0 0 4 0 0
+119 4 0 0 0 0 0 1 0 0
+120 8 1 1 1 0 0 1 0 0
+123 5 0 0 2 0 0 2 0 0
+124 3 0 0 2 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/stl_algobase.h
+fn=Coordinate* std::__niter_base<Coordinate*>(Coordinate*)
+313 420 0 0 0 0 0 252 0 0
+315 252 1 1 252 0 0 0 0 0
+fn=unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+254 84 0 0 0 0 0 56 0 0
+259 84 0 0 56 0 0 0 0 0
+260 2 0 0 1 0 0 0 0 0
+261 13 2 0 13 0 0 0 0 0
+262 28 1 1 28 0 0 0 0 0
+fn=unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+230 168 1 1 0 0 0 112 0 0
+235 168 0 0 112 0 0 0 0 0
+237 28 0 0 28 0 0 0 0 0
+238 56 0 0 56 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/stl_iterator.h
+fn=__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&)
+1010 192 17 2 0 0 0 128 0 0
+1011 224 0 0 160 1 0 32 0 0
+fn=__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const
+1088 93660 0 0 0 0 0 56196 0 0
+1089 56196 0 0 56196 0 0 0 0 0
+fn=__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&)
+1234 98 14 1 0 0 0 70 0 0
+1237 238 8 1 98 0 0 28 0 0
+fn=__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator*() const
+1025 46680 1 1 0 0 0 28008 0 0
+1026 37344 0 0 37344 0 0 0 0 0
+fn=__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator++()
+1035 46680 0 0 0 0 0 28008 0 0
+1037 46680 0 0 28008 0 0 9336 0 0
+1038 9336 0 0 9336 0 0 0 0 0
+1039 18672 0 0 18672 0 0 0 0 0
+fn=bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&)
+1145 65366 0 0 0 0 0 46690 0 0
+1148 121394 1 1 65366 0 0 18676 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/stl_uninitialized.h
+fn=Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+1040 280 2 1 0 0 0 224 0 0
+1046 476 0 0 112 0 0 112 0 0
+1049 140 0 0 112 2 0 0 0 0
+fn=Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+1018 252 0 0 0 0 0 196 0 0
+1030 56 0 0 28 0 0 28 0 0
+1031 41067 0 0 32820 0 0 0 0 0
+1032 106483 0 0 24573 0 0 24573 0 0
+1034 28 0 0 28 0 0 0 0 0
+1035 84 0 0 84 0 0 0 0 0
+fn=void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+986 57337 1 1 0 0 0 40955 0 0
+994 73719 0 0 24573 0 0 16382 0 0
+995 65528 0 0 16382 0 0 16382 0 0
+996 24573 0 0 16382 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/stl_vector.h
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long)
+343 84 0 0 0 0 0 56 0 0
+346 112 3 1 42 0 0 14 0 0
+347 28 0 0 28 0 0 0 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long)
+350 98 8 0 0 0 0 70 0 0
+353 28 0 0 14 0 0 0 0 0
+354 78 0 0 39 0 0 13 0 0
+355 42 0 0 28 0 0 0 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator()
+276 140 1 1 0 0 0 84 0 0
+277 84 0 0 84 0 0 0 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() const
+280 140 14 1 0 0 0 84 0 0
+281 84 0 0 84 0 0 0 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base()
+288 11 0 0 3 0 0 4 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl()
+131 5 1 1 0 0 0 3 0 0
+133 6 1 1 2 0 0 2 0 0
+134 3 0 0 2 0 0 0 0 0
+fn=std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl_data::_Vector_impl_data()
+97 5 0 0 0 0 0 3 0 0
+98 6 1 1 3 0 0 3 0 0
+99 3 0 0 2 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const
+1756 112 2 2 0 0 0 84 0 0
+1758 196 0 0 42 0 0 28 0 0
+1761 224 17 2 42 0 0 70 0 0
+1762 154 0 0 70 0 0 28 0 0
+1763 42 0 0 42 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>)
+453 224 4 1 0 0 0 168 0 0
+456 168 0 0 112 0 0 28 0 0
+457 56 0 0 56 2 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&)
+1776 140 14 1 0 0 0 84 0 0
+1781 56 0 0 0 0 0 28 0 0
+1783 112 0 0 28 0 0 56 0 0
+1784 168 0 0 28 0 0 28 0 0
+1785 56 0 0 56 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+465 224 0 0 0 0 0 168 0 0
+469 168 0 0 112 0 0 28 0 0
+470 56 0 0 56 2 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::begin()
+811 80 1 0 0 0 0 48 0 0
+812 128 0 0 64 0 0 16 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::end()
+829 80 8 1 0 0 0 48 0 0
+830 144 8 1 64 0 0 16 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const
+923 140 8 1 0 0 0 84 0 0
+924 196 1 1 84 0 0 56 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::operator[](unsigned long)
+1043 36 0 0 0 0 0 24 0 0
+1046 48 0 0 18 0 0 0 0 0
+1047 12 0 0 12 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&)
+1187 28008 1 1 0 0 0 18672 0 0
+1189 28008 0 0 18672 0 0 0 0 0
+1192 32578 0 0 18616 0 0 4654 0 0
+1194 23270 0 0 13962 0 0 4654 0 0
+1198 126 17 2 42 0 0 28 0 0
+1199 18658 0 0 9336 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::size() const
+918 280 0 0 0 0 0 168 0 0
+919 672 2 1 336 0 0 0 0 0
+fn=std::vector<Coordinate, std::allocator<Coordinate> >::vector()
+487 11 1 1 3 0 0 4 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/bits/vector.tcc
+fn=void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&)
+426 112 14 1 0 0 0 84 0 0
+436 84 7 1 14 0 0 28 0 0
+437 42 0 0 28 0 0 14 0 0
+438 42 0 0 28 0 0 14 0 0
+439 140 14 1 14 0 0 56 0 0
+440 84 0 0 28 0 0 28 0 0
+441 28 0 0 14 0 0 14 0 0
+449 154 0 0 42 0 0 28 0 0
+450 84 14 1 14 0 0 0 0 0
+456 14 0 0 0 0 0 14 0 0
+461 140 14 1 42 0 0 42 2 0
+462 56 0 0 14 0 0 14 0 0
+464 14 0 0 14 0 0 0 0 0
+466 140 4 1 42 0 0 42 0 0
+467 56 0 0 14 0 0 14 0 0
+500 70 2 1 28 0 0 14 0 0
+501 98 0 0 42 2 0 0 0 0
+502 42 0 0 28 0 0 14 0 0
+503 42 0 0 28 0 0 14 0 0
+504 140 0 0 42 0 0 14 0 0
+505 56 0 0 42 2 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/chrono
+fn=std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+210 50000005 0 0 0 0 0 30000003 0 0
+213 60000006 0 0 0 0 0 20000002 0 0
+214 90000009 0 0 30000003 0 0 10000001 0 0
+215 30000003 0 0 20000002 0 0 0 0 0
+fn=std::chrono::duration<double, std::ratio<1l, 1l> >::count() const
+525 50000005 0 0 0 0 0 30000003 0 0
+526 60000006 0 0 40000004 0 0 0 0 0
+fn=std::chrono::duration<double, std::ratio<1l, 1l> >::duration<double, void>(double const&)
+509 60000006 1 1 0 0 0 40000004 0 0
+510 70000007 1 0 50000005 0 0 10000001 0 0
+fn=std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const
+525 150000015 1 0 0 0 0 90000009 0 0
+526 120000012 0 0 120000012 0 0 0 0 0
+fn=std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&)
+509 60000018 1 0 0 0 0 40000012 0 0
+510 70000021 0 0 50000015 0 0 10000003 0 0
+fn=std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero()
+611 8 1 1 0 0 0 4 0 0
+612 20 1 1 6 0 0 6 0 0
+fn=std::chrono::duration_values<long>::zero()
+419 6 0 0 0 0 0 4 0 0
+420 6 0 0 4 0 0 0 0 0
+fn=std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point()
+861 18 1 1 2 0 0 12 0 0
+862 8 0 0 6 0 0 0 0 0
+fn=std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const
+877 100000010 0 0 0 0 0 60000006 0 0
+878 80000008 0 0 80000008 0 0 0 0 0
+fn=std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+647 70000007 1 1 0 0 0 50000005 0 0
+653 230000023 1 1 50000005 0 0 60000006 0 0
+654 30000003 0 0 30000003 0 0 0 0 0
+fn=std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)
+1024 60000006 1 0 0 0 0 40000004 0 0
+1026 150000015 2 1 40000004 0 0 50000005 0 0
+fn=std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+254 50000005 0 0 0 0 0 30000003 0 0
+263 40000004 0 0 10000001 0 0 10000001 0 0
+264 30000003 0 0 20000002 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/ext/new_allocator.h
+fn=__gnu_cxx::new_allocator<Coordinate>::_M_max_size() const
+197 210 0 0 0 0 0 126 0 0
+200 42 0 0 0 0 0 0 0 0
+204 84 1 1 84 0 0 0 0 0
+fn=__gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*)
+103 98 0 0 0 0 0 70 0 0
+111 140 0 0 28 0 0 14 0 0
+127 112 4 1 14 0 0 14 0 0
+128 28 0 0 28 0 0 0 0 0
+fn=__gnu_cxx::new_allocator<Coordinate>::deallocate(Coordinate*, unsigned long)
+132 91 1 1 0 0 0 65 0 0
+145 130 1 1 26 0 0 13 0 0
+150 26 0 0 26 0 0 0 0 0
+fn=__gnu_cxx::new_allocator<Coordinate>::max_size() const
+154 140 2 2 0 0 0 84 0 0
+155 140 0 0 84 0 0 28 0 0
+fn=__gnu_cxx::new_allocator<Coordinate>::new_allocator()
+79 8 2 2 2 0 0 3 0 0
+fn=void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&)
+160 37344 0 0 0 0 0 28008 0 0
+162 74688 0 0 32676 0 0 18672 875 875
+fn=void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&)
+160 65528 1 1 0 0 0 49146 0 0
+162 131056 1 0 57337 1173 0 32764 1529 1527
+fn=void __gnu_cxx::new_allocator<Coordinate>::destroy<Coordinate>(Coordinate*)
+166 49146 0 0 0 0 0 32764 0 0
+168 24573 0 0 16382 0 0 0 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/iostream
+fn=__static_initialization_and_destruction_0(int, int)
+74 24 1 0 0 0 0 8 0 0
+fl=/u/sw/toolchains/gcc-glibc/11.2.0/prefix/include/c++/11.2.0/new
+fn=operator new(unsigned long, void*)
+175 115731 0 0 38577 0 0 51436 0 0
+fl=???
+fn=(anonymous namespace)::fopen_mode(std::_Ios_Openmode)
+0 9 3 3 2 1 1 0 0 0
+fn=(anonymous namespace)::future_error_category::~future_error_category()
+0 4 1 1 0 0 0 1 0 0
+fn=(anonymous namespace)::generic_error_category::~generic_error_category()
+0 4 1 1 0 0 0 1 0 0
+fn=(anonymous namespace)::system_error_category::~system_error_category()
+0 4 1 1 0 0 0 1 1 0
+fn=(below main)
+0 50 4 4 15 5 0 16 0 0
+fn=???
+0 701113342 32995 168 701074497 270 1 354 1 1
+fn=_Exit
+0 6 2 2 1 0 0 0 0 0
+fn=_GLOBAL__sub_I_bitmap_allocator.cc
+0 74 4 4 7 1 0 38 4 0
+fn=_GLOBAL__sub_I_compatibility_c__0x.cc
+0 28 3 3 2 0 0 9 1 0
+fn=_GLOBAL__sub_I_compatibility_thread_c__0x.cc
+0 7 1 1 2 1 0 2 1 0
+fn=_GLOBAL__sub_I_cxx11_locale_inst.cc
+0 34 2 2 17 8 1 8 0 0
+fn=_GLOBAL__sub_I_cxx11_wlocale_inst.cc
+0 34 2 2 17 9 1 8 0 0
+fn=_GLOBAL__sub_I_eh_alloc.cc
+0 17 2 2 1 0 0 9 2 1
+fn=_GLOBAL__sub_I_locale_inst.cc
+0 50 3 3 25 13 2 12 0 0
+fn=_GLOBAL__sub_I_memory_resource.cc
+0 16 2 2 1 0 0 3 0 0
+fn=_GLOBAL__sub_I_parallel_settings.cc
+0 52 8 8 2 1 1 44 6 6
+fn=_GLOBAL__sub_I_system_error.cc
+0 12 1 1 1 0 0 2 0 0
+fn=_GLOBAL__sub_I_wlocale_inst.cc
+0 50 3 3 25 8 2 12 0 0
+fn=_IO_cleanup
+0 141 13 13 42 1 0 25 0 0
+fn=_IO_default_finish
+0 15 2 2 6 0 0 1 0 0
+fn=_IO_default_setbuf
+0 52 5 5 9 0 0 15 0 0
+fn=_IO_default_xsputn
+0 527 3 3 148 0 0 57 1 0
+fn=_IO_do_write@@GLIBC_2.2.5
+0 48 3 2 9 0 0 8 0 0
+fn=_IO_doallocbuf
+0 25 3 3 8 0 0 4 0 0
+fn=_IO_file_close
+0 2 1 1 1 0 0 0 0 0
+fn=_IO_file_close_it@@GLIBC_2.2.5
+0 54 6 6 10 1 0 16 0 0
+fn=_IO_file_doallocate
+0 56 5 5 11 1 0 6 0 0
+fn=_IO_file_finish@@GLIBC_2.2.5
+0 12 2 2 3 0 0 2 0 0
+fn=_IO_file_fopen@@GLIBC_2.2.5
+0 54 6 6 10 1 1 8 0 0
+fn=_IO_file_open
+0 32 3 3 6 0 0 7 0 0
+fn=_IO_file_overflow@@GLIBC_2.2.5
+0 936 7 6 253 0 0 148 0 0
+fn=_IO_file_setbuf@@GLIBC_2.2.5
+0 15 1 1 3 0 0 8 0 0
+fn=_IO_file_stat
+0 2 1 1 1 0 0 0 0 0
+fn=_IO_file_sync@@GLIBC_2.2.5
+0 187 3 3 77 1 1 33 0 0
+fn=_IO_file_write@@GLIBC_2.2.5
+0 144 4 3 32 0 0 20 0 0
+fn=_IO_file_xsputn@@GLIBC_2.2.5
+0 863 6 6 175 1 0 64 0 0
+fn=_IO_flush_all_lockp
+0 104 10 10 29 4 1 18 0 0
+fn=_IO_link_in
+0 85 8 8 31 3 2 18 0 0
+fn=_IO_new_file_init_internal
+0 8 2 2 3 0 0 4 0 0
+fn=_IO_no_init
+0 77 7 4 15 0 0 36 2 2
+fn=_IO_old_init
+0 83 7 3 9 2 1 50 2 2
+fn=_IO_setb
+0 112 2 2 28 0 0 28 0 0
+fn=_IO_str_init_static_internal
+0 74 3 3 10 0 0 24 0 0
+fn=_IO_un_link
+0 6 2 1 3 0 0 0 0 0
+fn=_IO_unsave_markers
+0 9 2 2 4 0 0 1 0 0
+fn=__GI__IO_un_link.part.0
+0 87 9 9 29 5 0 17 0 0
+fn=__GI___close_nocancel
+0 30 1 1 6 0 0 0 0 0
+fn=__GI___tunable_set_val
+0 225 4 4 35 0 0 20 0 0
+fn=__GI___tunables_init
+0 71753 7 7 13611 182 182 6 1 1
+fn=__GI_strstr
+0 27 2 2 8 1 1 7 0 0
+fn=____strtof_l_internal
+0 6165964 28675 51 928952 22 4 581743 0 0
+fn=__acos_finite@GLIBC_2.15
+0 7 2 2 4 0 0 0 0 0
+fn=__asin_finite@GLIBC_2.15
+0 7 1 1 4 0 0 0 0 0
+fn=__atan2_finite@GLIBC_2.15
+0 8 2 2 4 0 0 0 0 0
+fn=__call_tls_dtors
+0 11 2 2 5 1 0 2 0 0
+fn=__close_nocancel
+0 10 2 1 2 0 0 0 0 0
+fn=__cpu_indicator_init@GCC_4.8.0
+0 77 8 8 7 1 0 8 0 0
+fn=__ctype_init
+0 16 2 2 10 6 0 3 0 0
+fn=__cxa_atexit
+0 28 2 1 0 0 0 0 0 0
+fn=__cxa_finalize
+0 656 7 6 184 5 1 44 0 0
+fn=__cxa_guard_acquire
+0 21 2 2 7 1 0 3 0 0
+fn=__cxa_guard_release
+0 6 2 2 3 0 0 1 0 0
+fn=__cxxabiv1::__si_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 2074442 4 4 616726 1 0 504594 0 0
+fn=__cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 1625276 40 7 560440 8 1 420330 1 1
+fn=__default_morecore
+0 28 3 1 4 0 0 4 0 0
+fn=__dynamic_cast
+0 4120312 9 4 1345408 40 0 840880 0 0
+fn=__exp_finite@GLIBC_2.15
+0 8 2 2 4 0 0 0 0 0
+fn=__fopen_internal
+0 42 3 3 7 0 0 11 1 1
+fn=__gconv_btwoc_ascii
+0 640 1 1 128 0 0 0 0 0
+fn=__gmon_start__
+0 27 2 2 10 0 0 2 0 0
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::overflow(int)
+0 28 1 1 4 0 0 0 0 0
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::sync()
+0 21 1 1 7 1 0 0 0 0
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::xsputn(char const*, long)
+0 48 1 1 8 2 0 0 0 0
+fn=__gnu_cxx::stdio_sync_filebuf<wchar_t, std::char_traits<wchar_t> >::sync()
+0 9 0 0 3 2 0 0 0 0
+fn=__init_misc
+0 24 2 2 7 0 0 5 1 0
+fn=__internal_atexit
+0 546 5 3 154 2 0 140 7 1
+fn=__libc_alloca_cutoff
+0 20 2 2 4 1 0 0 0 0
+fn=__libc_csu_init
+0 61 3 1 12 4 1 12 0 0
+fn=__libc_early_init
+0 8 1 1 3 0 0 4 2 2
+fn=__libc_scratch_buffer_set_array_size
+0 95 2 2 25 0 0 15 0 0
+fn=__libc_sigaction
+0 112 10 6 33 3 0 33 3 3
+fn=__log_finite@GLIBC_2.15
+0 8 2 2 4 0 0 0 0 0
+fn=__mcount_internal
+0 16254956181 15 5 6501982219 187 0 650199001 58 0
+fn=__memchr_avx2
+0 211570 4019 11 26109 455 124 0 0 0
+fn=__memcmp_avx2_movbe
+0 118025 18 8 28959 0 0 0 0 0
+fn=__memcpy_avx_unaligned_erms
+0 784977 6331 5 200002 6 1 133334 5 1
+fn=__mempcpy_avx_unaligned_erms
+0 27 1 1 0 0 0 0 0 0
+fn=__memset_avx2_erms
+0 18077 1 1 1 0 0 18070 281 281
+fn=__memset_avx2_unaligned_erms
+0 9 2 2 1 0 0 0 0 0
+fn=__mpn_cmp
+0 11 1 1 3 0 0 0 0 0
+fn=__mpn_construct_float
+0 140040 3 2 28008 0 0 0 0 0
+fn=__mpn_divrem
+0 315 5 5 91 0 0 70 1 0
+fn=__mpn_extract_double
+0 42 4 3 2 0 0 8 0 0
+fn=__mpn_lshift
+0 622575 5 2 83010 0 0 41505 1 0
+fn=__mpn_mul
+0 465460 5 3 125800 1 0 125800 2 0
+fn=__mpn_mul_1
+0 251892 4667 3 37783 0 0 25189 1 0
+fn=__mpn_rshift
+0 51 4 3 9 0 0 6 0 0
+fn=__new_exitfn
+0 486 5 4 112 5 0 57 0 0
+fn=__open_nocancel
+0 6681 4 4 320 0 0 634 1 1
+fn=__overflow
+0 68 4 2 16 1 0 4 0 0
+fn=__pow_finite@GLIBC_2.15
+0 7 2 2 4 0 0 0 0 0
+fn=__pread64_nocancel
+0 42 1 1 7 0 0 0 0 0
+fn=__printf_fp
+0 12 3 2 4 0 0 0 0 0
+fn=__printf_fp_l
+0 1805 93 84 383 10 7 217 5 0
+fn=__profil_counter
+0 280008 47 1 107469 41029 20 0 0 0
+fn=__profile_frequency
+0 6 1 1 6 1 0 0 0 0
+fn=__read_nocancel
+0 25 1 1 5 0 0 0 0 0
+fn=__rtld_malloc_init_real
+0 117 4 4 11 1 1 17 1 0
+fn=__rtld_malloc_init_stubs
+0 9 2 2 1 0 0 4 0 0
+fn=__run_exit_handlers
+0 478 8 8 144 8 0 38 0 0
+fn=__sigjmp_save
+0 8 0 0 2 0 0 2 1 0
+fn=__sigsetjmp
+0 265 4 4 69 0 0 112 1 1
+fn=__strchr_avx2
+0 21 3 3 3 0 0 0 0 0
+fn=__strchrnul_avx2
+0 80 4 4 8 0 0 0 0 0
+fn=__strcmp_avx2
+0 560440 34 2 140110 9 1 0 0 0
+fn=__strlen_avx2
+0 320338 4726 3 39641 15 9 0 0 0
+fn=__strrchr_avx2
+0 27 4 4 2 1 0 0 0 0
+fn=__tunable_get_val
+0 495 2 2 100 22 9 25 0 0
+fn=__unregister_atfork
+0 64 2 2 28 2 2 4 0 0
+fn=__vfprintf_internal
+0 556 40 34 118 8 5 98 2 0
+fn=__vsnprintf_internal
+0 100 4 3 20 0 0 28 0 0
+fn=__write_nocancel
+0 5 1 1 1 0 0 0 0 0
+fn=__x86_cacheinfo
+0 33 4 4 7 2 0 11 4 4
+fn=__x86_cpu_features
+0 5 1 1 2 1 0 0 0 0
+fn=_dl_add_to_namespace_list
+0 283 4 3 74 1 1 53 0 0
+fn=_dl_add_to_slotinfo
+0 54 3 3 18 4 0 12 0 0
+fn=_dl_allocate_tls_init
+0 132 6 6 39 4 0 20 1 1
+fn=_dl_allocate_tls_storage
+0 352 4 4 9 0 0 321 41 41
+fn=_dl_cache_libcmp
+0 2696 4 4 415 24 24 0 0 0
+fn=_dl_call_libc_early_init
+0 23 2 2 5 0 0 3 0 0
+fn=_dl_catch_error
+0 22 2 2 7 0 0 7 0 0
+fn=_dl_catch_exception
+0 442 3 3 104 0 0 169 3 3
+fn=_dl_check_all_versions
+0 110 3 3 19 0 0 11 0 0
+fn=_dl_check_map_versions
+0 9675 18 18 3306 82 78 791 58 57
+fn=_dl_count_modids
+0 5 2 2 3 0 0 0 0 0
+fn=_dl_debug_initialize
+0 65 5 3 22 2 1 4 0 0
+fn=_dl_debug_state
+0 2 0 0 2 0 0 0 0 0
+fn=_dl_determine_tlsoffset
+0 105 5 5 22 0 0 12 0 0
+fn=_dl_discover_osversion
+0 93 4 4 13 1 1 4 1 1
+fn=_dl_dst_count
+0 629 1 1 222 0 0 222 1 1
+fn=_dl_fini
+0 415 12 12 132 28 0 44 6 0
+fn=_dl_fixup
+0 12729 17 6 4669 522 79 971 0 0
+fn=_dl_higher_prime_number
+0 157 2 2 14 2 1 0 0 0
+fn=_dl_hwcaps_contains
+0 24 1 1 6 0 0 0 0 0
+fn=_dl_hwcaps_split
+0 375 3 3 90 1 1 69 2 2
+fn=_dl_hwcaps_split_masked
+0 201 2 2 49 0 0 40 0 0
+fn=_dl_hwcaps_subdirs_active
+0 46 3 3 6 0 0 0 0 0
+fn=_dl_important_hwcaps
+0 756 34 34 146 0 0 132 4 4
+fn=_dl_init
+0 98 4 4 25 2 0 15 0 0
+fn=_dl_init_paths
+0 9500 12 12 1362 0 0 30 4 4
+fn=_dl_load_cache_lookup
+0 198 7 7 42 1 1 28 0 0
+fn=_dl_lookup_direct
+0 63 4 4 16 2 0 9 0 0
+fn=_dl_lookup_symbol_x
+0 987332 28 10 165533 2027 1724 50161 20 4
+fn=_dl_map_object
+0 2336 22 22 516 0 0 331 7 7
+fn=_dl_map_object_deps
+0 2246 33 33 426 4 1 209 5 5
+fn=_dl_map_object_from_fd
+0 6183 61 61 1383 93 93 607 52 52
+fn=_dl_mcount_wrapper_check
+0 640 1 1 384 0 0 0 0 0
+fn=_dl_name_match_p
+0 3311 2 2 853 0 0 496 2 2
+fn=_dl_new_object
+0 1223 14 14 233 7 7 225 39 39
+fn=_dl_next_ld_env_entry
+0 978 2 2 334 0 0 2 0 0
+fn=_dl_next_tls_modid
+0 12 1 1 6 0 0 2 0 0
+fn=_dl_process_pt_gnu_property
+0 114 3 3 48 6 6 0 0 0
+fn=_dl_protect_relro
+0 133 2 2 42 1 0 14 0 0
+fn=_dl_receive_error
+0 16 2 2 5 0 0 7 0 0
+fn=_dl_relocate_object
+0 353899 50 50 92570 5442 4222 27666 1596 918
+fn=_dl_runtime_resolve_xsave
+0 6440 10 4 7728 3 0 8050 42 12
+fn=_dl_setup_hash
+0 168 4 3 49 9 9 42 1 1
+fn=_dl_sort_maps
+0 1205 17 9 317 6 0 86 0 0
+fn=_dl_start
+0 626 19 18 131 21 20 50 13 13
+fn=_dl_sysdep_read_whole_file
+0 41 3 3 6 0 0 9 0 0
+fn=_dl_sysdep_start
+0 781 17 16 223 30 28 38 8 8
+fn=_dl_sysdep_start_cleanup
+0 1 1 1 1 0 0 0 0 0
+fn=_dl_tls_static_surplus_init
+0 36 3 3 6 0 0 7 0 0
+fn=_dl_unload_cache
+0 11 2 2 3 1 0 3 0 0
+fn=_dl_x86_init_cpu_features
+0 4 1 1 1 0 0 0 0 0
+fn=_init_first
+0 18 2 2 7 2 0 4 2 1
+fn=_int_free
+0 1331768 9828 16 350458 36 0 233616 0 0
+fn=_int_malloc
+0 4171 142 33 640 27 1 703 19 19
+fn=_mcleanup
+0 13 2 2 2 0 0 3 0 0
+fn=_setjmp
+0 2 1 1 0 0 0 0 0 0
+fn=_start
+0 11 0 0 2 0 0 3 0 0
+fn=access
+0 8 0 0 1 0 0 1 0 0
+fn=alloc_perturb
+0 92 15 1 46 0 0 0 0 0
+fn=atexit
+0 3 1 1 1 0 0 0 0 0
+fn=bcmp
+0 3030 15 12 399 1 0 0 0 0
+fn=bool std::has_facet<std::codecvt<char, char, __mbstate_t> >(std::locale const&)
+0 22 1 1 9 0 0 3 0 0
+fn=bool std::has_facet<std::ctype<char> >(std::locale const&)
+0 308220 31 2 126090 10 0 42030 0 0
+fn=bool std::has_facet<std::ctype<wchar_t> >(std::locale const&)
+0 88 2 2 36 0 0 12 0 0
+fn=bool std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 308220 4668 1 126090 2 0 42030 0 0
+fn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 88 1 1 36 1 0 12 0 0
+fn=bool std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 308220 6311 2 126090 7 0 42030 0 0
+fn=bool std::has_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 88 2 2 36 0 0 12 0 0
+fn=brk
+0 39 4 2 9 0 0 5 1 1
+fn=btowc
+0 8064 3 3 2304 4 0 1152 0 0
+fn=call_init
+0 461 4 4 145 28 0 68 0 0
+fn=callback
+0 8 0 0 4 1 0 1 0 0
+fn=calloc
+0 32 3 3 7 1 0 5 0 0
+fn=check_match
+0 123117 20 8 41017 441 240 13716 22 5
+fn=check_stdfiles_vtables
+0 11 2 2 7 4 0 0 0 0
+fn=clock_gettime@@GLIBC_2.17
+0 400000040 2 2 100000010 2 0 40000004 0 0
+fn=copy_hwcaps
+0 88 2 2 20 0 0 36 3 3
+fn=cos
+0 8 2 2 4 0 0 0 0 0
+fn=cosf
+0 8 1 1 4 0 0 0 0 0
+fn=div
+0 60000000 1 1 10000000 0 0 0 0 0
+fn=dl_iterate_phdr
+0 64 8 8 23 1 0 19 0 0
+fn=dl_main
+0 1748 90 89 404 55 29 177 17 17
+fn=do_lookup_x
+0 589567 69 35 189619 3453 858 88151 72 41
+fn=do_preload
+0 28 2 2 7 0 0 8 0 0
+fn=exit
+0 5 1 1 0 0 0 1 0 0
+fn=exp2f@@GLIBC_2.27
+0 8 2 2 4 0 0 0 0 0
+fn=expand_dynamic_string_token
+0 450 1 1 125 0 0 150 1 1
+fn=expf@@GLIBC_2.27
+0 8 2 2 4 0 0 0 0 0
+fn=fclose@@GLIBC_2.2.5
+0 76 7 7 26 3 0 9 0 0
+fn=fflush
+0 500 8 4 180 3 0 60 0 0
+fn=fileno
+0 354 1 1 177 5 0 0 0 0
+fn=fillin_rpath.isra.0
+0 4666 11 11 1086 0 0 710 17 17
+fn=fopen@@GLIBC_2.2.5
+0 2 1 1 0 0 0 0 0 0
+fn=free
+0 653996 6770 2 233570 21 0 93428 0 0
+fn=fstat
+0 28 2 2 0 0 0 0 0 0
+fn=fstatat
+0 2161 2 2 247 0 0 216 0 0
+fn=fwrite
+0 591 9 6 184 10 1 73 0 0
+fn=get_available_features.constprop.0
+0 301 29 29 39 0 0 17 0 0
+fn=get_common_cache_info.constprop.0
+0 222 12 12 19 0 0 14 0 0
+fn=get_common_indices.constprop.0
+0 60 5 5 6 0 0 21 3 3
+fn=getenv
+0 964 3 3 323 159 1 7 0 0
+fn=hack_digit
+0 662 8 6 221 0 0 100 0 0
+fn=handle_intel.constprop.0
+0 548 4 4 90 0 0 145 0 0
+fn=handle_preload_list
+0 54 4 4 13 1 1 11 1 1
+fn=index
+0 1916 8 8 258 4 4 0 0 0
+fn=init_cpu_features.constprop.0
+0 317 32 32 46 0 0 103 4 4
+fn=init_tls
+0 101 5 5 26 4 1 20 1 1
+fn=int std::__int_to_char<char, unsigned long>(char*, unsigned long, char const*, std::_Ios_Fmtflags, bool)
+0 244 2 2 18 1 0 16 0 0
+fn=intel_check_word.constprop.0
+0 5142 9 9 460 8 8 72 1 1
+fn=log2f@@GLIBC_2.27
+0 8 2 2 4 0 0 0 0 0
+fn=logf@@GLIBC_2.27
+0 8 1 1 4 0 0 0 0 0
+fn=lookup_malloc_symbol
+0 180 3 3 64 1 0 40 0 0
+fn=malloc
+0 1004546 6 6 280312 7 0 140115 0 0
+fn=malloc_hook_ini
+0 11 2 2 3 1 1 3 0 0
+fn=map_doit
+0 14 1 1 5 0 0 3 0 0
+fn=mcount
+0 13003964420 4 1 6501982210 0 0 5201585768 5 4
+fn=memchr
+0 22 2 1 8 0 0 0 0 0
+fn=memcpy
+0 9235 8 6 2678 9 8 1867 109 109
+fn=memcpy@@GLIBC_2.14
+0 34 6 3 8 0 0 0 0 0
+fn=memmove
+0 51 3 3 12 1 0 0 0 0
+fn=mempcpy
+0 2291 5 4 4 0 0 0 0 0
+fn=memrchr
+0 11 2 2 4 0 0 0 0 0
+fn=memset
+0 1060 9 6 28 0 0 462 106 106
+fn=mmap
+0 494 2 2 78 0 0 52 1 1
+fn=monstartup
+0 77 7 7 7 1 1 21 2 2
+fn=mprotect
+0 40 1 1 8 0 0 0 0 0
+fn=munmap
+0 5 0 0 1 0 0 0 0 0
+fn=new_do_write
+0 224 7 5 64 1 0 52 0 0
+fn=newlocale
+0 39 7 7 9 0 0 6 0 0
+fn=open
+0 28 2 2 4 0 0 3 0 0
+fn=open_path
+0 25168 14 14 7812 1 1 2532 3 3
+fn=open_verify.constprop.0
+0 11507 19 19 2746 19 19 2588 8 8
+fn=openaux
+0 204 1 1 96 0 0 36 0 0
+fn=operator delete(void*)
+0 46710 1 1 0 0 0 0 0 0
+fn=operator delete(void*, unsigned long)
+0 26 0 0 0 0 0 0 0 0
+fn=operator delete[](void*)
+0 2 0 0 0 0 0 0 0 0
+fn=operator new(unsigned long)
+0 280272 1 1 46712 0 0 46712 0 0
+fn=operator new[](unsigned long)
+0 2 1 1 0 0 0 0 0 0
+fn=powf@@GLIBC_2.27
+0 8 2 2 4 0 0 0 0 0
+fn=profil
+0 82 9 7 14 1 1 25 0 0
+fn=ptmalloc_init.part.0
+0 707 8 8 6 3 1 273 33 33
+fn=putc
+0 68 3 3 24 0 0 12 0 0
+fn=rawmemchr
+0 11 2 2 4 0 0 0 0 0
+fn=read
+0 440 1 1 118 0 0 0 0 0
+fn=rindex
+0 11 1 1 4 0 0 0 0 0
+fn=round_and_return
+0 917909 7 7 139826 3 0 119015 0 0
+fn=round_away
+0 140040 1 1 14004 0 0 0 0 0
+fn=rtld_calloc
+0 170 1 1 17 0 0 0 0 0
+fn=rtld_free
+0 124 2 1 62 0 0 0 0 0
+fn=rtld_lock_default_lock_recursive
+0 260 3 1 260 3 1 0 0 0
+fn=rtld_lock_default_unlock_recursive
+0 260 0 0 260 0 0 0 0 0
+fn=rtld_malloc
+0 2158 4 4 442 3 1 442 0 0
+fn=sbrk
+0 109 12 5 34 8 1 18 0 0
+fn=search_cache
+0 985 12 12 182 19 19 117 1 1
+fn=set_cpu_feature.part.0.constprop.0
+0 130 2 2 39 0 0 0 0 0
+fn=setitimer
+0 10 2 1 2 0 0 0 0 0
+fn=sigaction
+0 14 2 1 0 0 0 0 0 0
+fn=sin
+0 8 1 1 4 0 0 0 0 0
+fn=sincosf
+0 8 2 2 4 0 0 0 0 0
+fn=sinf
+0 8 1 1 4 0 0 0 0 0
+fn=stat
+0 1200 1 1 0 0 0 0 0 0
+fn=std::(anonymous namespace)::generic_error_category::~generic_error_category()
+0 4 1 1 0 0 0 1 0 0
+fn=std::(anonymous namespace)::system_error_category::~system_error_category()
+0 4 1 1 0 0 0 1 0 0
+fn=std::_V2::error_category::~error_category()
+0 6 0 0 3 0 0 0 0 0
+fn=std::__basic_file<char>::__basic_file(pthread_mutex_t*)
+0 4 1 1 1 0 0 2 0 0
+fn=std::__basic_file<char>::close()
+0 25 1 1 6 0 0 6 0 0
+fn=std::__basic_file<char>::fd()
+0 177 1 1 59 0 0 0 0 0
+fn=std::__basic_file<char>::is_open() const
+0 24 1 0 12 0 0 0 0 0
+fn=std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int)
+0 27 2 2 4 0 0 8 0 0
+fn=std::__basic_file<char>::xsgetn(char*, long)
+0 1534 2 2 295 0 0 354 0 0
+fn=std::__basic_file<char>::~__basic_file()
+0 2 0 0 0 0 0 0 0 0
+fn=std::__convert_from_v(__locale_struct* const&, char*, int, char const*, ...)
+0 90 6 4 12 0 0 42 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)
+0 162262 9336 3 40564 0 0 28975 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long)
+0 112044 3 2 9337 0 0 0 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long)
+0 58 5 5 13 0 0 13 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string()
+0 6 2 2 1 0 0 3 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(char const*) const
+0 193368 2 2 40173 0 0 34434 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::length() const
+0 14004 1 1 9336 0 0 0 0 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::substr(unsigned long, unsigned long) const
+0 197733 23 2 41628 0 0 31221 2 0
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()
+0 67117 1 1 16147 2 0 0 0 0
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_pbump(char*, char*, long)
+0 46680 2 2 4668 0 0 14004 0 0
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_sync(char*, unsigned long, unsigned long)
+0 154044 4729 4 28008 0 0 23340 0 0
+fn=std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::basic_stringstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode)
+0 508812 11 9 74688 2 0 214728 1 1
+fn=std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::~basic_stringstream()
+0 158712 3 3 28008 11 0 56016 4 0
+fn=std::__cxx11::messages<char>::messages(unsigned long)
+0 20 2 2 4 0 0 8 1 1
+fn=std::__cxx11::messages<wchar_t>::messages(unsigned long)
+0 20 2 2 4 0 0 8 0 0
+fn=std::__cxx11::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 113 6 6 38 1 1 31 0 0
+fn=std::__cxx11::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 113 5 5 38 0 0 31 0 0
+fn=std::__cxx11::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 102 5 5 26 0 0 30 0 0
+fn=std::__cxx11::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 102 6 6 26 0 0 30 0 0
+fn=std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 414 6 6 137 5 2 75 0 0
+fn=std::__cxx11::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 350 5 5 73 0 0 74 3 3
+fn=std::__num_base::_S_format_float(std::ios_base const&, char*, char)
+0 66 3 3 4 0 0 8 0 0
+fn=std::__timepunct<char>::_M_initialize_timepunct(__locale_struct*)
+0 106 12 12 6 0 0 52 0 0
+fn=std::__timepunct<char>::__timepunct(std::__timepunct_cache<char>*, unsigned long)
+0 23 2 2 4 0 0 9 1 1
+fn=std::__timepunct<wchar_t>::_M_initialize_timepunct(__locale_struct*)
+0 104 12 12 5 0 0 51 0 0
+fn=std::__timepunct<wchar_t>::__timepunct(std::__timepunct_cache<wchar_t>*, unsigned long)
+0 23 2 2 4 0 0 9 0 0
+fn=std::__use_cache<std::__numpunct_cache<char> >::operator()(std::locale const&) const
+0 308176 3 1 126072 9 0 70040 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer()
+0 13 2 2 5 0 0 4 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_destroy_internal_buffer()
+0 20 2 2 5 0 0 8 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_terminate_output()
+0 24 3 3 10 0 0 6 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::basic_filebuf()
+0 58 6 6 8 1 0 36 3 3
+fn=std::basic_filebuf<char, std::char_traits<char> >::close()
+0 43 4 4 6 0 0 19 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode)
+0 47 4 4 7 0 0 18 0 0
+fn=std::basic_filebuf<char, std::char_traits<char> >::underflow()
+0 3595 73 9 1178 15 0 885 0 0
+fn=std::basic_ifstream<char, std::char_traits<char> >::basic_ifstream(char const*, std::_Ios_Openmode)
+0 60 4 4 10 1 0 23 1 1
+fn=std::basic_ifstream<char, std::char_traits<char> >::~basic_ifstream()
+0 29 3 3 5 1 0 11 0 0
+fn=std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+0 434310 12 3 42030 0 0 154110 0 0
+fn=std::basic_ios<char, std::char_traits<char> >::clear(std::_Ios_Iostate)
+0 14 2 1 6 1 0 2 0 0
+fn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+0 322230 2 2 42030 0 0 126090 0 0
+fn=std::basic_ios<char, std::char_traits<char> >::operator bool() const
+0 22960 1 1 11480 0 0 0 0 0
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::_M_cache_locale(std::locale const&)
+0 124 2 2 12 0 0 44 0 0
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+0 92 2 2 12 0 0 40 0 0
+fn=std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0 114806 11 2 45922 11 0 17221 0 0
+fn=std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+0 570727 10 10 161285 15 3 97864 3 0
+fn=std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+0 200 8 5 84 4 0 44 0 0
+fn=std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)
+0 80 2 2 28 2 0 12 0 0
+fn=std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+0 76 1 1 12 0 0 16 0 0
+fn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+0 45 1 1 21 10 0 6 0 0
+fn=std::basic_streambuf<char, std::char_traits<char> >::sbumpc()
+0 31158 1 1 13848 0 0 3462 0 0
+fn=std::chrono::_V2::system_clock::now()
+0 180000018 3 2 60000006 0 0 20000002 0 0
+fn=std::codecvt<char, char, __mbstate_t> const& std::use_facet<std::codecvt<char, char, __mbstate_t> >(std::locale const&)
+0 20 2 2 9 0 0 3 0 0
+fn=std::codecvt<char, char, __mbstate_t>::codecvt(unsigned long)
+0 18 2 2 4 0 0 6 2 2
+fn=std::codecvt<char, char, __mbstate_t>::do_always_noconv() const
+0 177 3 1 59 0 0 0 0 0
+fn=std::codecvt<wchar_t, char, __mbstate_t>::codecvt(unsigned long)
+0 18 2 2 4 0 0 6 1 1
+fn=std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&)
+0 280240 8 2 126108 4 0 42036 0 0
+fn=std::ctype<char>::_M_widen_init() const
+0 1083 6 6 23 1 0 277 4 0
+fn=std::ctype<char>::ctype(unsigned short const*, bool, unsigned long)
+0 116 4 4 8 1 0 79 9 9
+fn=std::ctype<wchar_t> const& std::use_facet<std::ctype<wchar_t> >(std::locale const&)
+0 80 2 2 36 0 0 12 0 0
+fn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+0 146 6 6 12 0 0 0 0 0
+fn=std::ctype<wchar_t>::_M_initialize_ctype()
+0 2733 4 4 5 0 0 810 20 20
+fn=std::ctype<wchar_t>::ctype(unsigned long)
+0 20 2 2 3 0 0 7 1 1
+fn=std::error_category::error_category()
+0 10 1 1 4 1 0 2 0 0
+fn=std::error_category::~error_category()
+0 4 1 0 2 0 0 0 0 0
+fn=std::future_category()
+0 25 3 3 4 1 1 5 0 0
+fn=std::ios_base::Init::Init()
+0 354 31 31 75 6 0 187 14 3
+fn=std::ios_base::Init::~Init()
+0 58 3 3 22 8 0 10 0 0
+fn=std::ios_base::_M_call_callbacks(std::ios_base::event)
+0 51359 29 2 23345 0 0 14007 0 0
+fn=std::ios_base::_M_dispose_callbacks()
+0 60697 7 1 23345 0 0 18676 0 0
+fn=std::ios_base::_M_init()
+0 280280 16 2 42042 0 0 112112 0 0
+fn=std::ios_base::ios_base()
+0 275943 10980 3 4677 0 0 121602 44 26
+fn=std::ios_base::~ios_base()
+0 79373 9 2 14007 4 0 18676 0 0
+fn=std::istream& std::istream::_M_extract<float>(float&)
+0 574164 4711 3 196056 0 0 112032 0 0
+fn=std::istream::operator>>(float&)
+0 28008 15 1 0 0 0 0 0 0
+fn=std::istream::sentry::sentry(std::istream&, bool)
+0 1349379 4737 5 524995 10 1 157115 0 0
+fn=std::istreambuf_iterator<char, std::char_traits<char> >::_M_get() const
+0 261990 1 1 122262 0 0 17466 0 0
+fn=std::istreambuf_iterator<char, std::char_traits<char> >::equal(std::istreambuf_iterator<char, std::char_traits<char> > const&) const
+0 576378 10 2 174660 0 0 52398 0 0
+fn=std::locale::_Impl::_Impl(unsigned long)
+0 700 65 65 80 21 1 430 50 50
+fn=std::locale::_Impl::_M_init_extra(std::locale::facet**)
+0 293 26 26 109 5 0 111 6 6
+fn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+0 12192 7 7 3616 1 0 288 0 0
+fn=std::locale::_S_initialize()
+0 163562 2 2 70097 5 1 0 0 0
+fn=std::locale::_S_initialize_once()
+0 14 1 1 1 0 0 4 0 0
+fn=std::locale::facet::_S_create_c_locale(__locale_struct*&, char const*, __locale_struct*)
+0 10 1 1 2 0 0 3 0 0
+fn=std::locale::facet::_S_get_c_locale()
+0 140202 5 1 56081 2 0 14021 0 0
+fn=std::locale::facet::_S_get_c_name()
+0 21 1 1 7 0 0 0 0 0
+fn=std::locale::facet::_S_initialize_once()
+0 5 1 1 0 0 0 0 0 0
+fn=std::locale::id::_M_id() const
+0 589380 3 2 196460 16 5 96 0 0
+fn=std::locale::locale()
+0 397222 4676 3 140196 0 0 140196 1 1
+fn=std::locale::locale(std::locale::_Impl*)
+0 3 1 1 1 0 0 1 0 0
+fn=std::locale::operator=(std::locale const&)
+0 280280 11 2 98098 0 0 42042 0 0
+fn=std::locale::~locale()
+0 186816 1 1 93408 2 0 23352 0 0
+fn=std::messages<char>::messages(unsigned long)
+0 20 2 2 4 0 0 8 1 1
+fn=std::messages<wchar_t>::messages(unsigned long)
+0 20 2 2 4 0 0 8 0 0
+fn=std::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 113 6 6 38 0 0 31 0 0
+fn=std::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 113 5 5 38 0 0 31 0 0
+fn=std::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 102 5 5 26 0 0 30 0 0
+fn=std::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 102 6 6 26 0 0 30 0 0
+fn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 280200 4669 1 126090 0 0 42030 0 0
+fn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::_M_extract_float(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, std::string&) const
+0 5594658 6414 26 1914930 6 0 814932 0 0
+fn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > >::do_get(std::istreambuf_iterator<char, std::char_traits<char> >, std::istreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, std::_Ios_Iostate&, float&) const
+0 1344384 43 7 392112 5 0 364104 0 0
+fn=std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 80 1 1 36 0 0 12 0 0
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 280200 4667 2 126090 0 0 42030 0 0
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, double) const
+0 8 1 1 0 0 0 0 0 0
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+0 6 1 1 0 0 0 0 0 0
+fn=std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 80 2 2 36 0 0 12 0 0
+fn=std::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 414 6 6 137 0 0 75 0 0
+fn=std::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 350 6 6 73 0 0 74 0 0
+fn=std::ostream& std::ostream::_M_insert<double>(double)
+0 102 5 4 40 0 0 16 0 0
+fn=std::ostream& std::ostream::_M_insert<long>(long)
+0 114 6 6 44 5 0 18 0 0
+fn=std::ostream::flush()
+0 105 3 1 49 7 0 14 0 0
+fn=std::ostream::operator<<(double)
+0 2 1 1 0 0 0 0 0 0
+fn=std::ostream::operator<<(float)
+0 3 1 1 0 0 0 0 0 0
+fn=std::ostream::operator<<(int)
+0 22 1 1 6 0 0 0 0 0
+fn=std::ostream::operator<<(std::ostream& (*)(std::ostream&))
+0 8 1 1 0 0 0 0 0 0
+fn=std::ostream::put(char)
+0 144 5 4 64 0 0 20 0 0
+fn=std::ostream::sentry::sentry(std::ostream&)
+0 276 2 2 96 6 0 60 0 0
+fn=std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_float<double>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, char, double) const
+0 252 10 9 48 0 0 56 0 0
+fn=std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const
+0 170 5 5 30 0 0 34 0 0
+fn=std::pmr::(anonymous namespace)::constant_init<std::atomic<std::pmr::memory_resource*> >::~constant_init()
+0 2 1 1 1 0 0 0 0 0
+fn=std::pmr::(anonymous namespace)::constant_init<std::pmr::(anonymous namespace)::newdel_res_t>::~constant_init()
+0 2 1 1 1 0 0 0 0 0
+fn=std::pmr::(anonymous namespace)::constant_init<std::pmr::(anonymous namespace)::null_res_t>::~constant_init()
+0 2 0 0 1 0 0 0 0 0
+fn=std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned long)
+0 364104 2 2 98028 0 0 84024 0 0
+fn=std::string::_Rep::_M_destroy(std::allocator<char> const&)
+0 28008 2 1 0 0 0 0 0 0
+fn=std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&)
+0 336096 3 3 28008 0 0 56016 0 0
+fn=std::string::push_back(char)
+0 558912 4656 3 227058 0 0 139728 0 0
+fn=std::string::reserve(unsigned long)
+0 336096 2 2 112032 3 1 56016 0 0
+fn=stpcpy
+0 10 2 2 4 0 0 0 0 0
+fn=stpncpy
+0 10 1 1 4 0 0 0 0 0
+fn=str_to_mpn.part.0.constprop.0
+0 1803756 6 6 407208 3 1 247599 0 0
+fn=strcasecmp
+0 6 2 2 3 1 0 0 0 0
+fn=strcasecmp_l
+0 6 1 1 3 0 0 0 0 0
+fn=strcat
+0 10 2 2 4 0 0 0 0 0
+fn=strchrnul
+0 11 1 1 4 0 0 0 0 0
+fn=strcmp
+0 90583 115 61 19529 244 113 0 0 0
+fn=strcpy
+0 10 1 1 4 0 0 0 0 0
+fn=strcspn
+0 346 3 3 179 2 2 34 4 4
+fn=strdup
+0 493 1 1 87 0 0 116 0 0
+fn=strlen
+0 3018 10 8 570 25 25 0 0 0
+fn=strncasecmp
+0 6 2 2 3 0 0 0 0 0
+fn=strncasecmp_l
+0 6 1 1 3 0 0 0 0 0
+fn=strncmp
+0 10 2 2 4 0 0 0 0 0
+fn=strncpy
+0 10 2 2 4 0 0 0 0 0
+fn=strnlen
+0 22 2 2 8 0 0 0 0 0
+fn=strpbrk
+0 6 1 1 3 0 0 0 0 0
+fn=strsep
+0 25549 3 3 4053 1 1 47 0 0
+fn=strspn
+0 6 1 1 3 0 0 0 0 0
+fn=strtof_l
+0 42012 1 1 0 0 0 0 0 0
+fn=sysmalloc
+0 395 27 17 88 7 1 63 5 4
+fn=systrim.constprop.0
+0 25 2 2 9 1 0 4 0 0
+fn=tcache_init.part.0
+0 114 3 3 9 0 0 84 9 9
+fn=uname
+0 5 1 1 1 0 0 0 0 0
+fn=unlink_chunk.constprop.0
+0 186 6 2 78 4 0 24 0 0
+fn=update_usable.constprop.0
+0 177 17 17 37 1 1 26 2 2
+fn=uselocale
+0 126 4 2 54 10 0 24 1 0
+fn=version_check_doit
+0 10 1 1 4 0 0 2 0 0
+fn=void std::__convert_to_v<float>(char const*, float&, std::_Ios_Iostate&, __locale_struct* const&)
+0 392112 3 3 126036 3 1 70020 0 0
+fn=void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char const*>(char const*, char const*, std::forward_iterator_tag)
+0 373581 6313 4 72849 0 0 86853 1 1
+fn=vsnprintf
+0 4 1 1 0 0 0 0 0 0
+fn=wcschr
+0 22 1 1 8 0 0 0 0 0
+fn=wcscmp
+0 11 2 2 4 0 0 0 0 0
+fn=wcscpy
+0 6 1 1 3 0 0 0 0 0
+fn=wcslen
+0 11 2 2 4 0 0 0 0 0
+fn=wcsnlen
+0 10 2 2 4 0 0 0 0 0
+fn=wctob
+0 2176 2 2 640 0 0 512 0 0
+fn=wctype_l
+0 1026 3 3 158 4 0 177 0 0
+fn=wmemchr
+0 22 1 1 8 0 0 0 0 0
+fn=wmemcmp
+0 13 2 2 5 0 0 0 0 0
+fn=wmemset
+0 30 2 2 8 0 0 0 0 0
+fn=write
+0 35 2 1 8 0 0 0 0 0
+fn=write_gmon
+0 9803 18 18 2723 124 0 1108 0 0
+summary: 44200141830 187480 2561 18048858063 9844506 40810 9730348242 5347 4423

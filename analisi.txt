@@ -1,0 +1,752 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 43.26      0.80     0.80 10000000     0.00     0.00  BoolVector::get(int)
+ 11.36      1.01     0.21 30000000     0.00     0.00  double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+  4.87      1.10     0.09 60000000     0.00     0.00  std::__detail::_Mod<unsigned long, 2147483647ul, 16807ul, 0ul, true, true>::__calc(unsigned long)
+  4.87      1.19     0.09 30000000     0.00     0.00  std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()()
+  4.33      1.27     0.08 60000000     0.00     0.00  std::uniform_real_distribution<double>::param_type::a() const
+  4.06      1.35     0.08 10000000     0.00     0.00  Structure::operator()(float&, float&, float&)
+  3.24      1.41     0.06 30000000     0.00     0.00  double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&)
+  2.70      1.46     0.05                             main
+  2.16      1.50     0.04 60000000     0.00     0.00  std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()()
+  2.16      1.54     0.04 30000000     0.00     0.00  double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+  2.16      1.58     0.04 30000000     0.00     0.00  std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::_Adaptor(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+  2.16      1.62     0.04        1    40.02    65.02  std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long)
+  1.89      1.65     0.04 60000000     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long)
+  1.62      1.68     0.03 10000001     0.00     0.00  std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  1.08      1.70     0.02 10000000     0.00     0.00  Timer::stop()
+  1.08      1.72     0.02        3     6.67     8.34  unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long)
+  1.08      1.74     0.02        2    10.00    10.00  std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point()
+  1.08      1.76     0.02        1    20.01    30.01  std::uniform_real_distribution<double>::uniform_real_distribution(double, double)
+  0.54      1.77     0.01 30000000     0.00     0.00  std::uniform_real_distribution<double>::param_type::b() const
+  0.54      1.78     0.01 10000001     0.00     0.00  std::chrono::duration<double, std::ratio<1l, 1l> >::count() const
+  0.54      1.79     0.01 10000001     0.00     0.00  std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  0.54      1.80     0.01 10000001     0.00     0.00  std::chrono::duration<double, std::ratio<1l, 1l> >::duration<double, void>(double const&)
+  0.54      1.81     0.01 10000000     0.00     0.00  Timer::restart()
+  0.54      1.82     0.01        1    10.00    20.01  Structure::Structure(IR&, int)
+  0.54      1.83     0.01        1    10.00    10.00  VoxelGrid::VoxelGrid(IR&, int)
+  0.54      1.84     0.01        1    10.00    10.00  std::uniform_real_distribution<double>::param_type::param_type(double, double)
+  0.27      1.85     0.01 30000003     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const
+  0.27      1.85     0.01        3     1.67     1.67  std::__detail::_Mod<unsigned long, 2147483647ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  0.00      1.85     0.00 60000000     0.00     0.00  std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::min()
+  0.00      1.85     0.00 20000002     0.00     0.00  std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const
+  0.00      1.85     0.00 10000003     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&)
+  0.00      1.85     0.00 10000001     0.00     0.00  std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  0.00      1.85     0.00 10000001     0.00     0.00  std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)
+  0.00      1.85     0.00 10000000     0.00     0.00  VoxelGrid::operator()(int&, int&, int&)
+  0.00      1.85     0.00    24573     0.00     0.00  Coordinate* std::__addressof<Coordinate>(Coordinate&)
+  0.00      1.85     0.00    18732     0.00     0.00  __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const
+  0.00      1.85     0.00    16382     0.00     0.00  Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&)
+  0.00      1.85     0.00    12859     0.00     0.00  operator new(unsigned long, void*)
+  0.00      1.85     0.00     9350     0.00     0.00  Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&)
+  0.00      1.85     0.00     9338     0.00     0.00  bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&)
+  0.00      1.85     0.00     9336     0.00     0.00  __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator++()
+  0.00      1.85     0.00     9336     0.00     0.00  __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator*() const
+  0.00      1.85     0.00     8191     0.00     0.00  void __gnu_cxx::new_allocator<Coordinate>::destroy<Coordinate>(Coordinate*)
+  0.00      1.85     0.00     8191     0.00     0.00  void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&)
+  0.00      1.85     0.00     8191     0.00     0.00  void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*)
+  0.00      1.85     0.00     8191     0.00     0.00  void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&)
+  0.00      1.85     0.00     8191     0.00     0.00  void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  0.00      1.85     0.00     8191     0.00     0.00  std::remove_reference<Coordinate&>::type&& std::move<Coordinate&>(Coordinate&)
+  0.00      1.85     0.00     5739     0.00     0.00  bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+  0.00      1.85     0.00     4668     0.00     0.00  BoolVector::set(int, bool)
+  0.00      1.85     0.00     4668     0.00     0.00  Coordinate::Coordinate(float, float, float)
+  0.00      1.85     0.00     4668     0.00     0.00  IR::push(float, float, float)
+  0.00      1.85     0.00     4668     0.00     0.00  void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&)
+  0.00      1.85     0.00     4668     0.00     0.00  void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&)
+  0.00      1.85     0.00     4668     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&)
+  0.00      1.85     0.00     4668     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  0.00      1.85     0.00       84     0.00     0.00  Coordinate* std::__niter_base<Coordinate*>(Coordinate*)
+  0.00      1.85     0.00       56     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::size() const
+  0.00      1.85     0.00       42     0.00     0.00  __gnu_cxx::new_allocator<Coordinate>::_M_max_size() const
+  0.00      1.85     0.00       32     0.00     0.00  __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&)
+  0.00      1.85     0.00       28     0.00     0.00  __gnu_cxx::new_allocator<Coordinate>::max_size() const
+  0.00      1.85     0.00       28     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() const
+  0.00      1.85     0.00       28     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const
+  0.00      1.85     0.00       28     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator()
+  0.00      1.85     0.00       28     0.00     0.00  std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&)
+  0.00      1.85     0.00       28     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&)
+  0.00      1.85     0.00       28     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  0.00      1.85     0.00       28     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>)
+  0.00      1.85     0.00       28     0.00     0.00  Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  0.00      1.85     0.00       28     0.00     0.00  Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  0.00      1.85     0.00       28     0.00     0.00  unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      1.85     0.00       16     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::end()
+  0.00      1.85     0.00       16     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::begin()
+  0.00      1.85     0.00       14     0.00     0.00  __gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*)
+  0.00      1.85     0.00       14     0.00     0.00  __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&)
+  0.00      1.85     0.00       14     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const
+  0.00      1.85     0.00       14     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long)
+  0.00      1.85     0.00       14     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long)
+  0.00      1.85     0.00       14     0.00     0.00  std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long)
+  0.00      1.85     0.00       14     0.00     0.00  void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&)
+  0.00      1.85     0.00       14     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      1.85     0.00       13     0.00     0.00  __gnu_cxx::new_allocator<Coordinate>::deallocate(Coordinate*, unsigned long)
+  0.00      1.85     0.00       13     0.00     0.00  std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long)
+  0.00      1.85     0.00        6     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::operator[](unsigned long)
+  0.00      1.85     0.00        2     0.00     0.00  std::chrono::duration_values<long>::zero()
+  0.00      1.85     0.00        2     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero()
+  0.00      1.85     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN2IR4pushEfff
+  0.00      1.85     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN6Parser5getIREv
+  0.00      1.85     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9Structure12getVoxelGridEv
+  0.00      1.85     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      1.85     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.85     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.85     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.85     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      1.85     0.00        1     0.00     0.00  BoolVector::BoolVector(int)
+  0.00      1.85     0.00        1     0.00     0.00  IR::getData()
+  0.00      1.85     0.00        1     0.00     0.00  IR::IR()
+  0.00      1.85     0.00        1     0.00    20.01  Timer::Timer()
+  0.00      1.85     0.00        1     0.00     0.00  Parser::getIR()
+  0.00      1.85     0.00        1     0.00     0.00  Parser::Parser(char const*)
+  0.00      1.85     0.00        1     0.00     0.00  Structure::getVoxelGrid()
+  0.00      1.85     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<Coordinate>::new_allocator()
+  0.00      1.85     0.00        1     0.00     0.00  Timer::elapsed() const
+  0.00      1.85     0.00        1     0.00     0.00  std::allocator<Coordinate>::allocator()
+  0.00      1.85     0.00        1     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl()
+  0.00      1.85     0.00        1     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl_data::_Vector_impl_data()
+  0.00      1.85     0.00        1     0.00     0.00  std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base()
+  0.00      1.85     0.00        1     0.00    65.02  std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long)
+  0.00      1.85     0.00        1     0.00    65.02  std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine()
+  0.00      1.85     0.00        1     0.00     0.00  std::vector<Coordinate, std::allocator<Coordinate> >::vector()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.54% of 1.85 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.05    1.80                 main [1]
+                0.08    0.80 10000000/10000000     Structure::operator()(float&, float&, float&) [2]
+                0.04    0.66 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [5]
+                0.01    0.07 10000000/10000000     Timer::restart() [13]
+                0.00    0.07       1/1           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine() [16]
+                0.02    0.01       1/1           std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [20]
+                0.02    0.00 10000000/10000000     Timer::stop() [24]
+                0.01    0.01       1/1           Structure::Structure(IR&, int) [27]
+                0.00    0.02       1/1           Timer::Timer() [26]
+                0.00    0.00       1/1           Timer::elapsed() const [35]
+                0.00    0.00       1/1           Parser::Parser(char const*) [109]
+                0.00    0.00       1/1           Parser::getIR() [108]
+                0.00    0.00       1/1           Structure::getVoxelGrid() [110]
+-----------------------------------------------
+                0.08    0.80 10000000/10000000     main [1]
+[2]     47.3    0.08    0.80 10000000         Structure::operator()(float&, float&, float&) [2]
+                0.00    0.80 10000000/10000000     VoxelGrid::operator()(int&, int&, int&) [4]
+-----------------------------------------------
+                0.80    0.00 10000000/10000000     VoxelGrid::operator()(int&, int&, int&) [4]
+[3]     43.2    0.80    0.00 10000000         BoolVector::get(int) [3]
+-----------------------------------------------
+                0.00    0.80 10000000/10000000     Structure::operator()(float&, float&, float&) [2]
+[4]     43.2    0.00    0.80 10000000         VoxelGrid::operator()(int&, int&, int&) [4]
+                0.80    0.00 10000000/10000000     BoolVector::get(int) [3]
+-----------------------------------------------
+                0.04    0.66 30000000/30000000     main [1]
+[5]     37.6    0.04    0.66 30000000         double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [5]
+                0.06    0.60 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+-----------------------------------------------
+                0.06    0.60 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [5]
+[6]     35.4    0.06    0.60 30000000         double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+                0.09    0.38 30000000/30000000     std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()() [7]
+                0.08    0.00 60000000/60000000     std::uniform_real_distribution<double>::param_type::a() const [12]
+                0.04    0.00 30000000/30000000     std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::_Adaptor(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [17]
+                0.01    0.00 30000000/30000000     std::uniform_real_distribution<double>::param_type::b() const [28]
+-----------------------------------------------
+                0.09    0.38 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+[7]     25.1    0.09    0.38 30000000         std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()() [7]
+                0.21    0.17 30000000/30000000     double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [8]
+-----------------------------------------------
+                0.21    0.17 30000000/30000000     std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()() [7]
+[8]     20.3    0.21    0.17 30000000         double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [8]
+                0.04    0.13 60000000/60000000     std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()() [9]
+                0.00    0.00 60000000/60000000     std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::min() [42]
+-----------------------------------------------
+                0.04    0.13 60000000/60000000     double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [8]
+[9]      8.9    0.04    0.13 60000000         std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()() [9]
+                0.04    0.09 60000000/60000000     unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long) [10]
+-----------------------------------------------
+                0.04    0.09 60000000/60000000     std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()() [9]
+[10]     6.8    0.04    0.09 60000000         unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long) [10]
+                0.09    0.00 60000000/60000000     std::__detail::_Mod<unsigned long, 2147483647ul, 16807ul, 0ul, true, true>::__calc(unsigned long) [11]
+-----------------------------------------------
+                0.09    0.00 60000000/60000000     unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long) [10]
+[11]     4.9    0.09    0.00 60000000         std::__detail::_Mod<unsigned long, 2147483647ul, 16807ul, 0ul, true, true>::__calc(unsigned long) [11]
+-----------------------------------------------
+                0.08    0.00 60000000/60000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+[12]     4.3    0.08    0.00 60000000         std::uniform_real_distribution<double>::param_type::a() const [12]
+-----------------------------------------------
+                0.01    0.07 10000000/10000000     main [1]
+[13]     4.1    0.01    0.07 10000000         Timer::restart() [13]
+                0.00    0.03 10000000/10000001     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&) [18]
+                0.00    0.02 10000000/10000001     std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [22]
+                0.01    0.00 10000000/10000001     std::chrono::duration<double, std::ratio<1l, 1l> >::count() const [29]
+-----------------------------------------------
+                0.04    0.03       1/1           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long) [15]
+[14]     3.5    0.04    0.03       1         std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long) [14]
+                0.02    0.01       3/3           unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long) [21]
+-----------------------------------------------
+                0.00    0.07       1/1           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine() [16]
+[15]     3.5    0.00    0.07       1         std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long) [15]
+                0.04    0.03       1/1           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long) [14]
+-----------------------------------------------
+                0.00    0.07       1/1           main [1]
+[16]     3.5    0.00    0.07       1         std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine() [16]
+                0.00    0.07       1/1           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long) [15]
+-----------------------------------------------
+                0.04    0.00 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+[17]     2.2    0.04    0.00 30000000         std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::_Adaptor(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [17]
+-----------------------------------------------
+                0.00    0.00       1/10000001     Timer::elapsed() const [35]
+                0.00    0.03 10000000/10000001     Timer::restart() [13]
+[18]     1.8    0.00    0.03 10000001         std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&) [18]
+                0.03    0.00 10000001/10000001     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [19]
+                0.00    0.00 20000002/20000002     std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const [43]
+-----------------------------------------------
+                0.03    0.00 10000001/10000001     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&) [18]
+[19]     1.8    0.03    0.00 10000001         std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [19]
+                0.00    0.00 20000002/30000003     std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const [33]
+                0.00    0.00 10000001/10000003     std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&) [44]
+-----------------------------------------------
+                0.02    0.01       1/1           main [1]
+[20]     1.6    0.02    0.01       1         std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [20]
+                0.01    0.00       1/1           std::uniform_real_distribution<double>::param_type::param_type(double, double) [32]
+-----------------------------------------------
+                0.02    0.01       3/3           std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long) [14]
+[21]     1.4    0.02    0.01       3         unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long) [21]
+                0.01    0.00       3/3           std::__detail::_Mod<unsigned long, 2147483647ul, 1ul, 0ul, true, true>::__calc(unsigned long) [34]
+-----------------------------------------------
+                0.00    0.00       1/10000001     Timer::elapsed() const [35]
+                0.00    0.02 10000000/10000001     Timer::restart() [13]
+[22]     1.2    0.00    0.02 10000001         std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [22]
+                0.01    0.01 10000001/10000001     std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [23]
+-----------------------------------------------
+                0.01    0.01 10000001/10000001     std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [22]
+[23]     1.2    0.01    0.01 10000001         std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [23]
+                0.01    0.00 10000001/10000001     std::chrono::duration<double, std::ratio<1l, 1l> >::duration<double, void>(double const&) [30]
+                0.00    0.00 10000001/30000003     std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const [33]
+-----------------------------------------------
+                0.02    0.00 10000000/10000000     main [1]
+[24]     1.1    0.02    0.00 10000000         Timer::stop() [24]
+-----------------------------------------------
+                0.02    0.00       2/2           Timer::Timer() [26]
+[25]     1.1    0.02    0.00       2         std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point() [25]
+                0.00    0.00       2/2           std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero() [96]
+-----------------------------------------------
+                0.00    0.02       1/1           main [1]
+[26]     1.1    0.00    0.02       1         Timer::Timer() [26]
+                0.02    0.00       2/2           std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point() [25]
+-----------------------------------------------
+                0.01    0.01       1/1           main [1]
+[27]     1.1    0.01    0.01       1         Structure::Structure(IR&, int) [27]
+                0.01    0.00       1/1           VoxelGrid::VoxelGrid(IR&, int) [31]
+-----------------------------------------------
+                0.01    0.00 30000000/30000000     double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [6]
+[28]     0.5    0.01    0.00 30000000         std::uniform_real_distribution<double>::param_type::b() const [28]
+-----------------------------------------------
+                0.00    0.00       1/10000001     Timer::elapsed() const [35]
+                0.01    0.00 10000000/10000001     Timer::restart() [13]
+[29]     0.5    0.01    0.00 10000001         std::chrono::duration<double, std::ratio<1l, 1l> >::count() const [29]
+-----------------------------------------------
+                0.01    0.00 10000001/10000001     std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [23]
+[30]     0.5    0.01    0.00 10000001         std::chrono::duration<double, std::ratio<1l, 1l> >::duration<double, void>(double const&) [30]
+-----------------------------------------------
+                0.01    0.00       1/1           Structure::Structure(IR&, int) [27]
+[31]     0.5    0.01    0.00       1         VoxelGrid::VoxelGrid(IR&, int) [31]
+                0.00    0.00    9338/9338        bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [50]
+                0.00    0.00    9336/9336        __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator*() const [52]
+                0.00    0.00    9336/9336        __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator++() [51]
+                0.00    0.00    4668/4668        BoolVector::set(int, bool) [60]
+                0.00    0.00       6/6           std::vector<Coordinate, std::allocator<Coordinate> >::operator[](unsigned long) [94]
+                0.00    0.00       2/16          std::vector<Coordinate, std::allocator<Coordinate> >::begin() [83]
+                0.00    0.00       2/16          std::vector<Coordinate, std::allocator<Coordinate> >::end() [82]
+                0.00    0.00       1/1           BoolVector::BoolVector(int) [105]
+                0.00    0.00       1/1           IR::getData() [106]
+-----------------------------------------------
+                0.01    0.00       1/1           std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [20]
+[32]     0.5    0.01    0.00       1         std::uniform_real_distribution<double>::param_type::param_type(double, double) [32]
+-----------------------------------------------
+                0.00    0.00 10000001/30000003     std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [23]
+                0.00    0.00 20000002/30000003     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [19]
+[33]     0.3    0.01    0.00 30000003         std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const [33]
+-----------------------------------------------
+                0.01    0.00       3/3           unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long) [21]
+[34]     0.3    0.01    0.00       3         std::__detail::_Mod<unsigned long, 2147483647ul, 1ul, 0ul, true, true>::__calc(unsigned long) [34]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[35]     0.0    0.00    0.00       1         Timer::elapsed() const [35]
+                0.00    0.00       1/10000001     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&) [18]
+                0.00    0.00       1/10000001     std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [22]
+                0.00    0.00       1/10000001     std::chrono::duration<double, std::ratio<1l, 1l> >::count() const [29]
+-----------------------------------------------
+                0.00    0.00 60000000/60000000     double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [8]
+[42]     0.0    0.00    0.00 60000000         std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::min() [42]
+-----------------------------------------------
+                0.00    0.00 20000002/20000002     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&) [18]
+[43]     0.0    0.00    0.00 20000002         std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const [43]
+-----------------------------------------------
+                0.00    0.00       2/10000003     std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero() [96]
+                0.00    0.00 10000001/10000003     std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [19]
+[44]     0.0    0.00    0.00 10000003         std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&) [44]
+-----------------------------------------------
+                0.00    0.00    8191/24573       void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+                0.00    0.00   16382/24573       Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [80]
+[45]     0.0    0.00    0.00   24573         Coordinate* std::__addressof<Coordinate>(Coordinate&) [45]
+-----------------------------------------------
+                0.00    0.00      28/18732       void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+                0.00    0.00      28/18732       __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [85]
+                0.00    0.00   18676/18732       bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [50]
+[46]     0.0    0.00    0.00   18732         __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const [46]
+-----------------------------------------------
+                0.00    0.00    8191/16382       void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&) [56]
+                0.00    0.00    8191/16382       void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&) [54]
+[47]     0.0    0.00    0.00   16382         Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&) [47]
+-----------------------------------------------
+                0.00    0.00    4668/12859       void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&) [63]
+                0.00    0.00    8191/12859       void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&) [54]
+[48]     0.0    0.00    0.00   12859         operator new(unsigned long, void*) [48]
+-----------------------------------------------
+                0.00    0.00      14/9350        void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+                0.00    0.00    4668/9350        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [64]
+                0.00    0.00    4668/9350        void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&) [63]
+[49]     0.0    0.00    0.00    9350         Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&) [49]
+-----------------------------------------------
+                0.00    0.00    9338/9338        VoxelGrid::VoxelGrid(IR&, int) [31]
+[50]     0.0    0.00    0.00    9338         bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [50]
+                0.00    0.00   18676/18732       __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const [46]
+-----------------------------------------------
+                0.00    0.00    9336/9336        VoxelGrid::VoxelGrid(IR&, int) [31]
+[51]     0.0    0.00    0.00    9336         __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator++() [51]
+-----------------------------------------------
+                0.00    0.00    9336/9336        VoxelGrid::VoxelGrid(IR&, int) [31]
+[52]     0.0    0.00    0.00    9336         __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator*() const [52]
+-----------------------------------------------
+                0.00    0.00    8191/8191        void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*) [55]
+[53]     0.0    0.00    0.00    8191         void __gnu_cxx::new_allocator<Coordinate>::destroy<Coordinate>(Coordinate*) [53]
+-----------------------------------------------
+                0.00    0.00    8191/8191        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&) [56]
+[54]     0.0    0.00    0.00    8191         void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&) [54]
+                0.00    0.00    8191/16382       Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&) [47]
+                0.00    0.00    8191/12859       operator new(unsigned long, void*) [48]
+-----------------------------------------------
+                0.00    0.00    8191/8191        void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+[55]     0.0    0.00    0.00    8191         void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*) [55]
+                0.00    0.00    8191/8191        void __gnu_cxx::new_allocator<Coordinate>::destroy<Coordinate>(Coordinate*) [53]
+-----------------------------------------------
+                0.00    0.00    8191/8191        void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+[56]     0.0    0.00    0.00    8191         void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&) [56]
+                0.00    0.00    8191/16382       Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&) [47]
+                0.00    0.00    8191/8191        void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&) [54]
+-----------------------------------------------
+                0.00    0.00    8191/8191        Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [80]
+[57]     0.0    0.00    0.00    8191         void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+                0.00    0.00    8191/8191        std::remove_reference<Coordinate&>::type&& std::move<Coordinate&>(Coordinate&) [58]
+                0.00    0.00    8191/8191        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&) [56]
+                0.00    0.00    8191/24573       Coordinate* std::__addressof<Coordinate>(Coordinate&) [45]
+                0.00    0.00    8191/8191        void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*) [55]
+-----------------------------------------------
+                0.00    0.00    8191/8191        void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+[58]     0.0    0.00    0.00    8191         std::remove_reference<Coordinate&>::type&& std::move<Coordinate&>(Coordinate&) [58]
+-----------------------------------------------
+                0.00    0.00    5739/5739        Parser::Parser(char const*) [109]
+[59]     0.0    0.00    0.00    5739         bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*) [59]
+-----------------------------------------------
+                0.00    0.00    4668/4668        VoxelGrid::VoxelGrid(IR&, int) [31]
+[60]     0.0    0.00    0.00    4668         BoolVector::set(int, bool) [60]
+-----------------------------------------------
+                0.00    0.00    4668/4668        IR::push(float, float, float) [62]
+[61]     0.0    0.00    0.00    4668         Coordinate::Coordinate(float, float, float) [61]
+-----------------------------------------------
+                0.00    0.00    4668/4668        Parser::Parser(char const*) [109]
+[62]     0.0    0.00    0.00    4668         IR::push(float, float, float) [62]
+                0.00    0.00    4668/4668        Coordinate::Coordinate(float, float, float) [61]
+                0.00    0.00    4668/4668        std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&) [65]
+-----------------------------------------------
+                0.00    0.00    4668/4668        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [64]
+[63]     0.0    0.00    0.00    4668         void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&) [63]
+                0.00    0.00    4668/9350        Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&) [49]
+                0.00    0.00    4668/12859       operator new(unsigned long, void*) [48]
+-----------------------------------------------
+                0.00    0.00      14/4668        void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+                0.00    0.00    4654/4668        std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&) [65]
+[64]     0.0    0.00    0.00    4668         void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [64]
+                0.00    0.00    4668/9350        Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&) [49]
+                0.00    0.00    4668/4668        void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&) [63]
+-----------------------------------------------
+                0.00    0.00    4668/4668        IR::push(float, float, float) [62]
+[65]     0.0    0.00    0.00    4668         std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&) [65]
+                0.00    0.00    4654/4668        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [64]
+                0.00    0.00      14/16          std::vector<Coordinate, std::allocator<Coordinate> >::end() [82]
+                0.00    0.00      14/14          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+-----------------------------------------------
+                0.00    0.00    4668/4668        Parser::Parser(char const*) [109]
+[66]     0.0    0.00    0.00    4668         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [66]
+-----------------------------------------------
+                0.00    0.00      84/84          Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [79]
+[67]     0.0    0.00    0.00      84         Coordinate* std::__niter_base<Coordinate*>(Coordinate*) [67]
+-----------------------------------------------
+                0.00    0.00      56/56          std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [86]
+[68]     0.0    0.00    0.00      56         std::vector<Coordinate, std::allocator<Coordinate> >::size() const [68]
+-----------------------------------------------
+                0.00    0.00      14/42          __gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*) [84]
+                0.00    0.00      28/42          __gnu_cxx::new_allocator<Coordinate>::max_size() const [71]
+[69]     0.0    0.00    0.00      42         __gnu_cxx::new_allocator<Coordinate>::_M_max_size() const [69]
+-----------------------------------------------
+                0.00    0.00      16/32          std::vector<Coordinate, std::allocator<Coordinate> >::begin() [83]
+                0.00    0.00      16/32          std::vector<Coordinate, std::allocator<Coordinate> >::end() [82]
+[70]     0.0    0.00    0.00      32         __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&) [70]
+-----------------------------------------------
+                0.00    0.00      28/28          std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&) [75]
+[71]     0.0    0.00    0.00      28         __gnu_cxx::new_allocator<Coordinate>::max_size() const [71]
+                0.00    0.00      28/42          __gnu_cxx::new_allocator<Coordinate>::_M_max_size() const [69]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const [73]
+[72]     0.0    0.00    0.00      28         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() const [72]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [86]
+[73]     0.0    0.00    0.00      28         std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const [73]
+                0.00    0.00      28/28          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() const [72]
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&) [76]
+-----------------------------------------------
+                0.00    0.00      28/28          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[74]     0.0    0.00    0.00      28         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() [74]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&) [76]
+[75]     0.0    0.00    0.00      28         std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&) [75]
+                0.00    0.00      28/28          __gnu_cxx::new_allocator<Coordinate>::max_size() const [71]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const [73]
+[76]     0.0    0.00    0.00      28         std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&) [76]
+                0.00    0.00      28/28          std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&) [75]
+                0.00    0.00      28/28          unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&) [81]
+-----------------------------------------------
+                0.00    0.00      28/28          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[77]     0.0    0.00    0.00      28         std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [77]
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>) [78]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [77]
+[78]     0.0    0.00    0.00      28         std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>) [78]
+                0.00    0.00      28/28          Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [79]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>) [78]
+[79]     0.0    0.00    0.00      28         Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [79]
+                0.00    0.00      84/84          Coordinate* std::__niter_base<Coordinate*>(Coordinate*) [67]
+                0.00    0.00      28/28          Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [80]
+-----------------------------------------------
+                0.00    0.00      28/28          Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [79]
+[80]     0.0    0.00    0.00      28         Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [80]
+                0.00    0.00   16382/24573       Coordinate* std::__addressof<Coordinate>(Coordinate&) [45]
+                0.00    0.00    8191/8191        void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&) [57]
+-----------------------------------------------
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&) [76]
+[81]     0.0    0.00    0.00      28         unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&) [81]
+-----------------------------------------------
+                0.00    0.00       2/16          VoxelGrid::VoxelGrid(IR&, int) [31]
+                0.00    0.00      14/16          std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&) [65]
+[82]     0.0    0.00    0.00      16         std::vector<Coordinate, std::allocator<Coordinate> >::end() [82]
+                0.00    0.00      16/32          __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&) [70]
+-----------------------------------------------
+                0.00    0.00       2/16          VoxelGrid::VoxelGrid(IR&, int) [31]
+                0.00    0.00      14/16          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[83]     0.0    0.00    0.00      16         std::vector<Coordinate, std::allocator<Coordinate> >::begin() [83]
+                0.00    0.00      16/32          __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&) [70]
+-----------------------------------------------
+                0.00    0.00      14/14          std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long) [89]
+[84]     0.0    0.00    0.00      14         __gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*) [84]
+                0.00    0.00      14/42          __gnu_cxx::new_allocator<Coordinate>::_M_max_size() const [69]
+-----------------------------------------------
+                0.00    0.00      14/14          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[85]     0.0    0.00    0.00      14         __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [85]
+                0.00    0.00      28/18732       __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const [46]
+-----------------------------------------------
+                0.00    0.00      14/14          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[86]     0.0    0.00    0.00      14         std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [86]
+                0.00    0.00      56/56          std::vector<Coordinate, std::allocator<Coordinate> >::size() const [68]
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const [73]
+                0.00    0.00      14/14          unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [91]
+-----------------------------------------------
+                0.00    0.00      14/14          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[87]     0.0    0.00    0.00      14         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long) [87]
+                0.00    0.00      14/14          std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long) [89]
+-----------------------------------------------
+                0.00    0.00      14/14          void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+[88]     0.0    0.00    0.00      14         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long) [88]
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long) [93]
+-----------------------------------------------
+                0.00    0.00      14/14          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long) [87]
+[89]     0.0    0.00    0.00      14         std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long) [89]
+                0.00    0.00      14/14          __gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*) [84]
+-----------------------------------------------
+                0.00    0.00      14/14          std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&) [65]
+[90]     0.0    0.00    0.00      14         void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&) [90]
+                0.00    0.00      28/28          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() [74]
+                0.00    0.00      28/18732       __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const [46]
+                0.00    0.00      28/28          std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&) [77]
+                0.00    0.00      14/14          std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [86]
+                0.00    0.00      14/16          std::vector<Coordinate, std::allocator<Coordinate> >::begin() [83]
+                0.00    0.00      14/14          __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [85]
+                0.00    0.00      14/14          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long) [87]
+                0.00    0.00      14/9350        Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&) [49]
+                0.00    0.00      14/4668        void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [64]
+                0.00    0.00      14/14          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long) [88]
+-----------------------------------------------
+                0.00    0.00      14/14          std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [86]
+[91]     0.0    0.00    0.00      14         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [91]
+-----------------------------------------------
+                0.00    0.00      13/13          std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long) [93]
+[92]     0.0    0.00    0.00      13         __gnu_cxx::new_allocator<Coordinate>::deallocate(Coordinate*, unsigned long) [92]
+-----------------------------------------------
+                0.00    0.00      13/13          std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long) [88]
+[93]     0.0    0.00    0.00      13         std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long) [93]
+                0.00    0.00      13/13          __gnu_cxx::new_allocator<Coordinate>::deallocate(Coordinate*, unsigned long) [92]
+-----------------------------------------------
+                0.00    0.00       6/6           VoxelGrid::VoxelGrid(IR&, int) [31]
+[94]     0.0    0.00    0.00       6         std::vector<Coordinate, std::allocator<Coordinate> >::operator[](unsigned long) [94]
+-----------------------------------------------
+                0.00    0.00       2/2           std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero() [96]
+[95]     0.0    0.00    0.00       2         std::chrono::duration_values<long>::zero() [95]
+-----------------------------------------------
+                0.00    0.00       2/2           std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point() [25]
+[96]     0.0    0.00    0.00       2         std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero() [96]
+                0.00    0.00       2/2           std::chrono::duration_values<long>::zero() [95]
+                0.00    0.00       2/10000003     std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&) [44]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [131]
+[97]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN2IR4pushEfff [97]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [103]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [131]
+[98]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN6Parser5getIREv [98]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [104]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [131]
+[99]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9Structure12getVoxelGridEv [99]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [102]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [131]
+[100]    0.0    0.00    0.00       1         _GLOBAL__sub_I_main [100]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [101]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [100]
+[101]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [101]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN9Structure12getVoxelGridEv [99]
+[102]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [102]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN2IR4pushEfff [97]
+[103]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [103]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__ZN6Parser5getIREv [98]
+[104]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [104]
+-----------------------------------------------
+                0.00    0.00       1/1           VoxelGrid::VoxelGrid(IR&, int) [31]
+[105]    0.0    0.00    0.00       1         BoolVector::BoolVector(int) [105]
+-----------------------------------------------
+                0.00    0.00       1/1           VoxelGrid::VoxelGrid(IR&, int) [31]
+[106]    0.0    0.00    0.00       1         IR::getData() [106]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::Parser(char const*) [109]
+[107]    0.0    0.00    0.00       1         IR::IR() [107]
+                0.00    0.00       1/1           std::vector<Coordinate, std::allocator<Coordinate> >::vector() [116]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[108]    0.0    0.00    0.00       1         Parser::getIR() [108]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[109]    0.0    0.00    0.00       1         Parser::Parser(char const*) [109]
+                0.00    0.00    5739/5739        bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*) [59]
+                0.00    0.00    4668/4668        std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [66]
+                0.00    0.00    4668/4668        IR::push(float, float, float) [62]
+                0.00    0.00       1/1           IR::IR() [107]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[110]    0.0    0.00    0.00       1         Structure::getVoxelGrid() [110]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<Coordinate>::allocator() [112]
+[111]    0.0    0.00    0.00       1         __gnu_cxx::new_allocator<Coordinate>::new_allocator() [111]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl() [113]
+[112]    0.0    0.00    0.00       1         std::allocator<Coordinate>::allocator() [112]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<Coordinate>::new_allocator() [111]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base() [115]
+[113]    0.0    0.00    0.00       1         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl() [113]
+                0.00    0.00       1/1           std::allocator<Coordinate>::allocator() [112]
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl_data::_Vector_impl_data() [114]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl() [113]
+[114]    0.0    0.00    0.00       1         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl_data::_Vector_impl_data() [114]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<Coordinate, std::allocator<Coordinate> >::vector() [116]
+[115]    0.0    0.00    0.00       1         std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base() [115]
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl() [113]
+-----------------------------------------------
+                0.00    0.00       1/1           IR::IR() [107]
+[116]    0.0    0.00    0.00       1         std::vector<Coordinate, std::allocator<Coordinate> >::vector() [116]
+                0.00    0.00       1/1           std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base() [115]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [97] _GLOBAL__sub_I__ZN2IR4pushEfff (IR.cpp) [71] __gnu_cxx::new_allocator<Coordinate>::max_size() const [23] std::chrono::duration<double, std::ratio<1l, 1l> > std::chrono::__duration_cast_impl<std::chrono::duration<double, std::ratio<1l, 1l> >, std::ratio<1l, 1000000000l>, double, true, false>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  [98] _GLOBAL__sub_I__ZN6Parser5getIREv (Parser.cpp) [46] __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::base() const [30] std::chrono::duration<double, std::ratio<1l, 1l> >::duration<double, void>(double const&)
+  [99] _GLOBAL__sub_I__ZN9Structure12getVoxelGridEv (Structure.cpp) [52] __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator*() const [96] std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero()
+ [100] _GLOBAL__sub_I_main (TestParser.cpp) [72] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() const [44] std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&)
+ [101] __static_initialization_and_destruction_0(int, int) (TestParser.cpp) [12] std::uniform_real_distribution<double>::param_type::a() const [18] std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)
+ [102] __static_initialization_and_destruction_0(int, int) (Structure.cpp) [28] std::uniform_real_distribution<double>::param_type::b() const [19] std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+ [103] __static_initialization_and_destruction_0(int, int) (IR.cpp) [43] std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const [76] std::vector<Coordinate, std::allocator<Coordinate> >::_S_max_size(std::allocator<Coordinate> const&)
+ [104] __static_initialization_and_destruction_0(int, int) (Parser.cpp) [29] std::chrono::duration<double, std::ratio<1l, 1l> >::count() const [77] std::vector<Coordinate, std::allocator<Coordinate> >::_S_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+   [3] BoolVector::get(int)   [33] std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const [78] std::vector<Coordinate, std::allocator<Coordinate> >::_S_do_relocate(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&, std::integral_constant<bool, true>)
+  [60] BoolVector::set(int, bool) [86] std::vector<Coordinate, std::allocator<Coordinate> >::_M_check_len(unsigned long, char const*) const [90] void std::vector<Coordinate, std::allocator<Coordinate> >::_M_realloc_insert<Coordinate const&>(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >, Coordinate const&)
+ [105] BoolVector::BoolVector(int) [68] std::vector<Coordinate, std::allocator<Coordinate> >::size() const [82] std::vector<Coordinate, std::allocator<Coordinate> >::end()
+  [61] Coordinate::Coordinate(float, float, float) [73] std::vector<Coordinate, std::allocator<Coordinate> >::max_size() const [83] std::vector<Coordinate, std::allocator<Coordinate> >::begin()
+  [62] IR::push(float, float, float) [112] std::allocator<Coordinate>::allocator() [65] std::vector<Coordinate, std::allocator<Coordinate> >::push_back(Coordinate const&)
+ [106] IR::getData()          [87] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_allocate(unsigned long) [116] std::vector<Coordinate, std::allocator<Coordinate> >::vector()
+ [107] IR::IR()              [113] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl::_Vector_impl() [94] std::vector<Coordinate, std::allocator<Coordinate> >::operator[](unsigned long)
+  [24] Timer::stop()          [88] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_deallocate(Coordinate*, unsigned long) [11] std::__detail::_Mod<unsigned long, 2147483647ul, 16807ul, 0ul, true, true>::__calc(unsigned long)
+  [13] Timer::restart()      [114] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_impl_data::_Vector_impl_data() [34] std::__detail::_Mod<unsigned long, 2147483647ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  [26] Timer::Timer()         [74] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_M_get_Tp_allocator() [10] unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 16807ul, 0ul>(unsigned long)
+ [108] Parser::getIR()       [115] std::_Vector_base<Coordinate, std::allocator<Coordinate> >::_Vector_base() [21] unsigned long std::__detail::__mod<unsigned long, 2147483647ul, 1ul, 0ul>(unsigned long)
+ [109] Parser::Parser(char const*) [93] std::allocator_traits<std::allocator<Coordinate> >::deallocate(std::allocator<Coordinate>&, Coordinate*, unsigned long) [17] std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::_Adaptor(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+ [110] Structure::getVoxelGrid() [55] void std::allocator_traits<std::allocator<Coordinate> >::destroy<Coordinate>(std::allocator<Coordinate>&, Coordinate*) [7] std::__detail::_Adaptor<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>, double>::operator()()
+  [27] Structure::Structure(IR&, int) [89] std::allocator_traits<std::allocator<Coordinate> >::allocate(std::allocator<Coordinate>&, unsigned long) [45] Coordinate* std::__addressof<Coordinate>(Coordinate&)
+   [2] Structure::operator()(float&, float&, float&) [75] std::allocator_traits<std::allocator<Coordinate> >::max_size(std::allocator<Coordinate> const&) [67] Coordinate* std::__niter_base<Coordinate*>(Coordinate*)
+  [31] VoxelGrid::VoxelGrid(IR&, int) [64] void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate const&>(std::allocator<Coordinate>&, Coordinate*, Coordinate const&) [79] Coordinate* std::__relocate_a<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+   [4] VoxelGrid::operator()(int&, int&, int&) [56] void std::allocator_traits<std::allocator<Coordinate> >::construct<Coordinate, Coordinate>(std::allocator<Coordinate>&, Coordinate*, Coordinate&&) [80] Coordinate* std::__relocate_a_1<Coordinate*, Coordinate*, std::allocator<Coordinate> >(Coordinate*, Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  [92] __gnu_cxx::new_allocator<Coordinate>::deallocate(Coordinate*, unsigned long) [32] std::uniform_real_distribution<double>::param_type::param_type(double, double) [8] double std::generate_canonical<double, 53ul, std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&)
+  [53] void __gnu_cxx::new_allocator<Coordinate>::destroy<Coordinate>(Coordinate*) [20] std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [57] void std::__relocate_object_a<Coordinate, Coordinate, std::allocator<Coordinate> >(Coordinate*, Coordinate*, std::allocator<Coordinate>&)
+  [84] __gnu_cxx::new_allocator<Coordinate>::allocate(unsigned long, void const*) [5] double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&) [91] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  [63] void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate const&>(Coordinate*, Coordinate const&) [6] double std::uniform_real_distribution<double>::operator()<std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul> >(std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>&, std::uniform_real_distribution<double>::param_type const&) [81] unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+  [54] void __gnu_cxx::new_allocator<Coordinate>::construct<Coordinate, Coordinate>(Coordinate*, Coordinate&&) [42] std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::min() [58] std::remove_reference<Coordinate&>::type&& std::move<Coordinate&>(Coordinate&)
+ [111] __gnu_cxx::new_allocator<Coordinate>::new_allocator() [14] std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::seed(unsigned long) [47] Coordinate&& std::forward<Coordinate>(std::remove_reference<Coordinate>::type&)
+  [70] __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::__normal_iterator(Coordinate* const&) [15] std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine(unsigned long) [49] Coordinate const& std::forward<Coordinate const&>(std::remove_reference<Coordinate const&>::type&)
+  [51] __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::operator++() [16] std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::linear_congruential_engine() [59] bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+  [85] __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >::difference_type __gnu_cxx::operator-<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [9] std::linear_congruential_engine<unsigned long, 16807ul, 0ul, 2147483647ul>::operator()() [66] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  [50] bool __gnu_cxx::operator!=<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > >(__gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&, __gnu_cxx::__normal_iterator<Coordinate*, std::vector<Coordinate, std::allocator<Coordinate> > > const&) [25] std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point() [48] operator new(unsigned long, void*)
+  [35] Timer::elapsed() const [22] std::enable_if<std::chrono::__is_duration<std::chrono::duration<double, std::ratio<1l, 1l> > >::value, std::chrono::duration<double, std::ratio<1l, 1l> > >::type std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1l, 1l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&) [1] main
+  [69] __gnu_cxx::new_allocator<Coordinate>::_M_max_size() const [95] std::chrono::duration_values<long>::zero()
