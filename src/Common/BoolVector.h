@@ -19,7 +19,7 @@ class BoolVector
 	//data( (size/8) + 1 ,0), 
 	datasize(size)
 	{
-			std::cout << "dimensione in memoria:" << size << ";";
+			std::cout << "dimensione in memoria;" << size << ";";
 			//std::cout << "dimensione in vettore:" << data.size() << std::endl;
 	}
 	

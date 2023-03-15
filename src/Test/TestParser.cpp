@@ -90,5 +90,5 @@ int main() {
 	std::cout << pieni << std::endl; ***/
 	std::cout << "elapsed time; " << tmr.elapsed() << "; " << std::endl;	
 	//voxelGrid.print();
-	exit(2);
+	return 0;
 }
