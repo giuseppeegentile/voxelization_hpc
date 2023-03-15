@@ -40,7 +40,7 @@ private:
 int main() {
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 340);
+	Structure S(I, 257);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
 	
 	// test casuale
