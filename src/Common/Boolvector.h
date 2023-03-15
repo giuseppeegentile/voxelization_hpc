@@ -21,8 +21,8 @@ class BoolVector
 	//data( (size/8) + 1 ,0), 
 	datasize(size)
 	{
-			std::cout << "dimensione in memoria:" << size << std::endl;
-			//std::cout << "dimensione in vettore:" << data.size() << std::endl;
+		std::cout << "dimensione in memoria:" << size << std::endl;
+		//std::cout << "dimensione in vettore:" << data.size() << std::endl;
 	}
 	
 	inline const bool get(int i) {
@@ -66,7 +66,7 @@ class BoolVector
 	}	
 	
 	
-	int size() {return datasize;}
+	int size() { return datasize; }
 	int datasize;
 	
 	//std::vector<char> data;
