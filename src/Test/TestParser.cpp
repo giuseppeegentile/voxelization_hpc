@@ -11,7 +11,7 @@
 class Timer
 {
 public:
-    Timer() : beg_(clock_::now()) {}
+    Timer() : beg_(clock_::now()), stopped_time(0.0) {}
     void reset() { beg_ = clock_::now(); }
     double elapsed() const { 
         return 
