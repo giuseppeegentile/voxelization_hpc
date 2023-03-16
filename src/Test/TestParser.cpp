@@ -11,7 +11,7 @@
 class Timer
 {
 public:
-    Timer() : beg_(clock_::now()) {}
+    Timer() : beg_(clock_::now()), stopped_time(0.0) {}
     void reset() { beg_ = clock_::now(); }
     double elapsed() const { 
         return 
@@ -61,8 +61,8 @@ int main() {
 		tmr.restart();
 		pieni += S(x,y,z);
 	}
-	std::cout << "samples  = " << n << std::endl;
-	std::cout << "area stimata rispetto al cubo  = " << (static_cast<float>(pieni)/n) << std::endl;
+	std::cout << "samples; " << n << "; ";
+	std::cout << "area stimata rispetto al cubo; " << (static_cast<float>(pieni)/n) << "; ";
 
 	
 	// é un risultato atteso che l'area decresca con l'aumentare della precisione.
@@ -88,6 +88,7 @@ int main() {
 		pieni += S(x,y,z);
 	}
 	std::cout << pieni << std::endl; ***/
-	std::cout << "elapsed time = " << tmr.elapsed() << std::endl;	
+	std::cout << "elapsed time; " << tmr.elapsed() << "; " << std::endl;	
 	//voxelGrid.print();
+	return 0;
 }

@@ -1,2 +1,4 @@
 # voxelization_hpc
-Prova Prova gang gang
+Instruction for launching the test and have the result in result.csv
+	- make
+	- python launchers.py
