@@ -8,6 +8,7 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <immintrin.h>
 
 class BoolVector
 {
@@ -16,7 +17,7 @@ class BoolVector
 	static const int MAX_SIZE = MAX_PRECISION  * MAX_PRECISION  * MAX_PRECISION  / 8 + 8;
 	
 	BoolVector(int size) :
-	//data( (size/8) + 1 ,0), 
+	data((size + 63) / 64 ,0), 
 	datasize(size)
 	{
 			std::cout << "dimensione in memoria:" << size << std::endl;
@@ -24,17 +25,10 @@ class BoolVector
 	}
 	
 	inline const bool get(int i) {
-		auto division = div(i,8);
-		int cella   = division.quot; // i / 8;
-		char settore = division.rem; //i % 8;
+		const int cella = i >> 6;
+		const int settore = i & 0x3f;
 		
-		/*
-		int x = rand() % 10;
-		if(x > 9) {
-			__builtin_prefetch( & (data[cella]) , 0 , 3 );
-		}*/
-		
-		return data[cella] & ( 1 << settore ) ;
+		return (data[cella] & ( 1ull << settore )) ;
 	}
 	
 	void set(int i, bool value) {
@@ -58,20 +52,24 @@ class BoolVector
 		// else
 		// 		new = (~old & input) | old
 		
-		int cella    = i / 8;
-		char settore = i % 8;
-		char input   = 1 << settore;
-		data[cella] = (value? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
+		//const int cella = i >> 5;
+		//const int settore = i & 0x1f;
+		//char input   = 1 << settore;
+		//data[cella] = (value ? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
+		//data[cella] = (value ? (data[cella] | (1 << settore)) :  ( data[cella] & ~input ) );
+
+		int cella = i >> 6;
+        int settore = i & 0x3f;
+        data[cella] = (data[cella] & ~(1ull << settore)) | (value << settore);
+		 
 	}	
 	
 	
 	int size() {return datasize;}
-	int datasize;
 	
-	//std::vector<char> data;
-	char data[MAX_SIZE];
-	char True  = 255;
-	char False = 0;
+	
+	std::vector<uint64_t> data;
+	int datasize;
 };
 
 #endif

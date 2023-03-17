@@ -73,10 +73,6 @@ class VoxelGrid
 					// costruire una mappa (i,j,k) |--> (x,y,z) che favorisca in egual misura
 					// tutte le possibili direzioni
 					
-<<<<<<< Updated upstream
-					data.set(map_to_linear(x,y,z), true);	
-
-=======
 					// write (x,y,z)
 					
 					// data.set(x * a + y * b + z * c , true);	
@@ -103,7 +99,6 @@ class VoxelGrid
 								if( x2 / rx2 + y2 / ry2 + z2 / rz2  < 1.0 )
 									data.set(x_it * a + y_it * b + z_it * c , true);	
 							}
->>>>>>> Stashed changes
 				}
 			};
 			
