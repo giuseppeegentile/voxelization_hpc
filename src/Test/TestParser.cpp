@@ -28,7 +28,7 @@ int main() {
 	
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 500);
+	Structure S(I, 257);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
 	
 	// test casuale
@@ -46,12 +46,12 @@ int main() {
 		float z = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 		pieni += S(x,y,z);
 	}
-	std::cout << "samples  = " << n << std::endl;
+	std::cout << "samples  = " << n << ";";
 	
 	// é un risultato atteso che l'area decresca con l'aumentare della precisione.
 	// infatti stiamo approssimando punti con cubetti, quindi piu diminuisce il cubetto
 	// piu diminuisce il contributo in termini di area
 	
-	std::cout << "area stimata rispetto al cubo  = " << (static_cast<float>(pieni)/n) << std::endl;
-	std::cout << "elapsed time = " << tmr.elapsed() << std::endl;	
+	std::cout << "area stimata rispetto al cubo  = " << (static_cast<float>(pieni)/n) << ";";
+	std::cout << "elapsed time = " << tmr.elapsed() << ";" << std::endl;
 }

@@ -3,5 +3,6 @@ y:
 	g++ -o build/TestParser \
 							src/Test/TestParser.cpp \
 							src/Main/Structure/*.cpp \
-							src/Main/Parser/*.cpp 
+							src/Main/Parser/*.cpp \
+							 -O3 -march=native
 	
