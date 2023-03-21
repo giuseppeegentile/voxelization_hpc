@@ -12,6 +12,7 @@
 #include "../../Common/Coordinate.h"
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 class IR {
 	public:
@@ -19,6 +20,7 @@ class IR {
 		void push(Coordinate & c);
 		void push(float x,float y, float z);
 		void print();
+		Coordinate principalComponent();
 		
 		std::vector<Coordinate> & getData() {
 			return data;

@@ -14,16 +14,20 @@
 class VoxelGrid
 {
 	public:
-			VoxelGrid(IR & intermediateRepresentation, int precision = 32) :
+			VoxelGrid(IR & intermediateRepresentation, int precision = 32, bool optimizedCalibration = false) :
 			data(precision * precision * precision), precision(precision)
 			{
 				// IN : una rappresentazione intermedia
 				// OUT: una griglia di voxel
 				
 				// carico i coefficienti necessari per l'accesso
-				c = 1;
-				b = precision;
-				a = b * precision;
+				if(optimizedCalibration) {
+					// chiama il metodo di costruzione dei coefficienti mediante PCA
+					PCACalibration(intermediateRepresentation);
+				} else {
+					// usa il metodo classico di costruzione coefficienti
+					standardCalibration();
+				}
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
@@ -97,7 +101,7 @@ class VoxelGrid
 								double rz2 = raggio_z * raggio_z;
 								
 								if( x2 / rx2 + y2 / ry2 + z2 / rz2  < 1.0 )
-									data.set(x_it * a + y_it * b + z_it * c , true);	
+									data.set( cubeVectoriIsomorphism(x_it,y_it,z_it) , true);	
 							}
 				}
 			};
@@ -119,9 +123,85 @@ class VoxelGrid
 				// P( {0} ) 		= 1 - p			|
 				// P( {0,0} ) 		= (1 - p)^2		|	successione decrescente
 				// P( {0,0,...,0} ) = (1 - p)^n 	V
-				return data.get(map_to_linear(x,y,z));
+				return data.get( cubeVectoriIsomorphism(x,y,z) );
 			
 			}
+	
+	// isomorfismo
+	
+	int cubeVectoriIsomorphism(int x,
+							   int y,
+							   int z) {
+								   return x * a + y * b + z * c;
+							   }
+	
+	
+	// vecchio metodo di costruzione dell'isomorfismo
+	void standardCalibration() {
+				c = 1;
+				b = precision;
+				a = b * precision;
+	}
+	
+	// nuovo metodo di costruzione dell'isomorfismo
+	void PCACalibration(IR & intermediateRepresentation) {
+		// IN : una rappresentazione intermedia
+		// OUT: modifica la mappa cubo |---> vettore in modo da rendere piu favorevole l'accesso alle tasche
+		
+		// IDEA: Cerchiamo di sfruttare l'informazione contenuta nella geometria della molecola in modo da ottimizzare
+		// la localitá nel nostro storage.
+		// In particolare, se assumiamo che il ricercatore / algoritmo si muova nei punti di una Copertura Convessificata
+		// é naturale considerare come la direzione in cui c'é maggiore varianza é quella che ammette naturalmente
+		// una "libertá di movimento" maggiore ; vogliamo quindi che in quella direzione la localitá sia preservata il piu possibile
+		// in modo da minimizzare il rischio di cache fault
+		
+		// +++ PSEUDO CODICE / CODICE +++
+		
+		//	1. calcolo la prima componente principale v
+			
+		Coordinate v = intermediateRepresentation.principalComponent();
+		
+		// calcolo il vettore w := ( ||e_i - v|| )_i
+		
+		std::vector<Coordinate> e; // canonical base
+		e.push_back( Coordinate(1.,0.,0.));
+		e.push_back( Coordinate(0.,1.,0.));
+		e.push_back( Coordinate(0.,0.,1.));
+		
+		std::vector<float> w(3,0.);
+		for(int i = 0 ; i < e.size();i++) {
+			w[i] = e[i].d(v);
+		}
+		
+		std::cout << "vettore \t " << w[0] << " " << w[1] << " " << w[2] << std::endl;
+		
+		// calcolo il vettore o := argsort(w)
+		
+		std::vector<int> o(3,0);
+		
+		for(int i = 0 ; i < w.size();i++)
+		{
+			for(int j = 0 ; j < w.size();j++) 
+			{
+					o[i] += (w[i] > w[j]);
+			}
+		}
+		
+		std::cout << "vettore \t " << o[0] << " " << o[1] << " " << o[2] << std::endl;
+	
+		// assegno ad ogni elemento della base canonica e_i la potenza o_i
+			//	a = p^o_1
+			//	b = p^o_2
+			//  c = p^o_3
+		
+		a = 1; for(int i = 0 ; i < o[0];i++) a *= precision;
+		b = 1; for(int i = 0 ; i < o[1];i++) b *= precision;
+		c = 1; for(int i = 0 ; i < o[2];i++) c *= precision;
+		
+		// JUST FOR DEBUGGING
+		
+	}
+	
 	
 	void print() {
 		int ones = 0;

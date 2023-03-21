@@ -13,7 +13,7 @@
 class Structure
 {
 	public:
-		Structure(IR & source,int precision = 32) : voxelGrid(source, precision) {
+		Structure(IR & source,int precision = 32,bool optimizedCalibration = false) : voxelGrid(source, precision, optimizedCalibration) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
 		};
