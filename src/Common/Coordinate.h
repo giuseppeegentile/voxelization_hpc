@@ -9,54 +9,73 @@
 #ifndef COORDINATE_H
 #define COORDINATE_H
 #include <cmath>
+#include <stdexcept>
+#include <vector>
 
 class Coordinate {
 	public:
-		Coordinate( float x, float y, float z )	:  x(x) , y(y) , z(z) {}
-	float x;	// per adesso senza getter e setter
-	float y;
-	float z;
+		Coordinate( float x, float y, float z )	:  x(x) , y(y) , z(z) {};
+		Coordinate(const std::vector<float> &v) : x(v[0]), y(v[1]), z(v[2]) {};
 
-
-	float d(Coordinate & other){
-		// IN : another coordinate
-		// OUT: distance induced by norm
-		return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
-	}
-	
-	Coordinate & operator += (Coordinate & other)
-	{
-		x += other.x;
-		y += other.y;
-		z += other.z;
-		return (*this);
-	}
-	
-	Coordinate & operator -= (Coordinate & other)
-	{
-		x -= other.x;
-		y -= other.y;
-		z -= other.z;
-		return (*this);
-	}
-	
-	float operator[](int i) {
-		// ammette l'accesso per indice
-		switch(i) {
-			case 0: {
-					return x;
-				break;
-			}
-			case 1: {
-					return y;
-				break;
-			}
-			case 2: {
-					return z;
-				break;
-			}
+		/**
+		 * @brief Distance introduced by norm from this coordinate to the other
+		 * 
+		 * @param other the coordinate to calculate the norm respect with this object
+		 * @return float the distance
+		 */
+		float d(Coordinate & other){
+			return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
 		}
-	}
-	
+		
+		Coordinate & operator += (Coordinate & other)
+		{
+			x += other.x;
+			y += other.y;
+			z += other.z;
+			return (*this);
+		}
+		
+		Coordinate & operator -= (Coordinate & other)
+		{
+			x -= other.x;
+			y -= other.y;
+			z -= other.z;
+			return (*this);
+		}
+		
+		const float getX() const {return x;}
+		const float getY() const {return y;}
+		const float getZ() const {return z;}
+
+		const float setX(const float x_) {return x = x_;}
+		const float setY(const float y_) {return y = y_;}
+		const float setZ(const float z_) {return z = z_;}
+
+		const float& operator[](int i) {
+			// ammette l'accesso per indice
+			switch(i) {
+				case 0: {
+						return x;
+					break;
+				}
+				case 1: {
+						return y;
+					break;
+				}
+				case 2: {
+						return z;
+					break;
+				}
+			}
+			throw std::out_of_range("Coordinate out of range 0-2");
+		}
+
+	private:
+		float x;	// per adesso senza getter e setter
+		float y;
+		float z;
+
+
+
 };
 #endif

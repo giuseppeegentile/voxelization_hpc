@@ -21,9 +21,9 @@ class Structure
 
 		VoxelGrid & getVoxelGrid();
 		
-		inline bool operator ()(float  &    x,			// non abbiamo bisogno di ritornare un reference
-								float  &    y,			// ci interessa solo la lettura delle proteine
-								float  &    z) 
+		inline bool operator ()(const float  &    x,			// non abbiamo bisogno di ritornare un reference
+								const float  &    y,			// ci interessa solo la lettura delle proteine
+								const float  &    z) 
 		{ 	
 			// IN : coordinate spaziali
 			// OUT: presenza della proteina
@@ -44,7 +44,7 @@ class Structure
 			// IN : coordinate spaziali
 			// OUT: presenza della proteina
 			
-			return (*this)(c.x,c.y,c.z);
+			return (*this)(c[0],c[1],c[2]);
 		}
 	private:
 		VoxelGrid voxelGrid;

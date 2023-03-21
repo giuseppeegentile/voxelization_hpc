@@ -45,7 +45,7 @@ int main() {
 	
 	// test casuale
 	int n = 10000000;
-	std::default_random_engine generator;
+	std::default_random_engine generator(40);
 	std::uniform_real_distribution<double> distribution(0.0,1.0);
 	
 	Timer tmr;

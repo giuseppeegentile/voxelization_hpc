@@ -10,9 +10,11 @@
 
 
 #include "../../Common/Coordinate.h"
+#include "../../Traits/Voxel_Traits.hpp"
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <numeric>
 
 class IR {
 	public:

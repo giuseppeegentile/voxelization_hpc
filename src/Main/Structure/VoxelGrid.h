@@ -20,37 +20,38 @@ class VoxelGrid
 				// IN : una rappresentazione intermedia
 				// OUT: una griglia di voxel
 				
-				// carico i coefficienti necessari per l'accesso
-				if(optimizedCalibration) {
-					// chiama il metodo di costruzione dei coefficienti mediante PCA
-					PCACalibration(intermediateRepresentation);
-				} else {
-					// usa il metodo classico di costruzione coefficienti
-					standardCalibration();
-				}
+				// // carico i coefficienti necessari per l'accesso
+				// if(optimizedCalibration) {
+				// 	// chiama il metodo di costruzione dei coefficienti mediante PCA
+				// 	PCACalibration(intermediateRepresentation);
+				// } else {
+				// 	// usa il metodo classico di costruzione coefficienti
+				// 	standardCalibration();
+				// }
+				optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration();
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
 				auto & V = intermediateRepresentation.getData();
 				
 				//		trovo le dimensioni del cubo
-				minX = V[0].x;
-				minY = V[0].y;
-				minZ = V[0].z;
+				minX = V[0].getX();
+				minY = V[0].getY();
+				minZ = V[0].getZ();
 				
-				maxX = V[0].x;
-				maxY = V[0].y;
-				maxZ = V[0].z;
+				maxX = V[0].getX();
+				maxY = V[0].getY();
+				maxZ = V[0].getZ();
 
 				for( auto & v : V )
 				{
-					if( v.x < minX ) minX = v.x;
-					if( v.y < minY ) minY = v.y;
-					if( v.z < minZ ) minZ = v.z;
+					if( v.getX() < minX ) minX = v.getX();
+					if( v.getY() < minY ) minY = v.getY();
+					if( v.getZ() < minZ ) minZ = v.getZ();
 					
-					if( v.x > maxX ) maxX = v.x;
-					if( v.y > maxY ) maxY = v.y;
-					if( v.z > maxZ ) maxZ = v.z;
+					if( v.getX() > maxX ) maxX = v.getX();
+					if( v.getY() > maxY ) maxY = v.getY();
+					if( v.getZ() > maxZ ) maxZ = v.getZ();
 				}
 
 				// "coloro" i voxel nel cubo
@@ -65,9 +66,9 @@ class VoxelGrid
 				
 				for( auto & v : V )
 				{
-					int x = static_cast<int> ( (v.x - minX) * mul_coeff_x);	// ottiene la posizione relativa
-					int y = static_cast<int> ( (v.y - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
-					int z = static_cast<int> ( (v.z - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+					int x = static_cast<int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
+					int y = static_cast<int> ( (v.getY() - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
+					int z = static_cast<int> ( (v.getZ() - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																			// la posizione. Moltiplicandola per la precisione
 																			// e castando ad int si ottiene l'indice
 																			// remark: mul_coeff_x = precisione/denX = precisione/(maxX - minX)
@@ -168,8 +169,8 @@ class VoxelGrid
 		e.push_back( Coordinate(0.,1.,0.));
 		e.push_back( Coordinate(0.,0.,1.));
 		
-		std::vector<float> w(3,0.);
-		for(int i = 0 ; i < e.size();i++) {
+		std::vector<float> w(canonical_size, 0.0f);
+		for(int i = 0 ; i < canonical_size; i++) {
 			w[i] = e[i].d(v);
 		}
 		
@@ -177,11 +178,11 @@ class VoxelGrid
 		
 		// calcolo il vettore o := argsort(w)
 		
-		std::vector<int> o(3,0);
+		std::vector<int> o(canonical_size,0);
 		
-		for(int i = 0 ; i < w.size();i++)
+		for(int i = 0 ; i < canonical_size;i++)
 		{
-			for(int j = 0 ; j < w.size();j++) 
+			for(int j = 0 ; j < canonical_size;j++) 
 			{
 					o[i] += (w[i] > w[j]);
 			}
