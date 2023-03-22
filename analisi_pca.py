@@ -11,3 +11,7 @@ data = pd.read_csv('result.csv', header=None, delimiter=";")
 print(data)
 mea = data.iloc[:, -2]
 print(mea.mean())
+
+# 10 volte per ogni configurazione
+# proteina.pdb; configurazione [2,0,1]; tempo;
+
