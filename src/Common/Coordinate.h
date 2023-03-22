@@ -27,6 +27,22 @@ class Coordinate {
 			return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
 		}
 		
+		Coordinate operator*(float scalar) const {
+			return Coordinate(x * scalar, y * scalar, z * scalar);
+		}
+		
+
+		// transpose(this) * other
+		//element-wise multiplication
+		float operator*(Coordinate& other) const {
+			return  x * other.x + y * other.y + z * other.z;
+		}
+
+		Coordinate operator + (Coordinate & other) const {
+			return Coordinate(x + other.x, y + other.y, z + other.z);
+		}
+
+
 		Coordinate & operator += (Coordinate & other)
 		{
 			x += other.x;
