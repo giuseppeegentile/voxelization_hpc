@@ -71,7 +71,7 @@ class Coordinate {
 		}
 
 	private:
-		float x;	// per adesso senza getter e setter
+		float x;	
 		float y;
 		float z;
 

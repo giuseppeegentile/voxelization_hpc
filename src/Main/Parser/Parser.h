@@ -27,7 +27,7 @@ class Parser
 				// fino a quando ci sono righe da leggere...
 				while (std::getline(file, line))
 				{
-					if( line.substr(0,5) == "ATOM " )
+					if( line.substr(0,1) == "A" )
 					{
 						// SOLUZIONE BRUTTA: leggo dopo il carattere 28 che sono sicuro ci stanno i double
 						std::string data = line.substr(28, line.length());

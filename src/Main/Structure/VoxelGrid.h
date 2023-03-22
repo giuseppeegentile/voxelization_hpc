@@ -8,13 +8,12 @@
 #include "../../Common/BoolVector.h"
 #include "../../Common/Coordinate.h"
 #include "../Parser/IR.h"
-#include "../../Traits/Map_Traits.hpp"
 #include <array>
 
 class VoxelGrid
 {
 	public:
-			VoxelGrid(IR & intermediateRepresentation, int precision = 32, bool optimizedCalibration = false) :
+			VoxelGrid(IR & intermediateRepresentation, int precision = 32, bool optimizedCalibration = false, const std::vector<int> &conf = {}) :
 			data(precision * precision * precision), precision(precision)
 			{
 				// IN : una rappresentazione intermedia
@@ -28,7 +27,11 @@ class VoxelGrid
 				// 	// usa il metodo classico di costruzione coefficienti
 				// 	standardCalibration();
 				// }
-				optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration();
+				
+				//Assumo che quando harcode_test true, optimized sarà false, solo per testing
+				conf.empty() ? 
+								(optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration()) : 
+								hardcodeCalibration(conf.at(0),conf.at(1),conf.at(2))																				;	
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
@@ -136,12 +139,21 @@ class VoxelGrid
 								   return x * a + y * b + z * c;
 							   }
 	
-	
+	void hardcodeCalibration(int a_, int b_, int c_){
+		a = 1;
+		b = 1;
+		c = 1;
+		for(; 0 < a_; a_--) a *=precision;
+		for(; 0 < b_; b_--) b *=precision;
+		for(; 0 < c_; c_--) c *=precision;
+	}
+
+
 	// vecchio metodo di costruzione dell'isomorfismo
 	void standardCalibration() {
-				c = 1;
-				b = precision;
-				a = b * precision;
+		c = 1;
+		b = precision;
+		a = b * precision;
 	}
 	
 	// nuovo metodo di costruzione dell'isomorfismo
