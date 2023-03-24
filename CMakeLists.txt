@@ -24,10 +24,6 @@
 
 
 
-
-
-
-
 ############################################################################################
 
 cmake_minimum_required(VERSION 3.5)
@@ -54,6 +50,8 @@ foreach(TEST_SOURCE ${TEST_SOURCES})                                # per ogni e
     add_executable(${TEST_NAME} ${TEST_SOURCE} ${SOURCES})                     # genera un eseguibile di nome ${TEST_NAME} e di sorgente ${TEST_SOURCE}
     #target_link_libraries(${TEST_NAME} include/voxlib)
 endforeach()
+
+add_compile_options(-std=c++17 -Wall -O3 -march=native -ffast-math)
 
 # Specifica la cartella in cui creare il prodotto della compilazione
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)

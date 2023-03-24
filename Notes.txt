@@ -1,0 +1,35 @@
+Journal update
+
+Giuseppe
+// SPD
+CovarianceMatrice<double> 
+    
+    - solve(b) return solution of Ax = b 
+    
+    - PCA(CovarianceMatrice) -> return the 3 PCA (Luca)
+
+
+
+    fatto:
+        - costructor (IR ir) ir as nx3 matrix, build matrix as product of transpose(ir - avg(ir on column vectors)) * (ir - avg(ir on column vectors)) -> return 3x3 SPD matrix 
+        - dot(vector b) return vector Ab   
+        - get(i,j)
+        - getByRow(i)                       
+        - getByCol(i)
+        - swap_column(int i in [1, !column] ( index of permutations row)) return column permutation (instance of the matrix permutated)
+
+Luca 
+
+Classe Structure
+    Cambio coordinate: costruttore classe structure, in modo tale da avere coordinate in una certa direzione "privilegiata"
+                            --> performance migliorate ? stop   
+                                                        : 
+                                                        else: //data analisi
+    Modifica costrutture : data configurazione e IR alteri il sistema di riferimento in maniera coerente con la configurazione
+
+
+
+Next:   
+        Test strutturati
+
+

@@ -28,6 +28,19 @@ class IR {
 			return data;
 		}
 
+		void setValueAt(size_t i, Coordinate value) {
+			data[i] = value;
+		}
+
+		std::vector<float> getVectorBasis(const int num_basis){
+			std::vector<float> ret(data.size());
+			for(int i = 0; i < data.size(); i++){
+				ret.push_back(data[i][num_basis]);
+			}
+			return ret;
+		}
+
+
 		void rotateProtein(const double alpha, const double beta, const double gamma){
 			//angoli in radianti
 			const double rad_alpha = alpha * M_PI / 180.0;
