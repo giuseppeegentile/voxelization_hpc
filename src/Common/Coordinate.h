@@ -31,16 +31,15 @@ class Coordinate {
 			return Coordinate(x * scalar, y * scalar, z * scalar);
 		}
 		
-
+		Coordinate operator + (Coordinate & other) const {
+			return Coordinate(x + other.x, y + other.y, z + other.z);
+		}
 		// transpose(this) * other
 		//element-wise multiplication
 		float operator*(Coordinate& other) const {
 			return  x * other.x + y * other.y + z * other.z;
 		}
 
-		Coordinate operator + (Coordinate & other) const {
-			return Coordinate(x + other.x, y + other.y, z + other.z);
-		}
 
 
 		Coordinate & operator += (Coordinate & other)
