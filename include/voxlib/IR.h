@@ -8,9 +8,8 @@
 #ifndef IR_H
 #define IR_H
 
-
-#include "../../Common/Coordinate.h"
-#include "../../Traits/Voxel_Traits.hpp"
+#include "Coordinate.h"
+#include "Voxel_Traits.hpp"
 #include <iostream>
 #include <vector>
 #include <cmath>

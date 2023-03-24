@@ -7,7 +7,7 @@
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
-#include "../Parser/IR.h"
+#include "IR.h"
 #include "VoxelGrid.h"
 
 class Structure

@@ -5,9 +5,9 @@
 //  in indici
 #ifndef VOXELGRID_H
 #define VOXELGRID_H
-#include "../../Common/BoolVector.h"
-#include "../../Common/Coordinate.h"
-#include "../Parser/IR.h"
+#include "BoolVector.h"
+#include "Coordinate.h"
+#include "IR.h"
 #include <array>
 
 class VoxelGrid

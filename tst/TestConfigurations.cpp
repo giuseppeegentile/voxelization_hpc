@@ -1,7 +1,7 @@
 /*TestParser.cpp*/
-#include "../Common/BoolVector.h"
-#include "../Main/Parser/Parser.h"
-#include "../Main/Structure/Structure.h"
+#include "BoolVector.h"
+#include "Parser.h"
+#include "Structure.h"
 #include <iostream>
 #include <random>
 #include <fstream>
