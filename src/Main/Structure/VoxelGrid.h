@@ -31,7 +31,7 @@ class VoxelGrid
 				//Assumo che quando harcode_test true, optimized sarà false, solo per testing
 				conf.empty() ? 
 								(optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration()) : 
-								hardcodeCalibration(conf.at(0),conf.at(1),conf.at(2))																				;	
+								hardcodeCalibration(conf.at(0),conf.at(1),conf.at(2));	
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
