@@ -12,9 +12,9 @@ std::vector<double> CovarianceMatrix::getCol(const size_t col){
 
 
 std::vector<double> CovarianceMatrix::dotProduct(const std::vector<double> &b){
-    std::vector<double> ret{std::inner_product(storage[0].begin(), storage[0].end(), b.begin(), 0.0),
-           std::inner_product(storage[1].begin(), storage[1].end(), b.begin(), 0.0),
-           std::inner_product(storage[2].begin(), storage[2].end(), b.begin(), 0.0)};
+    std::vector<double> ret{std::inner_product(storage[0].begin(), storage[0].end(), b.begin(), 0.0f),
+                            std::inner_product(storage[1].begin(), storage[1].end(), b.begin(), 0.0f),
+                            std::inner_product(storage[2].begin(), storage[2].end(), b.begin(), 0.0f)};
     return ret;
 }
 

@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <numeric>
+#include <fstream>
 #include "IR.h"
 constexpr size_t width = 3;
 constexpr size_t heigth = 3;
@@ -28,21 +29,42 @@ class CovarianceMatrix {
             }
             avg_x /= dim;avg_y /= dim;avg_z /= dim;
 
-            for(int i = 0; i < ir.getData().size(); i++){
-                ir.setValueAt(i, Coordinate(ir.getData()[i][0] - avg_x,
-                                            ir.getData()[i][1] - avg_y,
-                                            ir.getData()[i][2] - avg_z));
+                        
+            std::ofstream csv_file;
+            csv_file.open("before_stan.csv");
+
+            for(auto & c : ir.getData()) {
+                    csv_file << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
             }
 
-            std::vector<float> x = ir.getVectorBasis(0);
-            std::vector<float> y = ir.getVectorBasis(1);
-            std::vector<float> z = ir.getVectorBasis(2);
-            float x_squared = std::inner_product(x.begin(), x.end(), x.begin(), 0.0);
-            float xy = std::inner_product(x.begin(), x.end(), y.begin(), 0.0);
-            float xz = std::inner_product(x.begin(), x.end(), z.begin(), 0.0);
-            float y_squared = std::inner_product(y.begin(), y.end(), y.begin(), 0.0);
-            float yz = std::inner_product(y.begin(), y.end(), z.begin(), 0.0);
-            float z_squared = std::inner_product(z.begin(), z.end(), z.begin(), 0.0);
+            IR standardizedIR;
+
+
+            for(int i = 0; i < ir.getData().size(); i++){
+                // ir.setValueAt(i, Coordinate(ir.getData()[i][0] - avg_x,
+                //                             ir.getData()[i][1] - avg_y,
+                //                             ir.getData()[i][2] - avg_z));
+                standardizedIR.push(ir.getData()[i][0] - avg_x,
+                                    ir.getData()[i][1] - avg_y,
+                                    ir.getData()[i][2] - avg_z);
+            }
+
+            std::ofstream after;
+            after.open("after_stan.csv");
+
+            for(auto & c : standardizedIR.getData()) {
+                after << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
+            }
+
+            std::vector<float> x = standardizedIR.getVectorBasis(0);
+            std::vector<float> y = standardizedIR.getVectorBasis(1);
+            std::vector<float> z = standardizedIR.getVectorBasis(2);
+            float x_squared = std::inner_product(x.begin(), x.end(), x.begin(), 0.0f);
+            float xy = std::inner_product(x.begin(), x.end(), y.begin(), 0.0f);
+            float xz = std::inner_product(x.begin(), x.end(), z.begin(), 0.0f);
+            float y_squared = std::inner_product(y.begin(), y.end(), y.begin(), 0.0f);
+            float yz = std::inner_product(y.begin(), y.end(), z.begin(), 0.0f);
+            float z_squared = std::inner_product(z.begin(), z.end(), z.begin(), 0.0f);
 
             storage[0].push_back(x_squared);
             storage[0].push_back(xy);
