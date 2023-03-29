@@ -1,4 +1,9 @@
 /*TestParser.cpp*/
+
+#include "../Common/LinearAlgebra/Vector.h"
+#include "../Common/LinearAlgebra/Matrix.h"
+#include "../Common/LinearAlgebra/SymmetricMatrix.h"
+
 #include "../Common/BoolVector.h"
 #include "../Main/Parser/Parser.h"
 #include "../Main/Structure/Structure.h"
@@ -43,14 +48,9 @@ int main() {
 	IR & I = P.getIR();
 	Structure S(I, 257);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
-	
-
     CovarianceMatrix cov(I);
-
-    cov.print();
-
-    cov.swapColumn(6);
-    cov.print();
-
+	cov.print();
+	Matrix A = cov.dot(cov);
+	A.print();
 	return 0;
 }

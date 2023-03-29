@@ -1,138 +1,110 @@
+#ifndef COVARIANCE_MATRIX_H
+#define COVARIANCE_MATRIX_H
+
 #include <deque>
 #include <map>
 #include <vector>
 #include <numeric>
 #include <fstream>
 #include "IR.h"
+#include "../../Common/LinearAlgebra/SymmetricMatrix.h"
+
 constexpr size_t width = 3;
 constexpr size_t heigth = 3;
-
-
-
-
-std::map<int, std::vector<int>> permutations = {{1, {0,1,2}}, 
-                                                {2, {0,2,1}},
-                                                {3, {1,0,2}},
-                                                {4, {1,2,0}},
-                                                {5, {2,0,1}},
-                                                {6, {2,1,0}}};
-
 
 /**
  * @brief SPD Covariance Matrix
  * Implemented only get by col, since is symmetric, is the same of getting the same row
  * 
  */
-class CovarianceMatrix {
+class CovarianceMatrix : public SymmetricMatrix {
     public:
+		using SymmetricMatrix::SymmetricMatrix;		// eredito i costruttori da SymmetricMatrix
+        CovarianceMatrix(IR &ir) : 
+			SymmetricMatrix(3,3)      				// chiamo il costruttore di symmetric matrix
+			{
+				// IN  : una rappresentazione intermedia
+				// OUT : la matrice di covarianza della rappresentazione intermedia
+				// calcolo le medie campionarie
+				
+				float avg_x = 0.0;
+				float avg_y= 0.0;
+				float avg_z= 0.0;
+				const size_t dim = ir.getData().size();
+				for(auto &c: ir.getData()){
+					avg_x += c[0];							// REMARK: per stabilitá numerica
+					avg_y += c[1];							//         sarebbe meglio calcolare la media
+					avg_z += c[2];							// 		   non come somma diretta ma come una successione
+															//		   media(k+1) = (k)/(k+1) * media(k) + 1/(k+1) * x
+				}											//		   in questo modo (k)/(k+1) ---> 1
+															//		   mentre 1/(k+1) ---> 0
+				avg_x /= dim;								//
+				avg_y /= dim;								//		   Ma per adesso va bene cosí.
+				avg_z /= dim;								//
 
+				// ???
+				std::ofstream csv_file;
+				csv_file.open("before_stan.csv");
+				for(auto & c : ir.getData()) {
+						csv_file << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
+				}
 
-        CovarianceMatrix(IR &ir) {
-            float avg_x = 0.0;
-            float avg_y= 0.0;
-            float avg_z= 0.0;
-            const size_t dim = ir.getData().size();
-            for(auto &c: ir.getData()){
-                avg_x += c[0];
-                avg_y += c[1];
-                avg_z += c[2];
-            }
-            avg_x /= dim;avg_y /= dim;avg_z /= dim;
+				IR standardizedIR;
+				
+				for(int i = 0; i < ir.getData().size(); i++){
+					standardizedIR.push(ir.getData()[i][0] - avg_x,
+										ir.getData()[i][1] - avg_y,
+										ir.getData()[i][2] - avg_z);
+				}
+				
+				// ???
+				std::ofstream after;
+				after.open("after_stan.csv");
 
-                        
-            std::ofstream csv_file;
-            csv_file.open("before_stan.csv");
+				for(auto & c : standardizedIR.getData()) {
+					after << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
+				}
+				
 
-            for(auto & c : ir.getData()) {
-                    csv_file << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
-            }
+				// calcolo i prodotti scalari (TODO : riadattare al tipo Vector)
+				std::vector<float> x = standardizedIR.getVectorBasis(0);
+				std::vector<float> y = standardizedIR.getVectorBasis(1);
+				std::vector<float> z = standardizedIR.getVectorBasis(2);
+				float x_squared = std::inner_product(x.begin(), x.end(), x.begin(), 0.0f);
+				float xy = std::inner_product(x.begin(), x.end(), y.begin(), 0.0f);
+				float xz = std::inner_product(x.begin(), x.end(), z.begin(), 0.0f);
+				float y_squared = std::inner_product(y.begin(), y.end(), y.begin(), 0.0f);
+				float yz = std::inner_product(y.begin(), y.end(), z.begin(), 0.0f);
+				float z_squared = std::inner_product(z.begin(), z.end(), z.begin(), 0.0f);
 
-            IR standardizedIR;
+				// copio i valori nella matrice simmetrica
+				data[0](0) = 1./(dim - 1) * x_squared;
+				data[0](1) = data[1](0) = 1./(dim - 1) * xy;
+				data[0](2) = data[2](0) = 1./(dim - 1) * xz;
+				data[1](1) = 1./(dim - 1) * y_squared;
+				data[1](2) = data[2](1) = 1./(dim - 1) * yz;
+				data[2](2) = 1./(dim - 1) * z_squared;
 
+			}
 
-            for(int i = 0; i < ir.getData().size(); i++){
-                // ir.setValueAt(i, Coordinate(ir.getData()[i][0] - avg_x,
-                //                             ir.getData()[i][1] - avg_y,
-                //                             ir.getData()[i][2] - avg_z));
-                standardizedIR.push(ir.getData()[i][0] - avg_x,
-                                    ir.getData()[i][1] - avg_y,
-                                    ir.getData()[i][2] - avg_z);
-            }
-
-            std::ofstream after;
-            after.open("after_stan.csv");
-
-            for(auto & c : standardizedIR.getData()) {
-                after << c.getX() << ";" << c.getY() << ";" << c.getZ() << ";" << std::endl;
-            }
-
-            std::vector<float> x = standardizedIR.getVectorBasis(0);
-            std::vector<float> y = standardizedIR.getVectorBasis(1);
-            std::vector<float> z = standardizedIR.getVectorBasis(2);
-            float x_squared = std::inner_product(x.begin(), x.end(), x.begin(), 0.0f);
-            float xy = std::inner_product(x.begin(), x.end(), y.begin(), 0.0f);
-            float xz = std::inner_product(x.begin(), x.end(), z.begin(), 0.0f);
-            float y_squared = std::inner_product(y.begin(), y.end(), y.begin(), 0.0f);
-            float yz = std::inner_product(y.begin(), y.end(), z.begin(), 0.0f);
-            float z_squared = std::inner_product(z.begin(), z.end(), z.begin(), 0.0f);
-
-            storage[0].push_back(x_squared);
-            storage[0].push_back(xy);
-            storage[0].push_back(xz);
-
-            storage[1].push_back(xy);
-            storage[1].push_back(y_squared);
-            storage[1].push_back(yz);
-
-            storage[2].push_back(xz);
-            storage[2].push_back(yz);
-            storage[2].push_back(z_squared);
-
+        float & operator()(const size_t row, const size_t column) {
+		   /**
+			 * @brief getter of the element row-col using (row, col)
+			 * 
+			 * @param  row 
+			 * @param  column 
+			 * @return float&			// (LUCA) Due commenti.
+			 *							//				1. Rimaniamo sull utilizzo dei float anziché i double.
+			 *							//				2. Fare questo getter const rende molto scomode alcune operazioni
+			 *							//	Ho quindi modificato da  const double& --> a float &
+			 */
+            Matrix & A = (*this);
+			return A(row,column);
         }
 
-        void print(){
-            for(auto &c: storage)
-                std::cout << c.second[0] << "       " << c.second[1]<< "        " << c.second[2]<< std::endl;
-        }
 
-
-        //CovarianceMatrix(const CovarianceMatrix& mat);
-
-        /**
-         * @brief getter of the element row-col using (row, col)
-         * 
-         * @param row 
-         * @param column 
-         * @return const double& 
-         */
-        const double &operator()(const size_t row, const size_t column) const {
-            return storage.at(column)[row]; 
-        }
-
-        /**
-         * @brief Add in column-major 
-         * 
-         * @param row the column where to add 
-         * @param vals the (eigen)vector to add
-         */
         void add(const size_t column, const std::vector<double> &vals);
-
-        /**
-         * @brief Get a Row of the matrix
-         * 
-         * @param col 
-         */
         std::vector<double> getCol(const size_t col);
-
-        //const void print() const;
-
-        /**
-         * 
-         * @brief Perform row-column product (Ab)
-         * 
-         * @param b vector to multiply with the matrix
-         * @param res std::vector<double> 
-         */
         std::vector<double> dotProduct(const std::vector<double> &b);
 
         void swapColumn(int permutation);
@@ -143,3 +115,5 @@ class CovarianceMatrix {
 
 
 };
+
+#endif
