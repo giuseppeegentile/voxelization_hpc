@@ -133,11 +133,13 @@ std::vector<double> CovarianceMatrix::charPoly() {
 }
 
 std::vector<double> CovarianceMatrix::thirdDegreeSolver(std::vector<double> coeffs) {
+	
 	long double  a = coeffs[0];
 	long double  b = coeffs[1];
 	long double  c = coeffs[2];
 	long double  d = coeffs[3];
 	
+	/*
 	// algoritmo
 	long double  f = ((3.0 * c / a) - ((b * b) / (a * a ))) / 3.0;
 	long double  g = (((2.0 * (b*b*b)) / (a * a * a)) - ((9.0 * b * c) / (a * a)) + (27.0 * d / a)) /27.0;
@@ -161,6 +163,46 @@ std::vector<double> CovarianceMatrix::thirdDegreeSolver(std::vector<double> coef
 	// in modo da avere come primo autovalore
 	// quello associato alla componente
 	// di maggiore varianza nella geometria della molecola
+	*/
+	
+	
+
+    double p, q, delta;
+    double x1, x2, x3;
+	std::vector<double> x(3);
+
+    // Compute the values of p and q
+    p = (-b*b)/(3*a*a) + c/a;
+    q = (2*b*b*b)/(27*a*a*a) - (b*c)/(3*a*a) + d/a;
+
+    // Compute the value of delta
+    delta = (q*q)/4 + (p*p*p)/(27*a*a*a);
+
+    // Check the value of delta to determine the number of real roots
+    if (delta > 0) {
+        // One real root and two complex conjugate roots
+        double u = cbrt((-q/2) + sqrt(delta));
+        double v = cbrt((-q/2) - sqrt(delta));
+        x1 = u + v - (b/(3*a));
+        x2 = -(u + v)/2 - (b/(3*a)) + ((u - v)*sqrt(3))/2;
+        x3 = -(u + v)/2 - (b/(3*a)) - ((u - v)*sqrt(3))/2;
+    } else if (delta == 0) {
+        // Three real roots, two of which are equal
+        double u = cbrt(-q/2);
+        x1 = 2*u - (b/(3*a));
+        x2 = -u - (b/(3*a));
+        x3 = x2;
+    } else {
+        // Three distinct real roots
+        double u = acos((-q/2)/sqrt((-p*p*p)/(27*a*a*a)));
+        x1 = 2*sqrt(-p/(3*a))*cos(u/3) - (b/(3*a));
+        x2 = 2*sqrt(-p/(3*a))*cos((u + 2*M_PI)/3) - (b/(3*a));
+        x3 = 2*sqrt(-p/(3*a))*cos((u - 2*M_PI)/3) - (b/(3*a));
+    }
+
+	x[0] = x_1;
+	x[1] = x_2;
+	x[2] = x_3;
 	
 	std::vector<double> x_sorted(3);		
 	std::vector<int> argsorted = Utilities::argsort(x);
