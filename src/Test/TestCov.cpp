@@ -44,13 +44,24 @@ private:
 ///////////////////////////////////////////////////
 
 int main() {
+	/*
+	std::vector<float> x{3.0,3.0,4.0,5.,1.,5.};
+	std::vector<int> argsorted = Utilities::argsort(x,false);
+	for(int i = 0 ; i < x.size();i++)
+		std::cout << x[i] << "\t" << argsorted[i] << std::endl;
+	return 0;*/
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
 	Structure S(I, 257);
 	VoxelGrid & voxelGrid = S.getVoxelGrid();
     CovarianceMatrix cov(I);
-	cov.print();
-	Matrix A = cov.dot(cov);
-	A.print();
+	auto sol    = cov.eigenvalues();
+	for(auto & s : sol)
+		std::cout << s << std::endl;
+	std::cout << "+------------------------------+" << std::endl;
+	
+	VectorSpaceMatrix M = cov.eigenvectors(sol);
+	M.print();
+	
 	return 0;
 }

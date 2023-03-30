@@ -8,6 +8,9 @@
 #include <fstream>
 #include "IR.h"
 #include "../../Common/LinearAlgebra/SymmetricMatrix.h"
+#include "../../Common/LinearAlgebra/VectorSpaceMatrix.h"
+#include "../../Common/Utilities.h"
+#include <cmath>
 
 constexpr size_t width = 3;
 constexpr size_t heigth = 3;
@@ -101,19 +104,25 @@ class CovarianceMatrix : public SymmetricMatrix {
             Matrix & A = (*this);
 			return A(row,column);
         }
-
-
-        void add(const size_t column, const std::vector<double> &vals);
-        std::vector<double> getCol(const size_t col);
-        std::vector<double> dotProduct(const std::vector<double> &b);
-
-        void swapColumn(int permutation);
-
-
-    private:
-        std::map<int, std::vector<double>> storage; //= {{1, {0., 0., 0. }}, {2, {0., 0., 0. }}, {3, {0., 0., 0. }}};
-
-
+		
+		// swap delle colonne
+        void swapColumn(int permutation);		
+		
+		// metodi per la costruzione della PCA
+		// autovalori
+		public:
+			// ritorna gli autovalori
+			std::vector<float> eigenvalues();		// si sceglie di implementare il tipo di ritorno come vector<float> anziché Vector	
+													// dal momento che il risultato non é da intendersi come un vettore 											// geometrico ma come una semplice collezione di valori, che mantiene la propria semantica													// anche in caso di rimescolamento
+		private:
+			// ritorna i coefficienti del polinomio caratteristico								// metodi ausiliari
+			std::vector<float> charPoly();														// che vengono usati
+																								// per ottenere gli autovalori 
+			// ritorna le tre soluzioni (reali dal momento che é una matrice di covarianza)		// della matrice
+			std::vector<float> thirdDegreeSolver(std::vector<float> coeffs);					
+		
+		public:
+			VectorSpaceMatrix eigenvectors(std::vector<float> evalues);
 };
 
 #endif

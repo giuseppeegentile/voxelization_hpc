@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 class Vector {
 public:
@@ -20,12 +21,16 @@ public:
 		float & operator()(int i) {
 			return data[i];
 		}
+		// getter const
+		const float & getc(int i) const {
+			return data[i];
+		}
 
 		// ritorna il prodotto scalare con un altro elemento di tipo vector
-		float dot(Vector & other) {
+		float dot(const Vector & other) const {
 			float ret = 0;
 			for(int i=0;i< other.size() ;i++) {
-				ret += (*this)(i) * other(i);
+				ret += (*this).getc(i) * other.getc(i);
 			}
 			return ret;
 		}
@@ -36,6 +41,28 @@ public:
 
 	std::vector<float> data;
 	int length;
+	
+	float norm() const {
+		float ret = 0;
+		for(int i = 0 ; i < size();i++)
+		{
+			ret += data[i] * data[i];
+		}
+		return std::sqrt(ret);
+	}
+	
+	Vector operator / (float x) {
+		Vector ret(size());
+		for(int i = 0 ; i < size();i++)
+		{
+			ret(i) = data[i] / x;
+		}
+		return ret;
+	}
+	
+	operator std::vector<float> () const {
+		return data;
+	}
 };
 
 #endif
