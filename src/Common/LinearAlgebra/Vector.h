@@ -1,5 +1,5 @@
 // Vector.h
-// implementa un container elementare per vettori di float
+// implementa un container elementare per vettori di double
 
 
 #ifndef VECTOR_H
@@ -13,22 +13,22 @@ class Vector {
 public:
 	// costruttori
 	Vector(int n) : data(n),length(n) {};									// dimensional constructor
-	Vector(std::vector<float> data) : data(data), length(data.size()) {};	// costruttore da vettore
+	Vector(std::vector<double> data) : data(data), length(data.size()) {};	// costruttore da vettore
 	Vector(const Vector & other) : data(other.data), length(other.size()) {};   // copy constructor
 	
 	// operazioni elementari
 		// getter / setter
-		float & operator()(int i) {
+		double & operator()(int i) {
 			return data[i];
 		}
 		// getter const
-		const float & getc(int i) const {
+		const double & getc(int i) const {
 			return data[i];
 		}
 
 		// ritorna il prodotto scalare con un altro elemento di tipo vector
-		float dot(const Vector & other) const {
-			float ret = 0;
+		double dot(const Vector & other) const {
+			double ret = 0;
 			for(int i=0;i< other.size() ;i++) {
 				ret += (*this).getc(i) * other.getc(i);
 			}
@@ -39,11 +39,11 @@ public:
 		return length;
 	}	
 
-	std::vector<float> data;
+	std::vector<double> data;
 	int length;
 	
-	float norm() const {
-		float ret = 0;
+	double norm() const {
+		double ret = 0;
 		for(int i = 0 ; i < size();i++)
 		{
 			ret += data[i] * data[i];
@@ -51,7 +51,7 @@ public:
 		return std::sqrt(ret);
 	}
 	
-	Vector operator / (float x) {
+	Vector operator / (double x) {
 		Vector ret(size());
 		for(int i = 0 ; i < size();i++)
 		{
@@ -60,7 +60,7 @@ public:
 		return ret;
 	}
 	
-	operator std::vector<float> () const {
+	operator std::vector<double> () const {
 		return data;
 	}
 };

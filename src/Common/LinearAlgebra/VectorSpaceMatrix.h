@@ -30,11 +30,11 @@ class VectorSpaceMatrix : public Matrix {
 			// operazioni elementari tra matrici
 			// Get elemento
 			
-			float & get(int row,int col) {
+			double & get(int row,int col) {
 				return data[col](row);
 			}
 			
-			float & operator() (int row,int col) {
+			double & operator() (int row,int col) {
 				return get(row,col);
 			}
 

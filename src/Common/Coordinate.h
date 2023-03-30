@@ -14,20 +14,20 @@
 
 class Coordinate {
 	public:
-		Coordinate( float x, float y, float z )	:  x(x) , y(y) , z(z) {};
-		Coordinate(const std::vector<float> &v) : x(v[0]), y(v[1]), z(v[2]) {};
+		Coordinate( double x, double y, double z )	:  x(x) , y(y) , z(z) {};
+		Coordinate(const std::vector<double> &v) : x(v[0]), y(v[1]), z(v[2]) {};
 
 		/**
 		 * @brief Distance introduced by norm from this coordinate to the other
 		 * 
 		 * @param other the coordinate to calculate the norm respect with this object
-		 * @return float the distance
+		 * @return double the distance
 		 */
-		float d(Coordinate & other){
+		double d(Coordinate & other){
 			return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
 		}
 		
-		Coordinate operator*(float scalar) const {
+		Coordinate operator*(double scalar) const {
 			return Coordinate(x * scalar, y * scalar, z * scalar);
 		}
 		
@@ -36,7 +36,7 @@ class Coordinate {
 		}
 		// transpose(this) * other
 		//element-wise multiplication
-		float operator*(Coordinate& other) const {
+		double operator*(Coordinate& other) const {
 			return  x * other.x + y * other.y + z * other.z;
 		}
 
@@ -58,15 +58,15 @@ class Coordinate {
 			return (*this);
 		}
 		
-		const float getX() const {return x;}
-		const float getY() const {return y;}
-		const float getZ() const {return z;}
+		const double getX() const {return x;}
+		const double getY() const {return y;}
+		const double getZ() const {return z;}
 
-		const float setX(const float x_) {return x = x_;}
-		const float setY(const float y_) {return y = y_;}
-		const float setZ(const float z_) {return z = z_;}
+		const double setX(const double x_) {return x = x_;}
+		const double setY(const double y_) {return y = y_;}
+		const double setZ(const double z_) {return z = z_;}
 
-		const float& operator[](int i) {
+		const double& operator[](int i) {
 			// ammette l'accesso per indice
 			switch(i) {
 				case 0: {
@@ -86,9 +86,9 @@ class Coordinate {
 		}
 
 	private:
-		float x;	
-		float y;
-		float z;
+		double x;	
+		double y;
+		double z;
 
 
 

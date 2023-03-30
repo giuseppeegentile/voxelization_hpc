@@ -21,7 +21,7 @@ class IR {
 	public:
 		IR() {};
 		void push(Coordinate & c);
-		void push(float x,float y, float z);
+		void push(double x,double y, double z);
 		void print();
 		Coordinate principalComponent();
 		
@@ -33,8 +33,8 @@ class IR {
 			data[i] = value;
 		}
 
-		std::vector<float> getVectorBasis(const int num_basis){
-			std::vector<float> ret(data.size());
+		std::vector<double> getVectorBasis(const int num_basis){
+			std::vector<double> ret;
 			for(int i = 0; i < data.size(); i++){
 				ret.push_back(data[i][num_basis]);
 			}

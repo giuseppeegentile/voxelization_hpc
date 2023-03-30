@@ -1,7 +1,7 @@
 /*IR.cpp*/
 #include "IR.h"
 
-void IR::push(float x,float y,float z)
+void IR::push(double x,double y,double z)
 {
 	Coordinate c(x,y,z);
 	data.push_back( c );
@@ -27,7 +27,7 @@ Coordinate IR::principalComponent()
 	// calcolo la media campionaria
 	
 	Coordinate mean(0.0f, 0.0f, 0.0f);
-	std::vector<float> sum(3, 0.0f);
+	std::vector<double> sum(3, 0.0f);
 	/*for(size_t k = 0 ; k < data.size(); k++) {
 		mean.setX((data[k].getX() + mean.getX() * k) / (k+1));
 		mean.setY((data[k].getY() + mean.getY() * k) / (k+1));
@@ -39,7 +39,7 @@ Coordinate IR::principalComponent()
 		sum[2] += point.getZ();
 	}
 
-	const float numPoints = static_cast<float>(data.size());
+	const double numPoints = static_cast<double>(data.size());
 	mean.setX(sum[0] / numPoints);
 	mean.setY(sum[1] / numPoints);
 	mean.setZ(sum[2] / numPoints);
@@ -51,11 +51,11 @@ Coordinate IR::principalComponent()
 	// calcolo la matrice di covarianza
 	//versione 2 *************************
 
-	std::vector<std::vector<float>> M(3, std::vector<float>(3, 0.0f));
+	std::vector<std::vector<double>> M(3, std::vector<double>(3, 0.0f));
 	for (size_t k = 0; k < data.size(); k++) {
-		const float x_dev = data[k].getX() - mean.getX();
-		const float y_dev = data[k].getY() - mean.getY();
-		const float z_dev = data[k].getZ() - mean.getZ();
+		const double x_dev = data[k].getX() - mean.getX();
+		const double y_dev = data[k].getY() - mean.getY();
+		const double z_dev = data[k].getZ() - mean.getZ();
 		//l'unica differenza è avere for in meno, unrollati
 		M[0][0] += x_dev * x_dev;
 		M[0][1] += x_dev * y_dev;
@@ -87,14 +87,14 @@ Coordinate IR::principalComponent()
 	
 	// trovo l'autovettore piu significativo della matrice di covarianza
 	
-	std::vector<float> v = {1, 0 ,0}; // vettore initial guess di norma 1
+	std::vector<double> v = {1, 0 ,0}; // vettore initial guess di norma 1
 	for (int k = 0 ; k < maxiter_power; k++)
 	{
-		std::vector<float> w;
+		std::vector<double> w;
 		w.reserve(canonical_size);
 		for(int i = 0 ; i < canonical_size;i++)
 		{
-			float buffer = 0.0f;
+			double buffer = 0.0f;
 			for(int j = 0 ; j < canonical_size; j++) {	
 				buffer += M[i][j] * v[j];
 			}
@@ -103,11 +103,11 @@ Coordinate IR::principalComponent()
 		}
 		
 		// normalizzazione
-		//float norma = std::sqrt(w[0]*w[0] + w[1]*w[1] + w[2]*w[2]);
-		float norma = std::sqrt(std::inner_product(w.begin(), w.end(), w.begin(), 0.0f));
+		//double norma = std::sqrt(w[0]*w[0] + w[1]*w[1] + w[2]*w[2]);
+		double norma = std::sqrt(std::inner_product(w.begin(), w.end(), w.begin(), 0.0f));
 		// for(int i = 0; i < canonical_size; i++)
 		// 	v[i] = w[i] / norma;
-		for(float& x: w) x /= norma;
+		for(double& x: w) x /= norma;
 		std::cout << v[0] << "\t" << v[1] << "\t" << v[2] << std::endl;
 	}
 	

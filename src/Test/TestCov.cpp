@@ -60,6 +60,7 @@ int main() {
 		std::cout << s << std::endl;
 	std::cout << "+------------------------------+" << std::endl;
 	
+	//std::vector<double> sol {430.54577095, 215.20620032,  86.91140941};
 	VectorSpaceMatrix M = cov.eigenvectors(sol);
 	M.print();
 	

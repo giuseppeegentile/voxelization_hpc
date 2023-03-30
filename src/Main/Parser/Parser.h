@@ -10,7 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-
+#include <limits>
 
 class Parser
 {
@@ -27,17 +27,21 @@ class Parser
 				// fino a quando ci sono righe da leggere...
 				while (std::getline(file, line))
 				{
-					if( line.substr(0,1) == "A" )
+					if( line.substr(0,4) == "ATOM" ) // dava problemi con il solo "A"
 					{
 						// SOLUZIONE BRUTTA: leggo dopo il carattere 28 che sono sicuro ci stanno i double
-						std::string data = line.substr(28, line.length());
+						std::string data = line.substr(31, line.length() - 31);
 						std::stringstream streamer(data);
-						float x,y,z;
+						streamer.precision(std::numeric_limits<double>::digits10 - 1);
+						double x,y,z;
 						// SALVO I VALORI LOCALMENTE
 						streamer >> x;
 						streamer >> y;
 						streamer >> z;
 						// AGGIORNO LA STRUTTURA DATI
+						
+						//std::cout << x << "\t" << y << "\t" << z << std::endl;
+						//getchar();
 						intermediateRepresentation.push(x,y,z);
 					}
 				}

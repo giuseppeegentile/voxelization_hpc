@@ -30,13 +30,13 @@ public:
 	// operazioni elementari tra matrici
 	// Get elemento
 	
-	virtual const float & getc(int row,int col) const {	// dichiaro come virtual in modo
+	virtual const double & getc(int row,int col) const {	// dichiaro come virtual in modo
 		return data[row].getc(col);						// da fare il modo che i metodi che li utilizzano
 	}			
-	virtual float & get(int row,int col) {				// dichiaro come virtual in modo
+	virtual double & get(int row,int col) {				// dichiaro come virtual in modo
 		return data[row](col);							// da fare il modo che i metodi che li utilizzano
 	}													// vengano "ricompilati" nei metodi ereditati
-	virtual float & operator() (int row,int col) {		// dalle classi figlie
+	virtual double & operator() (int row,int col) {		// dalle classi figlie
 		return get(row,col);
 	}
 	
@@ -111,7 +111,7 @@ public:
 		return ret;
 	}
 	
-	Matrix operator * (float lambda) {
+	Matrix operator * (double lambda) {
 		Matrix ret(r(),c());
 		for(int i = 0 ; i < r();i++)
 			for(int j = 0; j < c();j++)
