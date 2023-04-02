@@ -200,9 +200,9 @@ std::vector<double> CovarianceMatrix::thirdDegreeSolver(std::vector<double> coef
         x3 = 2*sqrt(-p/(3*a))*cos((u - 2*M_PI)/3) - (b/(3*a));
     }
 
-	x[0] = x_1;
-	x[1] = x_2;
-	x[2] = x_3;
+	x[0] = x1;
+	x[1] = x2;
+	x[2] = x3;
 	
 	std::vector<double> x_sorted(3);		
 	std::vector<int> argsorted = Utilities::argsort(x);
