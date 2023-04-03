@@ -11,6 +11,8 @@
 #include <iostream>
 #include "Vector.h"
 
+/*per farti vedere quanto va "bene" eigen, in senso di tempo*/
+
 class Matrix {
 public:
 	// costruttori

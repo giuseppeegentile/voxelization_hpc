@@ -63,13 +63,12 @@ int main() {
 	}
 	std::cout << "samples; " << n << "; ";
 	std::cout << "area stimata rispetto al cubo; " << (static_cast<float>(pieni)/n) << "; ";
-
 	
 	// é un risultato atteso che l'area decresca con l'aumentare della precisione.
 	// infatti stiamo approssimando punti con cubetti, quindi piu diminuisce il cubetto
 	// piu diminuisce il contributo in termini di area
 	
-	
+
 	/*** TEST 2
 	//
 	// Passeggiata aleatoria nel cubo continuo

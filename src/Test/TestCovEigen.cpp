@@ -6,6 +6,8 @@
 #include <iostream>
 #include <random>
 #include "../Main/Parser/CovarianceEigen.hpp"
+#include <fstream>
+
 
 //// stack overflow
 #include <chrono>
@@ -37,7 +39,9 @@ private:
 	double stopped_time;
 };
 
-///////////////////////////////////////////////////
+
+
+
 
 int main() {
 	/*
@@ -46,11 +50,63 @@ int main() {
 	for(int i = 0 ; i < x.size();i++)
 		std::cout << x[i] << "\t" << argsorted[i] << std::endl;
 	return 0;*/
+	// leggo il file
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
-	Structure S(I, 257);
-	VoxelGrid & voxelGrid = S.getVoxelGrid();
-    CovarianceEigen cov(I);
-	
+	std::ofstream csv_output;
+	csv_output.open("pca_tests.csv");
+
+	// per ogni test
+	for(int test = 0; test < 5;test++)
+	{
+		// per ogni permutazione
+
+		// definiamo un vettore da 0 a 5
+		std::vector<int> permutazioni{0,1,2,3,4,5};
+		// lo rimescoliamo casualmente
+		std::minstd_rand0 generator(0);
+		std::shuffle(permutazioni.begin(), permutazioni.end(),generator) ;
+		for(int permutazione : permutazioni)
+		{
+				int pieni = 0;
+				// test casuale
+				int n = 100000000;
+				std::minstd_rand0 generator(0);
+				
+				std::uniform_int_distribution<>     choose_point(0, I.getData().size() - 1);
+				std::normal_distribution<double>          eps(0.0,5.0);
+				
+				choose_point.reset();
+				eps.reset();
+				
+				Timer tmr;
+
+				{
+					IR & I = P.getIR();
+					Structure S(I, 257);
+					VoxelGrid & voxelGrid = S.getVoxelGrid();
+					CovarianceEigen cov(I);
+					cov.principalComponentProjection(permutazione);
+
+					// applico il test di copertura convessa
+					for(int i = 0;i < n;i++)
+					{
+						tmr.stop();
+						int pos      = choose_point(generator);			// k <- campionato da U(0, size()-1)
+						Coordinate p = I.getData()[pos];				// p <- x[k]
+						Coordinate e = Coordinate(eps(generator),		// e <- campionato da N( (0,0,0) , sigma^2)
+												eps(generator),		
+												eps(generator)); 		
+						p           += e;								// p <- p + e
+						tmr.restart();
+						pieni += S(p);									// access(p)
+					}
+				}
+
+				std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
+				csv_output << permutazione << " ; " << tmr.elapsed() << std::endl;	
+		}
+	}
+
 	return 0;
 }

@@ -9,7 +9,6 @@
 #include "IR.h"
 #include "../../Common/Utilities.h"
 #include <cmath>
-
 #include <eigen3/Eigen/Dense>
 
 
@@ -20,7 +19,8 @@
  */
 class CovarianceEigen{
     public:
-        CovarianceEigen(IR &ir)
+		CovarianceEigen(IR & ir) :
+			ir(ir)
 			{
 				// IN  : una rappresentazione intermedia
 				// OUT : la matrice di covarianza della rappresentazione intermedia
@@ -40,7 +40,7 @@ class CovarianceEigen{
 															//		   mentre 1/(k+1) ---> 0
 				// ???
 				
-				std::cout << "Sample mean = " << avg_x << "," << avg_y << "," << avg_z << std::endl; 
+				//std::cout << "Sample mean = " << avg_x << "," << avg_y << "," << avg_z << std::endl; 
 	
 				IR standardizedIR;
 				
@@ -67,8 +67,9 @@ class CovarianceEigen{
 				// std::cout << chole.row(1) << std::endl;
 				// std::cout << chole.row(2) << std::endl;
 				Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
-				std::cout << eigensolver.eigenvalues() << std::endl;
-				std::cout << eigensolver.eigenvectors() << std::endl;
+				
+				// std::cout << eigensolver.eigenvalues() << std::endl;
+				// std::cout << eigensolver.eigenvectors() << std::endl;
 				
 			}
         /**
@@ -89,12 +90,42 @@ class CovarianceEigen{
 		// autovalori
 		
         // ritorna gli autovalori
-        std::vector<double> eigenvalues();		// si sceglie di implementare il tipo di ritorno come vector<double> anziché Vector	
-													// dal momento che il risultato non é da intendersi come un vettore 											// geometrico ma come una semplice collezione di valori, che mantiene la propria semantica
-		std::vector<std::vector<double>> eigenvectors(std::vector<double> evalues);
+		// si sceglie di implementare il tipo di ritorno come vector<double> anziché Vector	
+													// dal momento che il risultato non é da intendersi come un vettore
+													// geometrico ma come una semplice collezione di valori, che mantiene la propria semantica
+        std::vector<double> eigenvalues(){
+			Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
+			std::vector<double> ret = {eigensolver.eigenvalues().data()[0],
+										eigensolver.eigenvalues().data()[1],
+										eigensolver.eigenvalues().data()[2]};
+			return ret;									
+		}		
+
+		Eigen::Matrix3d eigenvectors(){
+			Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
+			return eigensolver.eigenvectors();	
+		}
+
+
+	void principalComponentProjection(int permutation) {
+		// calcola gli autovettori
+		CovarianceEigen C(*this);
+		auto M = C.eigenvectors();
+
+		// calcola la permutazione 
+		Utilities::permutateByIndexMap(M, permutation);
+
+		// applico la proiezione
+		ir.project(M);
+	}
+		
+
+
+		inline const Eigen::Matrix3d getMatrix(){return matrix;}
 
 	private:
 		Eigen::Matrix3d matrix;
+		IR & ir;
 };
 
 #endif

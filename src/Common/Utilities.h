@@ -3,6 +3,10 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include "../Traits/Perm_Traits.hpp"
+#include <eigen3/Eigen/Dense>
+#include <vector>
+
 class Utilities {
 	public:
 	template<typename T>
@@ -27,6 +31,13 @@ class Utilities {
 			}
 		}
 		return argsorted;
+	}
+
+
+	static void permutateByIndexMap(Eigen::Matrix3d & mat, const int mapIndex){
+		/*Eigen::PermutationMatrix<3, 3> perm; 
+		perm.indices() = {permutations[mapIndex][0],permutations[mapIndex][1], permutations[mapIndex][2]};
+		mat = mat * perm;*/
 	}
 };
 

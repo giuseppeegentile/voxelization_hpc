@@ -34,6 +34,10 @@ class Coordinate {
 		Coordinate operator + (Coordinate & other) const {
 			return Coordinate(x + other.x, y + other.y, z + other.z);
 		}
+
+		Coordinate operator - (Coordinate & other) const {
+			return Coordinate(x - other.x, y - other.y, z - other.z);
+		}
 		// transpose(this) * other
 		//element-wise multiplication
 		double operator*(Coordinate& other) const {
