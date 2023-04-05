@@ -12,7 +12,9 @@
 #include <stdexcept>
 #include <vector>
 
+
 class Coordinate {
+	friend class IR;
 	public:
 		Coordinate( double x, double y, double z )	:  x(x) , y(y) , z(z) {};
 		Coordinate(const std::vector<double> &v) : x(v[0]), y(v[1]), z(v[2]) {};
@@ -24,6 +26,8 @@ class Coordinate {
 		 * @return double the distance
 		 */
 		double d(Coordinate & other){
+			std::vector<double> tmp = {(x-other.x), (y-other.y), (z-other.z)};
+			return std::inner_product(tmp.begin(), tmp.end(), tmp.begin(), 0.0);
 			return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
 		}
 		
@@ -94,7 +98,8 @@ class Coordinate {
 		double y;
 		double z;
 
-
-
+		
+	public: // just for test 
+		std::vector<int> ir_neighbours;
 };
 #endif

@@ -18,7 +18,11 @@
 #include <cmath>
 #include <numeric>
 #include <algorithm>
+
+constexpr int num_neighbours = 3;
+
 class IR {
+	friend Coordinate;
 	public:
 		IR() {};
 		void push(Coordinate & c);
@@ -107,9 +111,34 @@ class IR {
 	}
 
 
+	// return vector of index of neighbours atom in the IR indexing
+	void populateNeighbours(){
+		// per ogni punto x nella rappresentazione intermedia
+		for(int i = 0; i < data.size(); i++){
+			// inizializzo un vettore delle distanze
+			std::vector<double> distance(data.size());
+			// inizializzo un vettore dell argsort delle distanze 
+			std::vector<int> indexed_distance(data.size());
+			// per ogni punto y nella rappresentazione intermedia
+			for(int j = 0; j < data.size(); j++){
+				// inserisco nel vettore delle distanze nella posizione associata ad y la distanza  ||x-y||
+				distance[j] = (data[i].d(data[j]));
+			}
+			// trovo il vettore ordinante delle distanze appena calcolate
+			indexed_distance = Utilities::argsort<double>(distance);
 
+			// inizializzo un vettore che mette in classifica le posizioni nella ir in funzione dalla distanza con x
+			std::vector<int> w(indexed_distance.size());
+			for(int k = 0; k < indexed_distance.size(); k++){
+				w[ indexed_distance[k] ] = k;
+			}
+			
+			// mi tengo i primi 10 ad esclusione del punto stesso x che ha ovviamente distanza 0
+			for(int l = 0; l < 3; l++)
+				data[i].ir_neighbours.push_back(w[l + 1]);
+		}
 
-
+	}
 
 	private:
 		std::vector<Coordinate> data;	// Array of structures dal momento

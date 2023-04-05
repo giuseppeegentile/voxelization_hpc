@@ -8,7 +8,6 @@
 #include "../Main/Parser/CovarianceEigen.hpp"
 #include <fstream>
 
-
 //// stack overflow
 #include <chrono>
 
@@ -40,9 +39,6 @@ private:
 };
 
 
-
-
-
 int main() {
 	/*
 	std::vector<float> x{3.0,3.0,4.0,5.,1.,5.};
@@ -53,12 +49,24 @@ int main() {
 	// leggo il file
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
+	I.populateNeighbours();
+	for(int i = 0 ; i < I.getData().size();i++)
+		{
+			std::cout << i << "\t\t\t\t";
+			for(int j = 0; j < I.getData()[i].ir_neighbours.size();j++) 
+			{
+				std::cout << I.getData()[i].ir_neighbours[j] << "\t";
+			}
+				std::cout << std::endl;
+		}
+
+
+	return 0;
 	std::ofstream csv_output;
 	csv_output.open("pca_tests.csv");
 
 	// per ogni test
-	for(int test = 0; test < 5;test++)
-	{
+	for(int test = 0; test < 1000;test++) {
 		// per ogni permutazione
 
 		// definiamo un vettore da 0 a 5
@@ -74,13 +82,12 @@ int main() {
 				std::minstd_rand0 generator(0);
 				
 				std::uniform_int_distribution<>     choose_point(0, I.getData().size() - 1);
-				std::normal_distribution<double>          eps(0.0,5.0);
+				std::normal_distribution<double>          eps(0.0,100.0);
 				
 				choose_point.reset();
 				eps.reset();
 				
 				Timer tmr;
-
 				{
 					IR & I = P.getIR();
 					Structure S(I, 257);

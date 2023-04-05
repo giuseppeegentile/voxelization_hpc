@@ -12,6 +12,9 @@
 #include <string>
 #include <limits>
 
+
+//constexpr double armstrong_threshold = 1.6;
+
 class Parser
 {
 	public:
@@ -46,9 +49,10 @@ class Parser
 					}
 				}
 			// fine
-			
-			
 		}; 
+
+		
+
 	
 	IR & getIR();
 	private:
