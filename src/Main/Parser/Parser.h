@@ -56,7 +56,6 @@ class Parser
 					}
 				}
 			}else{ // is a mol2 ifle
-			std::cout << "mpl2" << std::endl;
 				std::getline(file, line); // read the first line (which has the first "@")
 				while (std::getline(file, line) && line.substr(0,1) != "@");
 				// at this point I am in the first <TRIPOS>ATOM row -> start actually read atoms
