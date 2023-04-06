@@ -47,6 +47,15 @@ int main() {
 		std::cout << x[i] << "\t" << argsorted[i] << std::endl;
 	return 0;*/
 	// leggo il file
+
+	Parser parser_crystal("res/crystal.mol2");
+	IR & ir_crystal = parser_crystal.getIR();
+
+	for(auto & atoms : ir_crystal.getData()){
+		std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
+	}
+
+	return 0;
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
 	I.populateNeighbours();
@@ -61,7 +70,7 @@ int main() {
 		}
 
 
-	return 0;
+	return 0; /********************************/
 	std::ofstream csv_output;
 	csv_output.open("pca_tests.csv");
 

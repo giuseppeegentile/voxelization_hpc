@@ -26,8 +26,8 @@ class Coordinate {
 		 * @return double the distance
 		 */
 		double d(Coordinate & other){
-			std::vector<double> tmp = {(x-other.x), (y-other.y), (z-other.z)};
-			return std::inner_product(tmp.begin(), tmp.end(), tmp.begin(), 0.0);
+			// std::vector<double> tmp = {(x-other.x), (y-other.y), (z-other.z)};
+			// return std::inner_product(tmp.begin(), tmp.end(), tmp.begin(), 0.0);
 			return std::sqrt( (x-other.x)*(x-other.x) + (y-other.y)*(y-other.y) + (z-other.z)*(z-other.z)  );
 		}
 		
