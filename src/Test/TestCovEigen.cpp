@@ -51,10 +51,16 @@ int main() {
 	Parser parser_crystal("res/crystal.mol2");
 	IR & ir_crystal = parser_crystal.getIR();
 
-	/*for(auto & atoms : ir_crystal.getData()){
+	for(auto & atoms : ir_crystal.getData()){
 		std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
-	}*/
-
+	}
+	//ordinamento con distanza euclidea dall'origine crescente
+	ir_crystal.sortData();
+	std::cout << "****************** sorted: ***************" << std::endl;
+	for(auto & atoms : ir_crystal.getData()){
+		std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
+	}
+	
 	Parser P("res/2j47.pdb");
 	IR & I = P.getIR();
 	I.populateNeighbours();

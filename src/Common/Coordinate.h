@@ -11,8 +11,9 @@
 #include <cmath>
 #include <stdexcept>
 #include <vector>
-
-
+#include <cmath>
+#include <numeric>
+#include <algorithm>
 class Coordinate {
 	friend class IR;
 	public:
@@ -42,13 +43,26 @@ class Coordinate {
 		Coordinate operator - (Coordinate & other) const {
 			return Coordinate(x - other.x, y - other.y, z - other.z);
 		}
+
+		Coordinate operator / (double q) const {
+			return Coordinate(x / q, y / q, z / q);
+		}
+
 		// transpose(this) * other
 		//element-wise multiplication
 		double operator*(Coordinate& other) const {
 			return  x * other.x + y * other.y + z * other.z;
 		}
 
-
+		// is this smaller in norm than other ? yes -> true, no -> false
+		bool operator < (Coordinate & other) const {
+			// return Coordinate(x - other.x, y - other.y, z - other.z);
+			std::vector<double> this_coordinate = {x, y, z};
+			std::vector<double> other_coordinate = {other.x, other.y, other.z};
+			return (std::inner_product(this_coordinate.begin(), this_coordinate.end(), this_coordinate.begin(), 0.0) 
+										< 
+					std::inner_product(other_coordinate.begin(), other_coordinate.end(), other_coordinate.begin(), 0.0) );
+		}
 
 		Coordinate & operator += (Coordinate & other)
 		{
