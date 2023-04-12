@@ -15,102 +15,84 @@ void IR::print()
 	}
 }
 
-Coordinate IR::principalComponent()
-{
-	// Algoritmo: 
-	// Applico il power method sulla matrice (X^T @ X)
-	
-	// repeat until convergence:
-	//		w <- (X_zc^T @ X_zc) @ v
-	//		v <- w / ||w||
-	
-	// calcolo la media campionaria
-	
-	Coordinate mean(0.0f, 0.0f, 0.0f);
-	std::vector<double> sum(3, 0.0f);
-	/*for(size_t k = 0 ; k < data.size(); k++) {
-		mean.setX((data[k].getX() + mean.getX() * k) / (k+1));
-		mean.setY((data[k].getY() + mean.getY() * k) / (k+1));
-		mean.setZ((data[k].getZ() + mean.getZ() * k) / (k+1));
-	}*/
-	for (const auto& point : data) {
-		sum[0] += point.getX();
-		sum[1] += point.getY();
-		sum[2] += point.getZ();
+
+Coordinate IR::getCenterOfMass(){ //avg of each coordinate alone
+	double sum_x = 0;
+	double sum_y = 0;
+	double sum_z = 0;
+	// sum for each coordinate
+	for(auto &d : data){
+		sum_x += d.getX();
+		sum_y += d.getY();
+		sum_z += d.getZ();
 	}
+	// divide by number of points the summed coordinate
+	return Coordinate(sum_x, sum_y, sum_z) / data.size();
+}
 
-	const double numPoints = static_cast<double>(data.size());
-	mean.setX(sum[0] / numPoints);
-	mean.setY(sum[1] / numPoints);
-	mean.setZ(sum[2] / numPoints);
-
-	
-	std::cout << mean.getX() << " " << mean.getY() << " " << mean.getZ() << std::endl;
-	
-	
-	// calcolo la matrice di covarianza
-	//versione 2 *************************
-
-	std::vector<std::vector<double>> M(3, std::vector<double>(3, 0.0f));
-	for (size_t k = 0; k < data.size(); k++) {
-		const double x_dev = data[k].getX() - mean.getX();
-		const double y_dev = data[k].getY() - mean.getY();
-		const double z_dev = data[k].getZ() - mean.getZ();
-		//l'unica differenza è avere for in meno, unrollati
-		M[0][0] += x_dev * x_dev;
-		M[0][1] += x_dev * y_dev;
-		M[0][2] += x_dev * z_dev;
-		M[1][0] += y_dev * x_dev;
-		M[1][1] += y_dev * y_dev;
-		M[1][2] += y_dev * z_dev;
-		M[2][0] += z_dev * x_dev;
-		M[2][1] += z_dev * y_dev;
-		M[2][2] += z_dev * z_dev;
-	}
-
-
-	//versione 1 *************************
-	/*for(int i = 0 ; i < 3;i++)
-	{	
-		for(int j = 0; j < 3;j++)
-		{
-			for(size_t k = 0 ; k < data.size();k++)
-			{
-				M[i][j] += (data[k][i] - mean[i]) * ( data[k][j] - mean[j]);
-			}
-			std::cout << M[i][j] << "\t";
+void IR::populateNeighbours(){
+	// per ogni punto x nella rappresentazione intermedia
+	for(int i = 0; i < data.size(); i++){
+		// inizializzo un vettore delle distanze
+		std::vector<double> distance(data.size());
+		// inizializzo un vettore dell argsort delle distanze 
+		std::vector<int> indexed_distance(data.size());
+		// per ogni punto y nella rappresentazione intermedia
+		for(int j = 0; j < data.size(); j++){
+			// inserisco nel vettore delle distanze nella posizione associata ad y la distanza  ||x-y||
+			distance[j] = (data[i].d(data[j]));
 		}
-			std::cout << std::endl;
-	}*/
-	
-	
-	
-	// trovo l'autovettore piu significativo della matrice di covarianza
-	
-	std::vector<double> v = {1, 0 ,0}; // vettore initial guess di norma 1
-	for (int k = 0 ; k < maxiter_power; k++)
-	{
-		std::vector<double> w;
-		w.reserve(canonical_size);
-		for(int i = 0 ; i < canonical_size;i++)
-		{
-			double buffer = 0.0f;
-			for(int j = 0 ; j < canonical_size; j++) {	
-				buffer += M[i][j] * v[j];
-			}
-			//w[i] = buffer;
-			w.push_back(buffer);
+		// trovo il vettore ordinante delle distanze appena calcolate
+		indexed_distance = Utilities::argsort<double>(distance);
+
+		// inizializzo un vettore che mette in classifica le posizioni nella ir in funzione dalla distanza con x
+		std::vector<int> w(indexed_distance.size());
+		for(int k = 0; k < indexed_distance.size(); k++){
+			w[ indexed_distance[k] ] = k;
 		}
 		
-		// normalizzazione
-		//double norma = std::sqrt(w[0]*w[0] + w[1]*w[1] + w[2]*w[2]);
-		double norma = std::sqrt(std::inner_product(w.begin(), w.end(), w.begin(), 0.0f));
-		// for(int i = 0; i < canonical_size; i++)
-		// 	v[i] = w[i] / norma;
-		for(double& x: w) x /= norma;
-		std::cout << v[0] << "\t" << v[1] << "\t" << v[2] << std::endl;
+		// mi tengo i primi 10 ad esclusione del punto stesso x che ha ovviamente distanza 0
+		for(int l = 0; l < 3; l++)
+			data[i].ir_neighbours.push_back(w[l + 1]);
 	}
-	
-	Coordinate ret(v);
-	return ret;
+
+}
+
+
+void IR::project(Eigen::Matrix3d & V) {
+		// IN : una matrice che rappresenta nei suoi vettori colonna la base di uno spazio vettoriale
+		// OUT: la proiezione della matrice di rappresentazione intermedia sulla base indotta dalla matrice in input
+
+		// calcoliamo la media
+		Coordinate mean(0.0f, 0.0f, 0.0f);
+		std::vector<double> sum(3, 0.0f);
+		for (const auto& point : data) {
+			sum[0] += point.getX();
+			sum[1] += point.getY();
+			sum[2] += point.getZ();
+		}
+
+		const double numPoints = static_cast<double>(data.size());
+		mean.setX(sum[0] / numPoints);
+		mean.setY(sum[1] / numPoints);
+		mean.setZ(sum[2] / numPoints);
+
+		// rimuoviamo la media
+		for(int i = 0 ; i < data.size();i++)
+		{
+			data[i] = data[i] - mean;	
+		}
+
+		// calcoliamo le nuove posizioni
+		// per ogni vettore u_i nella rappresentazione centrata
+		for( int i = 0 ; i < data.size();i++) 
+		{
+			// calcolo il prodotto w_i = u_i^T V dove V é la matrice degli autovettori
+			Eigen::Vector3d u( data[i].getX(), data[i].getY(), data[i].getZ()  );
+			Eigen::Vector3d w = u.transpose() * V;
+			data[i].setX(w[0]);
+			data[i].setY(w[1]);
+			data[i].setZ(w[2]);
+		}
+
 }

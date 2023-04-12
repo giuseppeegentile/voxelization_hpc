@@ -13,7 +13,7 @@
 #include <limits>
 
 
-//constexpr double armstrong_threshold = 1.6;
+//constexpr double angstroms_threshold = 1.6;
 
 class Parser
 {

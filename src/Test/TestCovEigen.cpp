@@ -51,31 +51,108 @@ int main() {
 	Parser parser_crystal("res/crystal.mol2");
 	IR & ir_crystal = parser_crystal.getIR();
 
-	for(auto & atoms : ir_crystal.getData()){
-		std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
-	}
+	// for(auto & atoms : ir_crystal.getData()){
+	// 	std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
+	// }
+
 	//ordinamento con distanza euclidea dall'origine crescente
 	ir_crystal.sortData();
-	std::cout << "****************** sorted: ***************" << std::endl;
-	for(auto & atoms : ir_crystal.getData()){
-		std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
+
+
+	//get the center of mass of the crystal
+	Coordinate com_crystal = ir_crystal.getCenterOfMass();
+
+
+	std::cout << "****************** sorted ***************" << std::endl;
+
+	// for(auto & atoms : ir_crystal.getData()){
+	// 	std::cout << atoms.getX() << " " << atoms.getY()  << " "<< atoms.getZ() << std::endl;
+	// }
+	
+	Parser protein_parser("res/2j47.pdb");
+	IR & ir_protein = protein_parser.getIR();
+	ir_protein.sortData();
+	// ir_protein.populateNeighbours();
+	// for(int i = 0 ; i < ir_protein.getData().size();i++){
+	// 	std::cout << i << "\t\t\t\t";
+	// 	for(int j = 0; j < ir_protein.getData()[i].ir_neighbours.size();j++) {
+	// 		std::cout << ir_protein.getData()[i].ir_neighbours[j] << "\t";
+	// 	}
+	// 	std::cout << std::endl;
+	// }
+
+	
+	//precalculate the index of the points inside the sphere of 8 angstrom to not impact the performance evaluation later
+	std::vector<Coordinate> sphere; //we don't know how many points will be in the sphere...
+
+	//first add all points of the protein in the radius of 8 from the center of mass of the crystal
+	//in the second loop all point of the crystal with radius of 8 will be added
+
+	for(auto& c: ir_protein.getData()){
+		if(c.d(com_crystal) < 8) { // if the distance from a point of the protein and the center of mass of the crystal is less than 8 , then add that point in the sphere
+			sphere.push_back(c); // sorry luk
+		}
 	}
 	
-	Parser P("res/2j47.pdb");
-	IR & I = P.getIR();
-	I.populateNeighbours();
-	for(int i = 0 ; i < I.getData().size();i++)
-		{
-			std::cout << i << "\t\t\t\t";
-			for(int j = 0; j < I.getData()[i].ir_neighbours.size();j++) 
-			{
-				std::cout << I.getData()[i].ir_neighbours[j] << "\t";
-			}
-				std::cout << std::endl;
+	for(auto& c: ir_crystal.getData()){
+		if(c.d(com_crystal) < 8) {
+			sphere.push_back(c); // :( 
 		}
+	}
+
+	//shuffle the array in order to have a random index array
+	std::shuffle(sphere.begin(), sphere.end(), std::default_random_engine(1));
+	
+	Structure structure(ir_protein, 1024);
+
+	//si usa lo stesso test di prima
+	std::ofstream pca_csv;
+	pca_csv.open("pca_new_test.csv");
+
+
+	// per ogni test
+	for(int test = 0; test < 1000;test++) {
+		// per ogni permutazione
+
+		// definiamo un vettore da 0 a 5
+		std::vector<int> permutazioni{0,1,2,3,4,5};
+		// lo rimescoliamo casualmente
+		std::minstd_rand0 generator(0);
+		std::shuffle(permutazioni.begin(), permutazioni.end(),generator) ;
+		for(int permutazione : permutazioni)
+		{
+			Timer tmr;
+			{
+				VoxelGrid & voxelGrid = structure.getVoxelGrid();
+				CovarianceEigen cov(ir_protein);
+				cov.principalComponentProjection(permutazione);
+				int pieni = 0;
+				// applico il test di copertura convessa
+				for(auto &s: sphere)
+				{
+					tmr.stop();							
+					tmr.restart();
+					pieni += structure(s);									
+				}
+			}
+
+			std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
+			pca_csv << permutazione << " ; " << tmr.elapsed() << std::endl;			
+		}
+	}
+	pca_csv.close();
 
 
 	return 0; /********************************/
+
+
+
+
+
+
+
+
+
 	std::ofstream csv_output;
 	csv_output.open("pca_tests.csv");
 
@@ -95,7 +172,7 @@ int main() {
 				int n = 100000000;
 				std::minstd_rand0 generator(0);
 				
-				std::uniform_int_distribution<>     choose_point(0, I.getData().size() - 1);
+				std::uniform_int_distribution<>     choose_point(0, ir_protein.getData().size() - 1);
 				std::normal_distribution<double>          eps(0.0,100.0);
 				
 				choose_point.reset();
@@ -103,7 +180,7 @@ int main() {
 				
 				Timer tmr;
 				{
-					IR & I = P.getIR();
+					IR & I = protein_parser.getIR();
 					Structure S(I, 257);
 					VoxelGrid & voxelGrid = S.getVoxelGrid();
 					CovarianceEigen cov(I);
