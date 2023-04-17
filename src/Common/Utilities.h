@@ -35,9 +35,9 @@ class Utilities {
 
 
 	static void permutateByIndexMap(Eigen::Matrix3d & mat, const int mapIndex){
-		/*Eigen::PermutationMatrix<3, 3> perm; 
+		Eigen::PermutationMatrix<3, 3> perm; 
 		perm.indices() = {permutations[mapIndex][0],permutations[mapIndex][1], permutations[mapIndex][2]};
-		mat = mat * perm;*/
+		mat = mat * perm;
 	}
 };
 

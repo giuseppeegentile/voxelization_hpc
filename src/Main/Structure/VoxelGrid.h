@@ -13,9 +13,10 @@
 class VoxelGrid
 {
 	public:
-			VoxelGrid(IR & intermediateRepresentation, int precision = 32, bool optimizedCalibration = false, const std::vector<int> &conf = {}) :
+			VoxelGrid(IR & intermediateRepresentation, size_t precision = 32, bool optimizedCalibration = false, const std::vector<int> &conf = {}) :
 			data(precision * precision * precision), precision(precision)
 			{
+				
 				// IN : una rappresentazione intermedia
 				// OUT: una griglia di voxel
 				
@@ -37,6 +38,7 @@ class VoxelGrid
 				//		carico la rappresentazione intermedia
 				auto & V = intermediateRepresentation.getData();
 				
+				/**************************************************************************************************************/
 				//		trovo le dimensioni del cubo
 				minX = V[0].getX();
 				minY = V[0].getY();
@@ -86,14 +88,14 @@ class VoxelGrid
 					// data.set(x * a + y * b + z * c , true);	
 					
 					// 1.	costruisco il cubetto di dimensione caratteristica 1.6 arm
-					const int raggio_x =  1.6 * mul_coeff_x;
-					const int raggio_y =  1.6 * mul_coeff_y;
-					const int raggio_z =  1.6 * mul_coeff_z;
+					const long int raggio_x =  1.6 * mul_coeff_x;
+					const long int raggio_y =  1.6 * mul_coeff_y;
+					const long int raggio_z =  1.6 * mul_coeff_z;
 
 					// 2. per ogni punto nel rettangolo che iscrive l'ellisse
-					for ( int x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
-						for ( int y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
-							for ( int z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
+					for ( long int x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
+						for ( long int y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
+							for ( long int z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
 							{
 								// controllo di essere dentro l'ellisse
 								// x2/a2 + y2/b2 + z2/c2 = 1.
@@ -110,9 +112,9 @@ class VoxelGrid
 				}
 			};
 			
-			inline bool operator ()(int & x,			// non abbiamo bisogno di ritornare un reference
-									int & y,			// ci interessa solo la lettura delle proteine
-									int & z) 
+			inline bool operator ()(long int & x,			// non abbiamo bisogno di ritornare un reference
+									long int & y,			// ci interessa solo la lettura delle proteine
+									long int & z) 
 			{ 	
 				// vedi TODO (***)
 				// TODO (**) : sarebbe interessante fare un prefetching
@@ -133,9 +135,9 @@ class VoxelGrid
 	
 	// isomorfismo
 	
-	int cubeVectoriIsomorphism(int x,
-							   int y,
-							   int z) {
+	long int cubeVectoriIsomorphism(long int x,
+							   long int y,
+							   long int z) {
 								   return x * a + y * b + z * c;
 							   }
 	
@@ -234,7 +236,7 @@ class VoxelGrid
 										// permettendoci di massimizzare il numero 
 										// di dati nella cache
 		BoolVector data;
-		int precision;
+		size_t precision;
 		float minX,minY,minZ,maxX,maxY,maxZ;
 		float denX,denY,denZ;
 		float mul_coeff_x,mul_coeff_y,mul_coeff_z;

@@ -14,22 +14,23 @@ class BoolVector
 {
 	public:
 		
-		BoolVector(int size) :
-		data((size + 63) / 64 ,0), 
+		BoolVector(long int size) :
+		 
 		datasize(size)
 		{
+				data.reserve((size + 65) / 64);
 				//std::cout << "dimensione in memoria:" << size << std::endl;
 				//std::cout << "dimensione in vettore:" << data.size() << std::endl;
 		}
 		
-		inline const bool get(int i) {
-			const int cella = i >> 6;
-			const int settore = i & 0x3f;
+		inline const bool get(long int i) {
+			const long int cella = i >> 6;
+			uint64_t settore = i & 0x3f;
 			
 			return (data[cella] & ( 1ull << settore )) ;
 		}
 		
-		void set(int i, bool value) {
+		void set(unsigned long int i, bool value) {
 			//	TABELLA DI VERITÁ 
 			//	old    = vecchio valore della cella
 			//	input  = codifica one hot della posizione del settore (0-7)
@@ -53,20 +54,21 @@ class BoolVector
 			//const int cella = i >> 5;
 			//const int settore = i & 0x1f;
 			//char input   = 1 << settore;
-			//data[cella] = (value ? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
+			//data[cella] ong int = (value ? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
 			//data[cella] = (value ? (data[cella] | (1 << settore)) :  ( data[cella] & ~input ) );
-
-			int cella = i >> 6;
-			int settore = i & 0x3f;
-			data[cella] = (data[cella] & ~(1ull << settore)) | (value << settore);
+			//std::cout << i << std::endl;			
+			unsigned long int cella = i >> 6;
+			uint64_t settore = i & 0x3f;
+			//uint64_t settore = i % 64;
+			data[cella] =(data[cella] & ~(1ull << settore)) | (value << settore);
 			
 		}	
 		
 		
-		int size() {return datasize;}
+		long int size() {return datasize;}
 		
 		std::vector<uint64_t> data;
-		int datasize;
+		long int datasize;
 };
 
 #endif

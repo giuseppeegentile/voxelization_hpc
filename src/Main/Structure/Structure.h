@@ -13,9 +13,10 @@
 class Structure
 {
 	public:
-		Structure(IR & source,int precision = 32,bool optimizedCalibration = false, const std::vector<int>& conf = {}) : voxelGrid(source, precision, optimizedCalibration, conf) {
+		Structure(IR & source,size_t precision = 32,bool optimizedCalibration = false, const std::vector<int>& conf = {}) : voxelGrid(source, precision, optimizedCalibration, conf) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
+			
 		};
 		
 
@@ -27,9 +28,9 @@ class Structure
 		{ 	
 			// IN : coordinate spaziali
 			// OUT: presenza della proteina
-			int i = static_cast<int> ( (x - voxelGrid.minX) * voxelGrid.mul_coeff_x);	// ottiene la posizione relativa
-			int j = static_cast<int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
-			int k = static_cast<int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+			long int i = static_cast<long int> ( (x - voxelGrid.minX) * voxelGrid.mul_coeff_x);	// ottiene la posizione relativa
+			long int j = static_cast<long int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
+			long int k = static_cast<long int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																						// la posizione. Moltiplicandola per la precisione
 			bool condition = (
 								((i<0)||(i>=voxelGrid.precision)) ||

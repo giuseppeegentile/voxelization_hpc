@@ -87,23 +87,33 @@ int main() {
 
 	//first add all points of the protein in the radius of 8 from the center of mass of the crystal
 	//in the second loop all point of the crystal with radius of 8 will be added
-
+	std::cout << "***************** protein \n";
 	for(auto& c: ir_protein.getData()){
-		if(c.d(com_crystal) < 8) { // if the distance from a point of the protein and the center of mass of the crystal is less than 8 , then add that point in the sphere
-			sphere.push_back(c); // sorry luk
+		Coordinate traslation = c + com_crystal; //not sure about it, traslating the point of the protein to the center of mass of the crystal, 
+											//otherwise too few points in the sphere, since point of the proteins are very different to the one of the crystal
+		if(traslation.d(com_crystal) < 8) { // if the distance from a point of the protein and the center of mass of the crystal is less than 8 , then add that point in the sphere
+			for(int k = 0; k < 1000; k++) // let's add more point to have more data in order to perform statistic
+				sphere.push_back(c); // sorry luk
+			std::cout << c.getX() << " " << c.getY() << " " << c.getZ()<< std::endl;
 		}
 	}
-	
+	std::cout << "***************** crystal \n";
 	for(auto& c: ir_crystal.getData()){
 		if(c.d(com_crystal) < 8) {
-			sphere.push_back(c); // :( 
+			for(int k = 0; k < 1000; k++) // let's add more point to have more data in order to perform statistic
+				sphere.push_back(c); // :( 
+			std::cout << c.getX() << " " << c.getY() << " " << c.getZ()<< std::endl;
 		}
 	}
+
+	std::cout << "Element in the sphere (accesses performed to the data structure): " << sphere.size() << std::endl;
+
 
 	//shuffle the array in order to have a random index array
 	std::shuffle(sphere.begin(), sphere.end(), std::default_random_engine(1));
+	//std::sort(sphere.begin(), sphere.end());
 	
-	Structure structure(ir_protein, 1024);
+	Structure structure(ir_protein, 2048);
 
 	//si usa lo stesso test di prima
 	std::ofstream pca_csv;
@@ -136,7 +146,7 @@ int main() {
 				}
 			}
 
-			std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
+			//std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
 			pca_csv << permutazione << " ; " << tmr.elapsed() << std::endl;			
 		}
 	}

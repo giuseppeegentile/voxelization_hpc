@@ -25,6 +25,7 @@ class IR {
 	friend Coordinate;
 	public:
 		IR() {};
+		IR(std::vector<Coordinate> coords) : data(coords){};
 		void push(Coordinate & c);
 		void push(double x,double y, double z);
 		void print();

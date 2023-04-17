@@ -1,9 +1,9 @@
 y:
 	mkdir -p build
 	
-	c++						src/Test/TestCovEigen.cpp \
+	c++						src/Test/TempTest.cpp \
 						src/Main/Structure/*.cpp \
 						src/Main/Parser/*.cpp \
-						 -O3 -march=native -ffast-math\
-						-o  build/TestCov
+						 -O3 -march=native -g \
+						-o  build/TestCov 
 	
