@@ -66,7 +66,7 @@ class CovarianceEigen{
 				// std::cout << chole.row(0) << std::endl;
 				// std::cout << chole.row(1) << std::endl;
 				// std::cout << chole.row(2) << std::endl;
-				Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
+				//Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
 				
 				// std::cout << eigensolver.eigenvalues() << std::endl;
 				// std::cout << eigensolver.eigenvectors() << std::endl;

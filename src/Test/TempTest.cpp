@@ -7,7 +7,7 @@
 #include <random>
 #include "../Main/Parser/CovarianceEigen.hpp"
 #include <fstream>
-
+#include "../Common/config.h"
 //// stack overflow
 #include <chrono>
 
@@ -40,6 +40,8 @@ private:
 
 
 int main() {
+	
+
 	Parser parser_crystal("res/crystal.mol2");
 	IR & ir_crystal = parser_crystal.getIR();
 
@@ -74,7 +76,7 @@ int main() {
 	
 	IR ir(sphere);
 	
-	Structure structure(ir, 4096);
+	Structure structure(ir, PRECISION);
 	
 	//VoxelGrid & voxelGrid = S.getVoxelGrid();
 
@@ -93,36 +95,34 @@ int main() {
 
 	int seed = 0;
 	// per ogni test
-	for(int test = 0; test < 1000;test++, seed++) {
+	//for(int test = 0; test < 1000;test++, seed++) {
 		// per ogni permutazione
 
 		// definiamo un vettore da 0 a 5
-		std::vector<int> permutazioni{0,1,2,3,4,5};
+		std::vector<int> permutazioni{ 0, 1, 2, 3, 4, 5 };
 		// lo rimescoliamo casualmente
 		std::minstd_rand0 generator(seed);
 		std::shuffle(permutazioni.begin(), permutazioni.end(),generator) ;
-		for(int permutazione : permutazioni)
-		{
-			{
-                CovarianceEigen cov(ir);
-                cov.principalComponentProjection(permutazione);
+		for(int permutazione : permutazioni) {
+			CovarianceEigen cov(ir);
+			cov.principalComponentProjection(permutazione);
 
-				int pieni = 0;
-				// applico il test di copertura convessa
-				Timer tmr;
-				for(auto &s: sphere)
-				{
-					tmr.stop();							
-					tmr.restart();
-					pieni += structure(s);									
-				}
-				//std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
-				pca_csv << permutazione << " ; " << tmr.elapsed() << std::endl;	
+			int pieni = 0;
+			// applico il test di copertura convessa
+			Timer tmr;
+			tmr.stop();
+			for(auto &s: sphere)
+			{					
+				tmr.restart();
+				pieni += structure(s);
+				tmr.stop();
 			}
-
-					
+			//std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
+			pca_csv << permutazione << " ; " << tmr.elapsed() << std::endl;	
+						
 		}
-	}
+
+	//}
 	pca_csv.close();
 
 

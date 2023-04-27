@@ -10,6 +10,8 @@
 #include "../Parser/IR.h"
 #include "VoxelGrid.h"
 
+
+
 class Structure
 {
 	public:

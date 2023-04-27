@@ -60,8 +60,8 @@ class Coordinate {
 			std::vector<double> this_coordinate = {x, y, z};
 			std::vector<double> other_coordinate = {other.x, other.y, other.z};
 			return (std::inner_product(this_coordinate.begin(), this_coordinate.end(), this_coordinate.begin(), 0.0) 
-										< 
-					std::inner_product(other_coordinate.begin(), other_coordinate.end(), other_coordinate.begin(), 0.0) );
+							 	< 
+					std::inner_product(other_coordinate.begin(), other_coordinate.end(), other_coordinate.begin(), 0.0));
 		}
 
 		Coordinate & operator += (Coordinate & other)

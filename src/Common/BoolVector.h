@@ -9,28 +9,34 @@
 #include <iostream>
 #include <cstdlib>
 #include <immintrin.h>
+#include "config.h"
+
+constexpr int byte_const = 8;
 
 class BoolVector
 {
 	public:
 		
-		BoolVector(long int size) :
-		 
+		BoolVector(size_t size) :
+		//data( (size + sizeof(DATATYPE) + 1) / sizeof(DATATYPE) ,0), 
+		data (size + 65 / 64 ,0), 
 		datasize(size)
 		{
-				data.reserve((size + 65) / 64);
+			std::cout << sizeof(DATATYPE) << std::endl;
+			//std::cout << "sizeof(datatype) = " << sizeof(DATATYPE) << "\tprecision = "  << PRECISION << std::endl;
 				//std::cout << "dimensione in memoria:" << size << std::endl;
 				//std::cout << "dimensione in vettore:" << data.size() << std::endl;
 		}
 		
-		inline const bool get(long int i) {
-			const long int cella = i >> 6;
-			uint64_t settore = i & 0x3f;
-			
+		inline const bool get(size_t i) {
+			const size_t cella = i >> 6;
+			//const size_t cella = i >> sizeof(DATATYPE);
+			const size_t settore = i & 0x3f;
+			//const size_t settore = i & ((sizeof(DATATYPE) * byte_const) - 1);
 			return (data[cella] & ( 1ull << settore )) ;
 		}
 		
-		void set(unsigned long int i, bool value) {
+		void set(size_t i, bool value) {
 			//	TABELLA DI VERITÁ 
 			//	old    = vecchio valore della cella
 			//	input  = codifica one hot della posizione del settore (0-7)
@@ -54,21 +60,24 @@ class BoolVector
 			//const int cella = i >> 5;
 			//const int settore = i & 0x1f;
 			//char input   = 1 << settore;
-			//data[cella] ong int = (value ? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
+			//data[cella] = (value ? ((~(data[cella]) & input) | data[cella]) :  ( data[cella] & ~input ) );
 			//data[cella] = (value ? (data[cella] | (1 << settore)) :  ( data[cella] & ~input ) );
-			//std::cout << i << std::endl;			
-			unsigned long int cella = i >> 6;
-			uint64_t settore = i & 0x3f;
-			//uint64_t settore = i % 64;
-			data[cella] =(data[cella] & ~(1ull << settore)) | (value << settore);
+
+			size_t cella = i >> 6;
+			//size_t cella = i / sizeof(DATATYPE);
+			size_t settore = i & 0x3f ;
+			//size_t settore = i & ((sizeof(DATATYPE) * byte_const) - 1);
+			//size_t settore = i % sizeof(DATATYPE);
+
+			data[cella] = (data[cella] & ~(1ull << settore)) | (value << settore);
 			
 		}	
 		
 		
-		long int size() {return datasize;}
+		size_t size() {return datasize;}
 		
 		std::vector<uint64_t> data;
-		long int datasize;
+		size_t datasize;
 };
 
 #endif
