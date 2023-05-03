@@ -1,0 +1,26 @@
+# callgrind format
+version: 1
+creator: callgrind-3.15.0
+pid: 17062
+cmd:  build/TestPCACache
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 149999997
+desc: Trigger: Program termination
+
+positions: line
+events: Ir
+summary: 0
+
+
+ob=(1) /home/giuseppe/Documents/voxelization/voxelization_hpc/build/TestPCACache
+fl=(1) ???
+fn=(0) main
+0 1739999971
+
+totals: 1739999971

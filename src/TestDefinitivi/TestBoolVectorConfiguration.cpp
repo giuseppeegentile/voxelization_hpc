@@ -6,8 +6,7 @@
 #include "../Main/Parser/CovarianceEigen.hpp"
 #include <fstream>
 #include <omp.h>
-//// stack overflow
-#include <chrono>
+#include <valgrind/callgrind.h>
 
 int main() {
 	Parser protein_parser("res/2j47.pdb");
@@ -31,7 +30,7 @@ int main() {
     volatile double start;
     volatile double end;
     volatile double time = 0;
-
+	CALLGRIND_START_INSTRUMENTATION;
 	for(int i = 0;i < n; i+=11)
 	{
 		float x = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
@@ -100,7 +99,8 @@ int main() {
         //tmr.stop();
 
 	}
-
+	CALLGRIND_STOP_INSTRUMENTATION;
+	CALLGRIND_DUMP_STATS;
 
 
     //std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	
@@ -109,4 +109,5 @@ int main() {
                 
 	return 0; /********************************/
 }
+
 

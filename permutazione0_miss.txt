@@ -1,0 +1,23 @@
+==22576== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==22576== Collected : 1459999978 10000011 30000001 12 4 2 12 4 2
+==22576==
+==22576== I   refs:      1,459,999,978
+==22576== I1  misses:               12
+==22576== LLi misses:               12
+==22576== I1  miss rate:          0.00%
+==22576== LLi miss rate:          0.00%
+==22576==
+==22576== D   refs:         40,000,012  (10,000,011 rd + 30,000,001 wr)
+==22576== D1  misses:                6  (         4 rd +          2 wr)
+==22576== LLd misses:                6  (         4 rd +          2 wr)
+==22576== D1  miss rate:           0.0% (       0.0%   +        0.0%  )
+==22576== LLd miss rate:           0.0% (       0.0%   +        0.0%  )
+==22576==
+==22576== LL refs:                  18  (        16 rd +          2 wr)
+==22576== LL misses:                18  (        16 rd +          2 wr)
+==22576== LL miss rate:            0.0% (       0.0%   +        0.0%  )
+
+
+
+//comando 
+valgrind --tool=callgrind --instr-atstart=no --cache-sim=yes --log-file=TestPCACache.cachegrind build/TestPCACache
