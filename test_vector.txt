@@ -1,0 +1,23 @@
+2053== Cachegrind, a cache and branch-prediction profiler
+==12053== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==12053== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==12053== Command: build/TestBoolVectorConfiguration
+==12053== 
+--12053-- warning: L3 cache found, using its data for the LL simulation.
+16.7366
+==12053== 
+==12053== I   refs:      1,750,288,513
+==12053== I1  misses:           41,123
+==12053== LLi misses:            2,782
+==12053== I1  miss rate:          0.00%
+==12053== LLi miss rate:          0.00%
+==12053== 
+==12053== D   refs:        542,229,318  (367,538,162 rd   + 174,691,156 wr)
+==12053== D1  misses:        1,354,564  (  1,078,303 rd   +     276,261 wr)
+==12053== LLd misses:          465,360  (    190,195 rd   +     275,165 wr)
+==12053== D1  miss rate:           0.2% (        0.3%     +         0.2%  )
+==12053== LLd miss rate:           0.1% (        0.1%     +         0.2%  )
+==12053== 
+==12053== LL refs:           1,395,687  (  1,119,426 rd   +     276,261 wr)
+==12053== LL misses:           468,142  (    192,977 rd   +     275,165 wr)
+==12053== LL miss rate:            0.0% (        0.0%     +         0.2%  )
