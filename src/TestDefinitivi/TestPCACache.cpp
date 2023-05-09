@@ -12,7 +12,7 @@
 
 
 int main() {
-	Parser protein_parser("res/2j47.pdb");
+	Parser protein_parser("res/1a6w.pdb");
 	IR & ir_protein = protein_parser.getIR();
 	//ir_protein.sortData();
     
@@ -25,16 +25,13 @@ int main() {
 	Structure structure(ir_protein, PRECISION);
     VoxelGrid & voxelGrid = structure.getVoxelGrid();
 
-    std::ofstream pca_csv;
-
-	pca_csv.open("test_pca_performance.csv");
     int permutazione = 5; //////////////testo su una singola permutazione i cache miss
     int pieni = 0;
 
 
     CovarianceEigen cov(ir_protein);
     cov.principalComponentProjection(permutazione);
-    double start = omp_get_wtime();
+    ir_protein.sortData();
     CALLGRIND_START_INSTRUMENTATION;
     for(int i = 0;i < n; i++)
     {
@@ -48,12 +45,7 @@ int main() {
     CALLGRIND_STOP_INSTRUMENTATION;
     CALLGRIND_DUMP_STATS;
 
-    double end = omp_get_wtime();
-    
-
-    std::cout << end - start << std::endl;
-
-        return 0; /********************************/
+    return 0; /********************************/
 }
 
 

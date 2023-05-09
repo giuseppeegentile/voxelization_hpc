@@ -82,7 +82,7 @@ int main() {
 
 
 		//tmr.restart();
-        start = omp_get_wtime();
+        //*start = omp_get_wtime();
 		pieni += structure(x,y,z);
 		pieni += structure(x1,y1,z1);
 		pieni += structure(x2,y2,z2);
@@ -94,8 +94,8 @@ int main() {
 		pieni += structure(x8,y8,z8);
 		pieni += structure(x9,y9,z9);
 		pieni += structure(x10,y10,z10);
-        end = omp_get_wtime();
-        time += end - start;
+        /*end = omp_get_wtime();
+        time += end - start;*/
         //tmr.stop();
 
 	}
