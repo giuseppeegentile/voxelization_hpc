@@ -13,7 +13,7 @@
 class VoxelGrid
 {
 	public:
-			VoxelGrid(IR & intermediateRepresentation, size_t precision = 32, bool optimizedCalibration = false, const std::vector<int> &conf = {}) :
+			VoxelGrid(IR & intermediateRepresentation, size_t precision = 32, bool optimizedCalibration = false) :
 			data(precision * precision * precision), precision(precision)
 			{
 				
@@ -29,10 +29,8 @@ class VoxelGrid
 				// 	standardCalibration();
 				// }
 				
-				//Assumo che quando harcode_test true, optimized sarà false, solo per testing
-				conf.empty() ? 
-								(optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration()) : 
-								hardcodeCalibration(conf.at(0),conf.at(1),conf.at(2));	
+	
+				//optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration();
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
@@ -135,22 +133,10 @@ class VoxelGrid
 	
 	// isomorfismo
 	
-	long int cubeVectoriIsomorphism(long int x,
-							   long int y,
-							   long int z) {
-								   return x * a + y * b + z * c;
-							   }
-	
-	void hardcodeCalibration(int a_, int b_, int c_){
-		a = 1;
-		b = 1;
-		c = 1;
-		for(; 0 < a_; a_--) a *=precision;
-		for(; 0 < b_; b_--) b *=precision;
-		for(; 0 < c_; c_--) c *=precision;
+	long int cubeVectoriIsomorphism(long int x,  long int y,long int z) {
+		return x * a + y * b + z * c;
 	}
-
-
+	
 	// vecchio metodo di costruzione dell'isomorfismo
 	void standardCalibration() {
 		c = 1;
@@ -159,63 +145,63 @@ class VoxelGrid
 	}
 	
 	// nuovo metodo di costruzione dell'isomorfismo
-	void PCACalibration(IR & intermediateRepresentation) {
-		// IN : una rappresentazione intermedia
-		// OUT: modifica la mappa cubo |---> vettore in modo da rendere piu favorevole l'accesso alle tasche
+	// void PCACalibration(IR & intermediateRepresentation) {
+	// 	// IN : una rappresentazione intermedia
+	// 	// OUT: modifica la mappa cubo |---> vettore in modo da rendere piu favorevole l'accesso alle tasche
 		
-		// IDEA: Cerchiamo di sfruttare l'informazione contenuta nella geometria della molecola in modo da ottimizzare
-		// la localitá nel nostro storage.
-		// In particolare, se assumiamo che il ricercatore / algoritmo si muova nei punti di una Copertura Convessificata
-		// é naturale considerare come la direzione in cui c'é maggiore varianza é quella che ammette naturalmente
-		// una "libertá di movimento" maggiore ; vogliamo quindi che in quella direzione la localitá sia preservata il piu possibile
-		// in modo da minimizzare il rischio di cache fault
+	// 	// IDEA: Cerchiamo di sfruttare l'informazione contenuta nella geometria della molecola in modo da ottimizzare
+	// 	// la localitá nel nostro storage.
+	// 	// In particolare, se assumiamo che il ricercatore / algoritmo si muova nei punti di una Copertura Convessificata
+	// 	// é naturale considerare come la direzione in cui c'é maggiore varianza é quella che ammette naturalmente
+	// 	// una "libertá di movimento" maggiore ; vogliamo quindi che in quella direzione la localitá sia preservata il piu possibile
+	// 	// in modo da minimizzare il rischio di cache miss
 		
-		// +++ PSEUDO CODICE / CODICE +++
+	// 	// +++ PSEUDO CODICE / CODICE +++
 		
-		//	1. calcolo la prima componente principale v
+	// 	//	1. calcolo la prima componente principale v
 			
-		Coordinate v = intermediateRepresentation.principalComponent();
+	// 	Coordinate v = intermediateRepresentation.principalComponent();
 		
-		// calcolo il vettore w := ( ||e_i - v|| )_i
+	// 	// calcolo il vettore w := ( ||e_i - v|| )_i
 		
-		std::vector<Coordinate> e; // canonical base
-		e.push_back( Coordinate(1.,0.,0.));
-		e.push_back( Coordinate(0.,1.,0.));
-		e.push_back( Coordinate(0.,0.,1.));
+	// 	std::vector<Coordinate> e; // canonical base
+	// 	e.push_back( Coordinate(1.,0.,0.));
+	// 	e.push_back( Coordinate(0.,1.,0.));
+	// 	e.push_back( Coordinate(0.,0.,1.));
 		
-		std::vector<float> w(canonical_size, 0.0f);
-		for(int i = 0 ; i < canonical_size; i++) {
-			w[i] = e[i].d(v);
-		}
+	// 	std::vector<float> w(canonical_size, 0.0f);
+	// 	for(int i = 0 ; i < canonical_size; i++) {
+	// 		w[i] = e[i].d(v);
+	// 	}
 		
-		std::cout << "vettore \t " << w[0] << " " << w[1] << " " << w[2] << std::endl;
+	// 	std::cout << "vettore \t " << w[0] << " " << w[1] << " " << w[2] << std::endl;
 		
-		// calcolo il vettore o := argsort(w)
+	// 	// calcolo il vettore o := argsort(w)
 		
-		std::vector<int> o(canonical_size,0);
+	// 	std::vector<int> o(canonical_size,0);
 		
-		for(int i = 0 ; i < canonical_size;i++)
-		{
-			for(int j = 0 ; j < canonical_size;j++) 
-			{
-					o[i] += (w[i] > w[j]);
-			}
-		}
+	// 	for(int i = 0 ; i < canonical_size;i++)
+	// 	{
+	// 		for(int j = 0 ; j < canonical_size;j++) 
+	// 		{
+	// 				o[i] += (w[i] > w[j]);
+	// 		}
+	// 	}
 		
-		std::cout << "vettore \t " << o[0] << " " << o[1] << " " << o[2] << std::endl;
+	// 	std::cout << "vettore \t " << o[0] << " " << o[1] << " " << o[2] << std::endl;
 	
-		// assegno ad ogni elemento della base canonica e_i la potenza o_i
-			//	a = p^o_1
-			//	b = p^o_2
-			//  c = p^o_3
+	// 	// assegno ad ogni elemento della base canonica e_i la potenza o_i
+	// 		//	a = p^o_1
+	// 		//	b = p^o_2
+	// 		//  c = p^o_3
 		
-		a = 1; for(int i = 0 ; i < o[0];i++) a *= precision;
-		b = 1; for(int i = 0 ; i < o[1];i++) b *= precision;
-		c = 1; for(int i = 0 ; i < o[2];i++) c *= precision;
+	// 	a = 1; for(int i = 0 ; i < o[0];i++) a *= precision;
+	// 	b = 1; for(int i = 0 ; i < o[1];i++) b *= precision;
+	// 	c = 1; for(int i = 0 ; i < o[2];i++) c *= precision;
 		
-		// JUST FOR DEBUGGING
+	// 	// JUST FOR DEBUGGING
 		
-	}
+	// }
 	
 	
 	void print() {

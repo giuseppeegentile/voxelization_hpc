@@ -15,7 +15,7 @@
 class Structure
 {
 	public:
-		Structure(IR & source,size_t precision = 32,bool optimizedCalibration = false, const std::vector<int>& conf = {}) : voxelGrid(source, precision, optimizedCalibration, conf) {
+		Structure(IR & source,size_t precision = 32,bool optimizedCalibration = false) : voxelGrid(source, precision, optimizedCalibration) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
 			

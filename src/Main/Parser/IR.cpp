@@ -85,7 +85,7 @@ void IR::project(Eigen::Matrix3d & V) {
 
 		// calcoliamo le nuove posizioni
 		// per ogni vettore u_i nella rappresentazione centrata
-		for( int i = 0 ; i < data.size();i++) 
+		for( int i = 0 ; i < data.size(); i++) 
 		{
 			// calcolo il prodotto w_i = u_i^T V dove V é la matrice degli autovettori
 			Eigen::Vector3d u( data[i].getX(), data[i].getY(), data[i].getZ()  );
@@ -96,3 +96,5 @@ void IR::project(Eigen::Matrix3d & V) {
 		}
 
 }
+
+

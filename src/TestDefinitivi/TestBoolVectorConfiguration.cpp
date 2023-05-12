@@ -9,8 +9,9 @@
 #include <valgrind/callgrind.h>
 
 int main() {
-	Parser protein_parser("res/2j47.pdb");
+	Parser protein_parser("res/1a6w.pdb");
 	IR & ir_protein = protein_parser.getIR();
+	ir_protein.sortData();
 	//ir_protein.sortData();
     
     // test casuale
@@ -30,59 +31,58 @@ int main() {
     volatile double start;
     volatile double end;
     volatile double time = 0;
-	CALLGRIND_START_INSTRUMENTATION;
 	for(int i = 0;i < n; i+=11)
 	{
-		float x = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x1 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y1 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z1 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x1 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y1 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z1 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x2 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y2 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z2 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x2 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y2 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z2 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x3 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y3 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z3 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x3 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y3 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z3 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x4 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y4 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z4 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x4 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y4 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z4 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x5 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y5 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z5 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x5 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y5 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z5 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x6 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y6 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z6 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-
-		float x7 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y7 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z7 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x6 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y6 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z6 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-		float x8 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y8 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z8 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x7 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y7 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z7 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-		float x9 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y9 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z9 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+		volatile float x8 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y8 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z8 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
-		float x10 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-		float y10 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-		float z10 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+		volatile float x9 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y9 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z9 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+		volatile float x10 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+		volatile float y10 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+		volatile float z10 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
 		//tmr.restart();
-        //*start = omp_get_wtime();
+        start = omp_get_wtime();
 		pieni += structure(x,y,z);
 		pieni += structure(x1,y1,z1);
 		pieni += structure(x2,y2,z2);
@@ -94,13 +94,11 @@ int main() {
 		pieni += structure(x8,y8,z8);
 		pieni += structure(x9,y9,z9);
 		pieni += structure(x10,y10,z10);
-        /*end = omp_get_wtime();
-        time += end - start;*/
+        end = omp_get_wtime();
+        time += end - start;
         //tmr.stop();
 
 	}
-	CALLGRIND_STOP_INSTRUMENTATION;
-	CALLGRIND_DUMP_STATS;
 
 
     //std::cout << permutazione << " ; " << tmr.elapsed() <<  std::endl;	

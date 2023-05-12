@@ -11,6 +11,7 @@
 
 #include "../../Common/Utilities.h"
 #include "../../Common/Coordinate.h"
+#include "CovarianceEigen.hpp"
 #include "../../Traits/Voxel_Traits.hpp"
 #include <iostream>
 #include <eigen3/Eigen/Dense>
@@ -29,7 +30,6 @@ class IR {
 		void push(Coordinate & c);
 		void push(double x,double y, double z);
 		void print();
-		Coordinate principalComponent(){};
 		
 		std::vector<Coordinate> & getData() {
 			return data;
@@ -39,6 +39,7 @@ class IR {
 			data[i] = value;
 		}
 
+		//prende la num_basis colonna 
 		std::vector<double> getVectorBasis(const int num_basis){
 			std::vector<double> ret;
 			for(int i = 0; i < data.size(); i++){

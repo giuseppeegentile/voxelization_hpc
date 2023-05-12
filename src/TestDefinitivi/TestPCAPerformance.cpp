@@ -10,7 +10,7 @@
 #include <chrono>
 
 int main() {
-	Parser protein_parser("res/2j47.pdb");
+	Parser protein_parser("res/1a6w.pdb");
 	IR & ir_protein = protein_parser.getIR();
 	//ir_protein.sortData();
     
@@ -32,90 +32,90 @@ int main() {
 
     std::ofstream pca_csv;
 
-	pca_csv.open("test_pca_performance.csv");
+	pca_csv.open("test_pca_performance_1a6w.csv");
+
+    int permutazione = 5;
+    int pieni = 0;
+    volatile double start;
+    volatile double end;
+    volatile double time = 0;
+    CovarianceEigen cov(ir_protein);
+    cov.principalComponentProjection(permutazione);
+    //ir_protein.sortData();
+    for(int i = 0;i < n; i+=11)
+    {
+        float x = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x1 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y1 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z1 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x2 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y2 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z2 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x3 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y3 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z3 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x4 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y4 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z4 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x5 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y5 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z5 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x6 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y6 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z6 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-    for(auto permutazione: permutazioni){
-        int pieni = 0;
-        volatile double start;
-        volatile double end;
-        volatile double time = 0;
-        CovarianceEigen cov(ir_protein);
-        cov.principalComponentProjection(permutazione);
-        for(int i = 0;i < n; i+=11)
-        {
-            float x = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x1 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y1 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z1 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x2 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y2 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z2 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x3 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y3 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z3 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x4 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y4 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z4 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x5 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y5 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z5 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-            float x6 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y6 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z6 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+        float x7 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y7 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z7 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-            float x7 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y7 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z7 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+        float x8 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y8 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z8 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-            float x8 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y8 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z8 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+        float x9 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y9 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z9 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+
+        float x10 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
+        float y10 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
+        float z10 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
 
 
-            float x9 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y9 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z9 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
+        //tmr.restart();
+        start = omp_get_wtime();
+        pieni += structure(x,y,z);
+        pieni += structure(x1,y1,z1);
+        pieni += structure(x2,y2,z2);
+        pieni += structure(x3,y3,z3);
+        pieni += structure(x4,y4,z4);
+        pieni += structure(x5,y5,z5);
+        pieni += structure(x6,y6,z6);
+        pieni += structure(x7,y7,z7);
+        pieni += structure(x8,y8,z8);
+        pieni += structure(x9,y9,z9);
+        pieni += structure(x10,y10,z10);
+        end = omp_get_wtime();
+        time += end - start;
+        //tmr.stop();
 
-            float x10 = distribution(generator) * voxelGrid.denX + voxelGrid.minX;	
-            float y10 = distribution(generator) * voxelGrid.denY + voxelGrid.minY;	
-            float z10 = distribution(generator) * voxelGrid.denZ + voxelGrid.minZ;	
-
-
-            //tmr.restart();
-            start = omp_get_wtime();
-            pieni += structure(x,y,z);
-            pieni += structure(x1,y1,z1);
-            pieni += structure(x2,y2,z2);
-            pieni += structure(x3,y3,z3);
-            pieni += structure(x4,y4,z4);
-            pieni += structure(x5,y5,z5);
-            pieni += structure(x6,y6,z6);
-            pieni += structure(x7,y7,z7);
-            pieni += structure(x8,y8,z8);
-            pieni += structure(x9,y9,z9);
-            pieni += structure(x10,y10,z10);
-            end = omp_get_wtime();
-            time += end - start;
-            //tmr.stop();
-
-        }
-    
-	    pca_csv << permutazione << " ; " << time << std::endl;		
-
-
-        std::cout <<  permutazione << " ; " << time << std::endl;	
     }
+
+    pca_csv << permutazione << " ; " << time << std::endl;		
+
+
+    std::cout <<  permutazione << " ; " << time << std::endl;	
+    
 	return 0; /********************************/
 }
 
