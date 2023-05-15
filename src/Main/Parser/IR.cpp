@@ -77,12 +77,18 @@ void IR::project(Eigen::Matrix3d & V) {
 		mean.setY(sum[1] / numPoints);
 		mean.setZ(sum[2] / numPoints);
 
+
+		// std::cout << "mean x" << mean.getX() << std::endl;
+		// std::cout << "mean y" << mean.getY() << std::endl;
+		// std::cout << "mean z" << mean.getZ() << std::endl;
+
+		
 		// rimuoviamo la media
 		for(int i = 0 ; i < data.size();i++)
 		{
 			data[i] = data[i] - mean;	
 		}
-
+		
 		// calcoliamo le nuove posizioni
 		// per ogni vettore u_i nella rappresentazione centrata
 		for( int i = 0 ; i < data.size();i++) 
@@ -90,6 +96,7 @@ void IR::project(Eigen::Matrix3d & V) {
 			// calcolo il prodotto w_i = u_i^T V dove V é la matrice degli autovettori
 			Eigen::Vector3d u( data[i].getX(), data[i].getY(), data[i].getZ()  );
 			Eigen::Vector3d w = u.transpose() * V;
+			
 			data[i].setX(w[0]);
 			data[i].setY(w[1]);
 			data[i].setZ(w[2]);

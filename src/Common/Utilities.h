@@ -6,6 +6,7 @@
 #include "../Traits/Perm_Traits.hpp"
 #include <eigen3/Eigen/Dense>
 #include <vector>
+#include <iostream>
 
 class Utilities {
 	public:
@@ -38,6 +39,8 @@ class Utilities {
 		Eigen::PermutationMatrix<3, 3> perm; 
 		perm.indices() = {permutations[mapIndex][0],permutations[mapIndex][1], permutations[mapIndex][2]};
 		mat = mat * perm;
+		// std::cout << "Mapping: " << mapIndex << std::endl;
+		// std::cout << mat << std::endl;
 	}
 };
 

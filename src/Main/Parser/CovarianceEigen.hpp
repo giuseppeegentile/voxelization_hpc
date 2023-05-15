@@ -59,7 +59,7 @@ class CovarianceEigen{
 						  std::inner_product(x.begin(), x.end(), y.begin(), 0.0f)/(static_cast<double>(dim) - 1.),std::inner_product(y.begin(), y.end(), y.begin(), 0.0f)/(static_cast<double>(dim) - 1.), std::inner_product(y.begin(), y.end(), z.begin(), 0.0f)/(static_cast<double>(dim) - 1.),
 						  std::inner_product(x.begin(), x.end(), z.begin(), 0.0f)/(static_cast<double>(dim) - 1.),std::inner_product(y.begin(), y.end(), z.begin(), 0.0f)/(static_cast<double>(dim) - 1.),std::inner_product(z.begin(), z.end(), z.begin(), 0.0f)/(static_cast<double>(dim) - 1.);
 
-
+				//std::cout << matrix << std::endl ;
 
 				// Eigen::Matrix3d chole(matrix.ldlt().matrixU());
 
@@ -93,24 +93,60 @@ class CovarianceEigen{
 		// si sceglie di implementare il tipo di ritorno come vector<double> anziché Vector	
 													// dal momento che il risultato non é da intendersi come un vettore
 													// geometrico ma come una semplice collezione di valori, che mantiene la propria semantica
-        std::vector<double> eigenvalues(){
+        Eigen::VectorXd eigenvalues(){
 			Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
-			std::vector<double> ret = {eigensolver.eigenvalues().data()[0],
-										eigensolver.eigenvalues().data()[1],
-										eigensolver.eigenvalues().data()[2]};
+			Eigen::VectorXd ret(3);
+			ret << eigensolver.eigenvalues().data()[0], 
+			eigensolver.eigenvalues().data()[1],
+
+			eigensolver.eigenvalues().data()[2];
 			return ret;									
 		}		
 
 		Eigen::Matrix3d eigenvectors(){
+			Eigen::Matrix3d ret;
+			Eigen::VectorXd vals = eigenvalues();
 			Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
-			return eigensolver.eigenvectors();	
+		    Eigen::MatrixXd eigenvectors = eigensolver.eigenvectors(); 
+
+			 std::vector<std::pair<double, Eigen::Vector3d>> eigen_pairs;
+
+			// Pair eigenvalues with eigenvectors
+			for (int i = 0; i < vals.size(); i++) {
+				eigen_pairs.push_back(std::make_pair(vals(i), eigenvectors.col(i)));
+			}
+
+			// Sort eigenvalue-eigenvector pairs based on eigenvalues (in descending order)
+			std::sort(eigen_pairs.begin(), eigen_pairs.end(), [](const auto& lhs, const auto& rhs) {
+				return lhs.first > rhs.first;
+			});
+
+			int j = 0;
+
+			// Extract sorted eigenvectors
+			for (const auto& pair : eigen_pairs) {
+				Eigen::VectorXd sorted_eigenvector = pair.second;
+				std::cout << "Eigenvalue: " << pair.first << std::endl;
+				std::cout << "Eigenvector: \n" << sorted_eigenvector << std::endl;
+				ret.col(j) = sorted_eigenvector;
+				 j++;
+			}
+
+
+
+
+			return ret;	
 		}
 
 
 	void principalComponentProjection(int permutation) {
 		// calcola gli autovettori
-		CovarianceEigen C(*this);
-		auto M = C.eigenvectors();
+		auto M = eigenvectors();
+
+
+
+		std::cout << "printing eigenvalues matrix: " << std::endl;
+		std::cout << M << std::endl;
 
 		// calcola la permutazione 
 		Utilities::permutateByIndexMap(M, permutation);

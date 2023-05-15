@@ -84,9 +84,9 @@ class Coordinate {
 		const double getY() const {return y;}
 		const double getZ() const {return z;}
 
-		const double setX(const double x_) {return x = x_;}
-		const double setY(const double y_) {return y = y_;}
-		const double setZ(const double z_) {return z = z_;}
+		const void setX(const double x_) { x = x_;}
+		const void setY(const double y_) { y = y_;}
+		const void setZ(const double z_) { z = z_;}
 
 		const double& operator[](int i) {
 			// ammette l'accesso per indice
@@ -105,6 +105,10 @@ class Coordinate {
 				}
 			}
 			throw std::out_of_range("Coordinate out of range 0-2");
+		}
+
+		void print(){
+			std::cout << x << " " << y << " " << z;
 		}
 
 	private:

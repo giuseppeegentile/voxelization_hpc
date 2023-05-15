@@ -1,0 +1,26 @@
+# callgrind format
+version: 1
+creator: callgrind-3.15.0
+pid: 6790
+cmd:  build/TestPCAOnPoint
+part: 1
+
+
+desc: I1 cache: 32768 B, 64 B, 8-way associative
+desc: D1 cache: 32768 B, 64 B, 8-way associative
+desc: LL cache: 3145728 B, 64 B, 12-way associative
+
+desc: Timerange: Basic block 0 - 10000003
+desc: Trigger: Client Request
+
+positions: line
+events: Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+summary: 0
+
+
+ob=(1) /home/giuseppe/Documents/voxelization/voxelization_hpc/build/TestPCAOnPoint
+fl=(1) ???
+fn=(0) main
+0 40000029 10000011 10000001 4 3 1 4 3 1
+
+totals: 40000029 10000011 10000001 4 3 1 4 3 1

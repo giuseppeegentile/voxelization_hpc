@@ -12,7 +12,7 @@
 
 
 int main() {
-	Parser protein_parser("res/1a6w.pdb");
+	Parser protein_parser("res/2j47.pdb");
 	IR & ir_protein = protein_parser.getIR();
 	//ir_protein.sortData();
     
@@ -28,9 +28,24 @@ int main() {
     int permutazione = 5; //////////////testo su una singola permutazione i cache miss
     int pieni = 0;
 
+ 	std::ofstream output_ir_non_pca;
+	output_ir_non_pca.open("output_ir_non_pca.csv");
+
+	for(auto & c : ir_protein.getData())
+	{
+		output_ir_non_pca << c.getX() << "," << c.getY() << "," << c.getZ()  << std::endl;
+	}
 
     CovarianceEigen cov(ir_protein);
     cov.principalComponentProjection(permutazione);
+
+std::ofstream output_ir_pca;
+	output_ir_pca.open("output_ir_pca.csv");
+	for(auto & c :  ir_protein.getData())
+	{
+		output_ir_pca  << c.getX() << "," << c.getY() << "," << c.getZ()  << std::endl;
+	}
+
     ir_protein.sortData();
     CALLGRIND_START_INSTRUMENTATION;
     for(int i = 0;i < n; i++)

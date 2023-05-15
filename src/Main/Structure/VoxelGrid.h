@@ -69,6 +69,10 @@ class VoxelGrid
 				mul_coeff_y = precision/denY;		// una moltiplicazione
 				mul_coeff_z = precision/denZ;
 				
+
+				/**
+				 * TODO: fare inline
+				*/
 				for( auto & v : V )
 				{
 					int x = static_cast<int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
@@ -106,8 +110,9 @@ class VoxelGrid
 								double ry2 = raggio_y * raggio_y;
 								double rz2 = raggio_z * raggio_z;
 								
-								if( x2 / rx2 + y2 / ry2 + z2 / rz2  < 1.0 )
+								if( (x2 / rx2) + (y2 / ry2) + (z2 / rz2 ) < 1.0 )
 									data.set( cubeVectoriIsomorphism(x_it,y_it,z_it) , true);	
+								
 							}
 				}
 			};
@@ -136,8 +141,8 @@ class VoxelGrid
 	// isomorfismo
 	
 	long int cubeVectoriIsomorphism(long int x,
-							   long int y,
-							   long int z) {
+									long int y,
+									long int z) {
 								   return x * a + y * b + z * c;
 							   }
 	
