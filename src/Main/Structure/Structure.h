@@ -30,10 +30,11 @@ class Structure
 		{ 	
 			// IN : coordinate spaziali
 			// OUT: presenza della proteina
-			long unsigned int i = static_cast<long int> ( (x - voxelGrid.minX) * voxelGrid.mul_coeff_x);	// ottiene la posizione relativa
-			long unsigned int j = static_cast<long int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
-			long unsigned int k = static_cast<long int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+			long int i = static_cast<long int> ( (x - voxelGrid.minX) * voxelGrid.mul_coeff_x);	// ottiene la posizione relativa
+			long int j = static_cast<long int> ( (y - voxelGrid.minY) * voxelGrid.mul_coeff_y);	// all'interno del cubo per ogni coordinata
+			long int k = static_cast<long int> ( (z - voxelGrid.minZ) * voxelGrid.mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																						// la posizione. Moltiplicandola per la precisione
+
 			bool condition = (
 								((i<0)||(i>=voxelGrid.precision)) ||
 								((j<0)||(j>=voxelGrid.precision)) ||

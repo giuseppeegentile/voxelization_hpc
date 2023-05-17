@@ -75,9 +75,9 @@ class VoxelGrid
 				*/
 				for( auto & v : V )
 				{
-					long unsigned int x = static_cast<int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
-					long unsigned int y = static_cast<int> ( (v.getY() - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
-					long unsigned int z = static_cast<int> ( (v.getZ() - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+					long int x = static_cast<long int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
+					long int y = static_cast<long int> ( (v.getY() - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
+					long int z = static_cast<long int> ( (v.getZ() - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																			// la posizione. Moltiplicandola per la precisione
 																			// e castando ad int si ottiene l'indice
 																			// remark: mul_coeff_x = precisione/denX = precisione/(maxX - minX)
@@ -96,10 +96,12 @@ class VoxelGrid
 					const long int raggio_y =  1.6 * mul_coeff_y;
 					const long int raggio_z =  1.6 * mul_coeff_z;
 
+					long int precision_cast = static_cast<long int>(precision);
+
 					// 2. per ogni punto nel rettangolo che iscrive l'ellisse
-					for ( size_t x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
-						for ( size_t y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
-							for ( size_t z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
+					for ( long int x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision_cast ? x + raggio_x : precision_cast ); x_it ++  )
+						for ( long int y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision_cast ? y + raggio_y : precision_cast ); y_it ++  )
+							for (long int z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision_cast ? z + raggio_z : precision_cast ); z_it ++  )
 							{
 								// controllo di essere dentro l'ellisse
 								// x2/a2 + y2/b2 + z2/c2 = 1.
@@ -117,9 +119,9 @@ class VoxelGrid
 				}
 			};
 			
-			inline bool operator ()(long unsigned int & x,			// non abbiamo bisogno di ritornare un reference
-									long unsigned int & y,			// ci interessa solo la lettura delle proteine
-									long unsigned int & z) 
+			inline bool operator ()(long int & x,			// non abbiamo bisogno di ritornare un reference
+									long int & y,			// ci interessa solo la lettura delle proteine
+									long int & z) 
 			{ 	
 				// vedi TODO (***)
 				// TODO (**) : sarebbe interessante fare un prefetching

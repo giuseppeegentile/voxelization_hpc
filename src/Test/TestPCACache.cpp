@@ -39,7 +39,7 @@ int main() {
     CovarianceEigen cov(ir_protein);
     cov.principalComponentProjection(permutazione);
 
-std::ofstream output_ir_pca;
+    std::ofstream output_ir_pca;
 	output_ir_pca.open("output_ir_pca.csv");
 	for(auto & c :  ir_protein.getData())
 	{
