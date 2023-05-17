@@ -1,7 +1,7 @@
 y:
 	mkdir -p build
 	
-	c++						src/TestDefinitivi/TestPCACache.cpp \
+	c++						src/Test/TestPCACache.cpp \
 						src/Main/Structure/*.cpp \
 						src/Main/Parser/*.cpp \
 						 -O3 -march=native -fopenmp\

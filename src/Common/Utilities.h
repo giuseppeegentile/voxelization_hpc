@@ -14,18 +14,18 @@ class Utilities {
 	static std::vector<int> argsort(const std::vector<T> & x, bool dec = true)
 	{
 		std::vector<int> argsorted(x.size());
-		for(int i = 0; i < x.size();i++)
+		for(size_t i = 0; i < x.size();i++)
 		{
-			for(int j = 0 ; j < x.size();j++)
+			for(size_t j = 0 ; j < x.size();j++)
 			{
 				if(	(dec? x[i] < x[j] : x[i] > x[j]) )
 						argsorted[i] += 1;
 			}
 		}
 
-		for( int i = 0 ; i < argsorted.size();i++)
+		for( size_t i = 0 ; i < argsorted.size();i++)
 		{
-			for(int j = i+1; j < argsorted.size();j++)
+			for(size_t j = i+1; j < argsorted.size();j++)
 			{
 					if( argsorted[i] == argsorted[j])
 							argsorted[j]++;

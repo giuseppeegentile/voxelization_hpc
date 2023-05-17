@@ -10,10 +10,13 @@
 #include "../Parser/IR.h"
 #include <array>
 
+
+
+
 class VoxelGrid
 {
 	public:
-			VoxelGrid(IR & intermediateRepresentation, size_t precision = 32, bool optimizedCalibration = false, const std::vector<int> &conf = {}) :
+			VoxelGrid(IR & intermediateRepresentation, size_t precision = 32) :
 			data(precision * precision * precision), precision(precision)
 			{
 				
@@ -29,10 +32,7 @@ class VoxelGrid
 				// 	standardCalibration();
 				// }
 				
-				//Assumo che quando harcode_test true, optimized sarà false, solo per testing
-				conf.empty() ? 
-								(optimizedCalibration ? PCACalibration(intermediateRepresentation) : standardCalibration()) : 
-								hardcodeCalibration(conf.at(0),conf.at(1),conf.at(2));	
+				standardCalibration();
 				
 				// riempio la struttura
 				//		carico la rappresentazione intermedia
@@ -75,9 +75,9 @@ class VoxelGrid
 				*/
 				for( auto & v : V )
 				{
-					int x = static_cast<int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
-					int y = static_cast<int> ( (v.getY() - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
-					int z = static_cast<int> ( (v.getZ() - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
+					long unsigned int x = static_cast<int> ( (v.getX() - minX) * mul_coeff_x);	// ottiene la posizione relativa
+					long unsigned int y = static_cast<int> ( (v.getY() - minY) * mul_coeff_y);	// all'interno del cubo per ogni coordinata
+					long unsigned int z = static_cast<int> ( (v.getZ() - minZ) * mul_coeff_z);	// ovvero un numero tra 0 e 1 che rappresenta
 																			// la posizione. Moltiplicandola per la precisione
 																			// e castando ad int si ottiene l'indice
 																			// remark: mul_coeff_x = precisione/denX = precisione/(maxX - minX)
@@ -97,9 +97,9 @@ class VoxelGrid
 					const long int raggio_z =  1.6 * mul_coeff_z;
 
 					// 2. per ogni punto nel rettangolo che iscrive l'ellisse
-					for ( long int x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
-						for ( long int y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
-							for ( long int z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
+					for ( size_t x_it = ( x - raggio_x > 0 ? x - raggio_x : 0 ); x_it < (x + raggio_x < precision ? x + raggio_x : precision ); x_it ++  )
+						for ( size_t y_it = ( y - raggio_y > 0 ? y - raggio_y : 0 ); y_it < (y + raggio_y < precision ? y + raggio_y : precision ); y_it ++  )
+							for ( size_t z_it = ( z - raggio_z > 0 ? z - raggio_z : 0 ); z_it < (z + raggio_z < precision ? z + raggio_z : precision ); z_it ++  )
 							{
 								// controllo di essere dentro l'ellisse
 								// x2/a2 + y2/b2 + z2/c2 = 1.
@@ -117,9 +117,9 @@ class VoxelGrid
 				}
 			};
 			
-			inline bool operator ()(long int & x,			// non abbiamo bisogno di ritornare un reference
-									long int & y,			// ci interessa solo la lettura delle proteine
-									long int & z) 
+			inline bool operator ()(long unsigned int & x,			// non abbiamo bisogno di ritornare un reference
+									long unsigned int & y,			// ci interessa solo la lettura delle proteine
+									long unsigned int & z) 
 			{ 	
 				// vedi TODO (***)
 				// TODO (**) : sarebbe interessante fare un prefetching
@@ -146,15 +146,6 @@ class VoxelGrid
 								   return x * a + y * b + z * c;
 							   }
 	
-	void hardcodeCalibration(int a_, int b_, int c_){
-		a = 1;
-		b = 1;
-		c = 1;
-		for(; 0 < a_; a_--) a *=precision;
-		for(; 0 < b_; b_--) b *=precision;
-		for(; 0 < c_; c_--) c *=precision;
-	}
-
 
 	// vecchio metodo di costruzione dell'isomorfismo
 	void standardCalibration() {
@@ -163,69 +154,12 @@ class VoxelGrid
 		a = b * precision;
 	}
 	
-	// nuovo metodo di costruzione dell'isomorfismo
-	void PCACalibration(IR & intermediateRepresentation) {
-		// IN : una rappresentazione intermedia
-		// OUT: modifica la mappa cubo |---> vettore in modo da rendere piu favorevole l'accesso alle tasche
-		
-		// IDEA: Cerchiamo di sfruttare l'informazione contenuta nella geometria della molecola in modo da ottimizzare
-		// la localitá nel nostro storage.
-		// In particolare, se assumiamo che il ricercatore / algoritmo si muova nei punti di una Copertura Convessificata
-		// é naturale considerare come la direzione in cui c'é maggiore varianza é quella che ammette naturalmente
-		// una "libertá di movimento" maggiore ; vogliamo quindi che in quella direzione la localitá sia preservata il piu possibile
-		// in modo da minimizzare il rischio di cache fault
-		
-		// +++ PSEUDO CODICE / CODICE +++
-		
-		//	1. calcolo la prima componente principale v
-			
-		Coordinate v = intermediateRepresentation.principalComponent();
-		
-		// calcolo il vettore w := ( ||e_i - v|| )_i
-		
-		std::vector<Coordinate> e; // canonical base
-		e.push_back( Coordinate(1.,0.,0.));
-		e.push_back( Coordinate(0.,1.,0.));
-		e.push_back( Coordinate(0.,0.,1.));
-		
-		std::vector<float> w(canonical_size, 0.0f);
-		for(int i = 0 ; i < canonical_size; i++) {
-			w[i] = e[i].d(v);
-		}
-		
-		std::cout << "vettore \t " << w[0] << " " << w[1] << " " << w[2] << std::endl;
-		
-		// calcolo il vettore o := argsort(w)
-		
-		std::vector<int> o(canonical_size,0);
-		
-		for(int i = 0 ; i < canonical_size;i++)
-		{
-			for(int j = 0 ; j < canonical_size;j++) 
-			{
-					o[i] += (w[i] > w[j]);
-			}
-		}
-		
-		std::cout << "vettore \t " << o[0] << " " << o[1] << " " << o[2] << std::endl;
 	
-		// assegno ad ogni elemento della base canonica e_i la potenza o_i
-			//	a = p^o_1
-			//	b = p^o_2
-			//  c = p^o_3
-		
-		a = 1; for(int i = 0 ; i < o[0];i++) a *= precision;
-		b = 1; for(int i = 0 ; i < o[1];i++) b *= precision;
-		c = 1; for(int i = 0 ; i < o[2];i++) c *= precision;
-		
-		// JUST FOR DEBUGGING
-		
-	}
 	
 	
 	void print() {
 		int ones = 0;
-		for(int i = 0; i < data.size();i++) {
+		for(long unsigned int i = 0; i < data.size();i++) {
 			std::cout << data.get(i) ;
 			ones += data.get(i);
 		}

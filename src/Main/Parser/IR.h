@@ -11,7 +11,6 @@
 
 #include "../../Common/Utilities.h"
 #include "../../Common/Coordinate.h"
-#include "../../Traits/Voxel_Traits.hpp"
 #include <iostream>
 #include <eigen3/Eigen/Dense>
 #include <vector>
@@ -19,7 +18,6 @@
 #include <numeric>
 #include <algorithm>
 
-constexpr int num_neighbours = 3;
 
 class IR {
 	friend Coordinate;
@@ -29,7 +27,6 @@ class IR {
 		void push(Coordinate & c);
 		void push(double x,double y, double z);
 		void print();
-		Coordinate principalComponent(){};
 		
 		std::vector<Coordinate> & getData() {
 			return data;
@@ -41,7 +38,7 @@ class IR {
 
 		std::vector<double> getVectorBasis(const int num_basis){
 			std::vector<double> ret;
-			for(int i = 0; i < data.size(); i++){
+			for(long unsigned int i = 0; i < data.size(); i++){
 				ret.push_back(data[i][num_basis]);
 			}
 			return ret;
@@ -74,11 +71,6 @@ class IR {
 		// }
 
 		void project(Eigen::Matrix3d & V);
-
-
-		// return vector of index of neighbours atom in the IR indexing
-		void populateNeighbours();
-
 
 		void sortData(){
 			std::sort(data.begin(), data.end());

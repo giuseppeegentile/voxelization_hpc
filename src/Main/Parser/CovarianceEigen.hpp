@@ -44,7 +44,7 @@ class CovarianceEigen{
 	
 				IR standardizedIR;
 				
-				for(int i = 0; i < ir.getData().size(); i++){
+				for(long unsigned int i = 0; i < ir.getData().size(); i++){
 					standardizedIR.push(ir.getData()[i][0] - avg_x,
 										ir.getData()[i][1] - avg_y,
 										ir.getData()[i][2] - avg_z);
