@@ -16,19 +16,19 @@ void IR::print()
 }
 
 
-Coordinate IR::getCenterOfMass(){ //avg of each coordinate alone
-	double sum_x = 0;
-	double sum_y = 0;
-	double sum_z = 0;
-	// sum for each coordinate
-	for(auto &d : data){
-		sum_x += d.getX();
-		sum_y += d.getY();
-		sum_z += d.getZ();
-	}
-	// divide by number of points the summed coordinate
-	return Coordinate(sum_x, sum_y, sum_z) / data.size();
-}
+// Coordinate IR::getCenterOfMass(){ //avg of each coordinate alone
+// 	double sum_x = 0;
+// 	double sum_y = 0;
+// 	double sum_z = 0;
+// 	// sum for each coordinate
+// 	for(auto &d : data){
+// 		sum_x += d.getX();
+// 		sum_y += d.getY();
+// 		sum_z += d.getZ();
+// 	}
+// 	// divide by number of points the summed coordinate
+// 	return Coordinate(sum_x, sum_y, sum_z) / data.size();
+// }
 
 
 void IR::project(Eigen::Matrix3d & V) {

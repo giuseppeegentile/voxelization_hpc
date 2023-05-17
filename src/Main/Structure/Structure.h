@@ -11,19 +11,42 @@
 #include "VoxelGrid.h"
 
 
-
+/**
+ * @brief Class representing the structure containing the protein.
+ * 
+ */
 class Structure
 {
 	public:
+		/**
+		 * @brief Construct a new Structure object
+		 * 
+		 * @param source The Intermediate Representation of the protein that want to be represented.
+		 * @param precision The coarse level of the representation. High values will represent more accurately the protein, at the cost of memory.
+		 */
 		Structure(IR & source,size_t precision = 32) : voxelGrid(source, precision) {
 			// IN:  rappresentazione intermedia (sparsa)
 			// OUT: rappresentazione finale (densa)
 			
 		};
 		
-
+		/**
+		 * @brief Getter for the Voxel Grid object
+		 * 
+		 * @return VoxelGrid& The corresponding grid for this structure
+		 */
 		VoxelGrid & getVoxelGrid();
 		
+
+		/**
+		 * @brief Getter the outcome of the access to the structure. If the position queried contain an element of the protein, will return true. False otherwise.
+		 * 
+		 * @param x X position requested
+		 * @param y Y position requested
+		 * @param z Z position requested
+		 * @return true The protein is present in this coordinate
+		 * @return false The protein is not present in this coordinate
+		 */
 		inline bool operator ()( float     x,			// non abbiamo bisogno di ritornare un reference
 								 float     y,			// ci interessa solo la lettura delle proteine
 								 float     z) 
@@ -44,7 +67,15 @@ class Structure
 			return (condition ? 0 : voxelGrid(i,j,k));
 		}
 		
-		inline bool operator ()(Coordinate & c) {				// getter
+
+		/**
+		 * @brief Getter the outcome of the access to the structure by the Coordinate object. If the position queried contain an element of the protein, will return true. False otherwise.
+		 * 
+		 * @param c The coordinate that want to be accessed.
+		 * @return true The protein is present in c
+		 * @return false The protein is not present in c
+		 */
+		inline bool operator ()(Coordinate & c) {				
 			// IN : coordinate spaziali
 			// OUT: presenza della proteina
 			

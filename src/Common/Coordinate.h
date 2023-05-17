@@ -54,6 +54,13 @@ class Coordinate {
 			return  x * other.x + y * other.y + z * other.z;
 		}
 
+		/**
+		 * @brief Minor operator overrider. Used fot sorting data in IR class.
+		 * 
+		 * @param other 
+		 * @return true 
+		 * @return false 
+		 */
 		// is this smaller in norm than other ? yes -> true, no -> false
 		bool operator < (Coordinate & other) const {
 			// return Coordinate(x - other.x, y - other.y, z - other.z);
@@ -117,7 +124,7 @@ class Coordinate {
 		double z;
 
 		
-	public: // just for test 
-		std::vector<int> ir_neighbours;
+	// public: // just for test 
+	// 	std::vector<int> ir_neighbours;
 };
 #endif

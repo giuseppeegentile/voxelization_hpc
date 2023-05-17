@@ -88,7 +88,7 @@
 /*boolvector.h*/
 //
 // Fornisce un container ad alte prestazioni per salvare vettori di bit.
-// TODO : non é ancora utilizzato
+
 //
 #ifndef BOOLVECTOR_H
 #define BOOLVECTOR_H
@@ -100,30 +100,54 @@
 
 #include <math.h>
 
-
+/**
+ * @brief Container to save vectors of 64 bits.
+ * 
+ */
 class BoolVector
 {
 	public:
-		
+		/**
+		 * @brief Construct a new Bool Vector object
+		 * 
+		 * @param size The size indicating how many 64 bit array initialize in memory.
+		 */
 		BoolVector(size_t size) :
 		data (size + 63 / 64 ,0), 
 		datasize(size)
 		{ }
 		
+		/**
+		 * @brief Getter method to know if the i-th element is present or not.
+		 * 
+		 * @param i The i-th element of the data structure.
+		 * @return true The i-th element is in the structure.
+		 * @return false  The i-th element is not in the structure.
+		 */
 		inline bool get(size_t i) {
 			size_t cella = i >> 6;
 			size_t settore = i & 0x3f;
 			return (data[cella] & ( 1ull << settore )) ;
 		}
-		
+		/**
+		 * @brief Set method to specify if the i-th element is in the data structure.
+		 * 
+		 * @param i The i-th element of the data structure.
+		 * @param value True if the i-th element is in the structure, false otherwise.
+		 */
 		void set(size_t i, bool value) {
 			size_t cella = i >> 6;
 			size_t settore = i & 0x3f;
 			data[cella] = (data[cella] & ~(1ull << settore)) | (value << settore);
 		}	
 		
+		/**
+		 * @brief Return the size of the structure
+		 * 
+		 * @return size_t 
+		 */
 		size_t size() {return datasize;}
-
+	private:
 		std::vector<uint64_t> data;
 		size_t datasize;
 };

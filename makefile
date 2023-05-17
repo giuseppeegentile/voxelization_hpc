@@ -4,6 +4,6 @@ y:
 	c++						src/Test/TestPCACache.cpp \
 						src/Main/Structure/*.cpp \
 						src/Main/Parser/*.cpp \
-						 -O3 -march=native -fopenmp -Wall\
+						 -O3 -march=native -fopenmp\
 						-o  build/TestPCACache
 	

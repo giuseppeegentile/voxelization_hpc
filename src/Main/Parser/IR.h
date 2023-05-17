@@ -22,20 +22,55 @@
 class IR {
 	friend Coordinate;
 	public:
+		/**
+		 * @brief Default constructor for a new IR object
+		 * 
+		 */
 		IR() {};
+		/**
+		 * @brief Construct a new IR object by Coordinates (read by a pdb parser for ATOM rows)
+		 * 
+		 * @param coords The array of coordinates to be put in Intermediate Representation
+		 */
 		IR(std::vector<Coordinate> coords) : data(coords){};
+
+		/**
+		 * @brief Push a new coordinate in the object
+		 * 
+		 * @param c The coordinate to add
+		 */
 		void push(Coordinate & c);
+		/**
+		 * @brief Push a new coordinate in the object by the spatial triplet
+		 * 
+		 * @param x The x coordinate to add.
+		 * @param y The y coordinate to add.
+		 * @param z The z coordinate to add.
+		 */
 		void push(double x,double y, double z);
+
+		/**
+		 * @brief Print the coordinates of the intermediate representation
+		 * 
+		 */
 		void print();
 		
+
+		/**
+		 * @brief Get the Data vector of coordinate 
+		 * 
+		 * @return std::vector<Coordinate>& 
+		 */
 		std::vector<Coordinate> & getData() {
 			return data;
 		}
 
-		void setValueAt(size_t i, Coordinate value) {
-			data[i] = value;
-		}
-
+		/**
+		 * @brief Get the requested column of the IR
+		 * 
+		 * @param num_basis The column to get. For instance, if 0, return the vector of the x coordinates. 1, return the y coordinates and 2 the z-s.
+		 * @return std::vector<double> The vector of coordinate correponding to the canonical base requested.
+		 */
 		std::vector<double> getVectorBasis(const int num_basis){
 			std::vector<double> ret;
 			for(long unsigned int i = 0; i < data.size(); i++){
@@ -70,15 +105,23 @@ class IR {
 		// 	}
 		// }
 
+
+		/**
+		 * @brief Apply a generic projection matrix to the coordinates.
+		 * 
+		 * @param V The projector matrix.
+		 */
 		void project(Eigen::Matrix3d & V);
 
+		/**
+		 * @brief Sort data based on euclidean distance from the origin. From smaller to bigger.
+		 * 
+		 */
 		void sortData(){
 			std::sort(data.begin(), data.end());
 		}
 
-
-		// Assuming all atoms have same weigth, naive approach to calculate center of mass
-		Coordinate getCenterOfMass();
+		//Coordinate getCenterOfMass();
 
 	private:
 		std::vector<Coordinate> data;	// Array of structures dal momento
