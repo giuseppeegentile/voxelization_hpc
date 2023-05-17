@@ -126,34 +126,29 @@ class CovarianceEigen{
 			// Extract sorted eigenvectors
 			for (const auto& pair : eigen_pairs) {
 				Eigen::VectorXd sorted_eigenvector = pair.second;
-				std::cout << "Eigenvalue: " << pair.first << std::endl;
-				std::cout << "Eigenvector: \n" << sorted_eigenvector << std::endl;
+				// std::cout << "Eigenvalue: " << pair.first << std::endl;
+				// std::cout << "Eigenvector: \n" << sorted_eigenvector << std::endl;
 				ret.col(j) = sorted_eigenvector;
 				 j++;
 			}
-
-
-
 
 			return ret;	
 		}
 
 
-	void principalComponentProjection(int permutation) {
-		// calcola gli autovettori
-		auto M = eigenvectors();
+		void principalComponentProjection(int permutation) {
+			// calcola gli autovettori
+			auto M = eigenvectors();
 
+			// std::cout << "printing eigenvalues matrix: " << std::endl;
+			// std::cout << M << std::endl;
 
+			// calcola la permutazione 
+			Utilities::permutateByIndexMap(M, permutation);
 
-		std::cout << "printing eigenvalues matrix: " << std::endl;
-		std::cout << M << std::endl;
-
-		// calcola la permutazione 
-		Utilities::permutateByIndexMap(M, permutation);
-
-		// applico la proiezione
-		ir.project(M);
-	}
+			// applico la proiezione
+			ir.project(M);
+		}
 		
 
 
