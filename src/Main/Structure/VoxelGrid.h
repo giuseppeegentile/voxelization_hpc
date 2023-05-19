@@ -10,9 +10,10 @@
 #include "../Parser/IR.h"
 #include <array>
 
-
-
-
+/**
+ * @brief Voxelization's class building the grid.
+ * 
+ */
 class VoxelGrid
 {
 	public:
@@ -140,8 +141,15 @@ class VoxelGrid
 			
 			}
 	
-	// isomorfismo
-	
+
+	/**
+	 * @brief Isomorphism mapping the coordinates into the grid.
+	 * 
+	 * @param x The x coordinate to be mapped
+	 * @param y The y coordinate to be mapped
+	 * @param z The z coordinate to be mapped
+	 * @return long int the position in the cube.
+	 */
 	long int cubeVectoriIsomorphism(long int x,
 									long int y,
 									long int z) {
@@ -149,7 +157,11 @@ class VoxelGrid
 							   }
 	
 
-	// vecchio metodo di costruzione dell'isomorfismo
+	/**
+	 * @brief Default isomorphism as a poly with x's coefficient squared, y's linar and z's costant.
+	 * a^2 * x + b * y + z
+	 * 
+	 */
 	void standardCalibration() {
 		c = 1;
 		b = precision;

@@ -1,0 +1,4 @@
+<map id="VoxelGrid" name="VoxelGrid">
+<area shape="rect" id="node1" title="Voxelization&#39;s class building the grid." alt="" coords="9,95,93,121"/>
+<area shape="rect" id="node2" href="$classBoolVector.html" title="An high performance container to save bit&#39;s vector in a compact way." alt="" coords="5,5,97,32"/>
+</map>

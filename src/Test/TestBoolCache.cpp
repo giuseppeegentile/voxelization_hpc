@@ -9,7 +9,7 @@
 #include <valgrind/callgrind.h>
 
 int main() {
-	Parser protein_parser("res/1a6w.pdb");
+	Parser protein_parser("res/2j47.pdb");
 	IR & ir_protein = protein_parser.getIR();
 	//ir_protein.sortData();
     

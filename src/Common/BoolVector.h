@@ -88,7 +88,7 @@
 /*boolvector.h*/
 //
 // Fornisce un container ad alte prestazioni per salvare vettori di bit.
-// TODO : non é ancora utilizzato
+
 //
 #ifndef BOOLVECTOR_H
 #define BOOLVECTOR_H
@@ -100,7 +100,10 @@
 
 #include <math.h>
 
-
+/**
+ * @brief An high performance container to save bit's vector in a compact way.
+ * 
+ */
 class BoolVector
 {
 	public:

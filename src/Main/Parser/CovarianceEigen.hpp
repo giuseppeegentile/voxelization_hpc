@@ -14,7 +14,7 @@
 
 /**
  * @brief SPD Covariance Matrix
- * Implemented only get by col, since is symmetric, is the same of getting the same row
+ * Evaluates the covariance matrix of the IR and its eigen's values/vector
  * 
  */
 class CovarianceEigen{
@@ -89,10 +89,11 @@ class CovarianceEigen{
 		// metodi per la costruzione della PCA
 		// autovalori
 		
-        // ritorna gli autovalori
-		// si sceglie di implementare il tipo di ritorno come vector<double> anziché Vector	
-													// dal momento che il risultato non é da intendersi come un vettore
-													// geometrico ma come una semplice collezione di valori, che mantiene la propria semantica
+		/**
+		 * @brief Get the eigenvalues of the covariance matrix.
+		 * 
+		 * @return Eigen::VectorXd Cointaining the 3 eigenvalues in the eigen vector.
+		 */
         Eigen::VectorXd eigenvalues(){
 			Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(matrix);
 			Eigen::VectorXd ret(3);
@@ -103,6 +104,12 @@ class CovarianceEigen{
 			return ret;									
 		}		
 
+		/**
+		 * @brief return the eigenvectors of the covariance matrix
+		 * 
+		 * @return Eigen::Matrix3d The matrix with as columns the eigenvectors of the matrix, in order of 
+		 * biggest eigenvalues
+		 */
 		Eigen::Matrix3d eigenvectors(){
 			Eigen::Matrix3d ret;
 			Eigen::VectorXd vals = eigenvalues();
@@ -136,6 +143,11 @@ class CovarianceEigen{
 		}
 
 
+		/**
+		 * @brief Perform the projection on the space with minimized variance.
+		 * 
+		 * @param permutation 
+		 */
 		void principalComponentProjection(int permutation) {
 			// calcola gli autovettori
 			auto M = eigenvectors();

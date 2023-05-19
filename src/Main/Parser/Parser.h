@@ -1,7 +1,5 @@
 /* Parser.h */
-//	Fornisce un WRAPPER per la classe IR, che é finalizzata a contenere rappresentazioni sparse
-//  della posizione degli atomi. In particolare, il costruttore legge un file e costruisce,
-//  all'interno della classe stessa, la rappresentazione intermedia.
+
 
 #ifndef PARSER_H
 #define PARSER_H
@@ -12,9 +10,10 @@
 #include <string>
 #include <limits>
 
-
-//constexpr double angstroms_threshold = 1.6;
-
+/**
+ * @brief Provide a Wrapper for IR's class.
+ * 
+ */
 class Parser
 {
 	public:

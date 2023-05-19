@@ -1,0 +1,44 @@
+Profiling log file are named with the name of the cpp\textquotesingle{}s filename followed by the description of test performed.
+
+Instructions to run the test without P\+CA and profiling
+\begin{DoxyPre}
+\begin{DoxyItemize}
+\item make\textbackslash{}
+\item build/TestBoolOnPoint
+\item valgrind -\/-\/tool=callgrind -\/-\/instr-\/atstart=no -\/-\/cache-\/sim=yes -\/-\/log-\/file=OutputNameFile.cachegrind build/TestBoolOnPoint
+
+\end{DoxyItemize}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}To run the test with PCA and profiling, replace the content of makefile with the following:
+
+\begin{DoxyPre}\end{DoxyPre}
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+\begin{DoxyPre}y:
+    mkdir -\/p build\end{DoxyPre}
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+\begin{DoxyPre}    c++                     src/Test/TestBoolOnPoint.cpp \textbackslash{}
+                        src/Main/Structure/*.cpp \textbackslash{}
+                        src/Main/Parser/*.cpp \textbackslash{}
+                         -\/O3 -\/march=native -\/fopenmp\textbackslash{}
+                        -\/o  build/TestBoolOnPoint
+    \end{DoxyPre}
+ And then\+: 
+\begin{DoxyPre}
+\begin{DoxyItemize}
+\item make\textbackslash{}
+\item build/TestPCAOnPoint
+\item valgrind -\/-\/tool=callgrind -\/-\/instr-\/atstart=no -\/-\/cache-\/sim=yes -\/-\/log-\/file=OutputNameFile.cachegrind build/TestPCAOnPoint
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\end{DoxyPre}

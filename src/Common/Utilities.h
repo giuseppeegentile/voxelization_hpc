@@ -35,6 +35,12 @@ class Utilities {
 	}
 
 
+	/**
+	 * @brief Permutate matrix's columns by the convention choosen, given an index.
+	 * 
+	 * @param mat The matrix to permutate
+	 * @param mapIndex The index of the permutation desired.
+	 */
 	static void permutateByIndexMap(Eigen::Matrix3d & mat, const int mapIndex){
 		Eigen::PermutationMatrix<3, 3> perm; 
 		perm.indices() = {permutations[mapIndex][0],permutations[mapIndex][1], permutations[mapIndex][2]};

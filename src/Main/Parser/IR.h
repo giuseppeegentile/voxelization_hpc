@@ -18,7 +18,10 @@
 #include <numeric>
 #include <algorithm>
 
-
+/**
+ * @brief The intermediate representation of the protein read by parser.
+ * 
+ */
 class IR {
 	friend Coordinate;
 	public:

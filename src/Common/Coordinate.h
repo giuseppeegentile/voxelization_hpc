@@ -1,11 +1,5 @@
 /*Coordinate.h*/
 
-//
-//	Implementa un container generico di coordinate tridimensionale
-//	verosimilmente verrá usato nella fase di parsing e assemblaggio della struttura
-//	É stato inserito come oggetto Common per questo motivo
-//
-
 #ifndef COORDINATE_H
 #define COORDINATE_H
 #include <cmath>
@@ -14,6 +8,10 @@
 #include <cmath>
 #include <numeric>
 #include <algorithm>
+/**
+ * @brief Represent a 3D coordinate, with all the necessary operator overrides.
+ * 
+ */
 class Coordinate {
 	friend class IR;
 	public:

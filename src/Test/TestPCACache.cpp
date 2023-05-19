@@ -25,26 +25,12 @@ int main() {
 	Structure structure(ir_protein, PRECISION);
     VoxelGrid & voxelGrid = structure.getVoxelGrid();
 
-    int permutazione = 5; //////////////testo su una singola permutazione i cache miss
+    int permutazione = 5; //testo su una singola permutazione i cache miss
     int pieni = 0;
-
- 	std::ofstream output_ir_non_pca;
-	output_ir_non_pca.open("output_ir_non_pca.csv");
-
-	for(auto & c : ir_protein.getData())
-	{
-		output_ir_non_pca << c.getX() << "," << c.getY() << "," << c.getZ()  << std::endl;
-	}
 
     CovarianceEigen cov(ir_protein);
     cov.principalComponentProjection(permutazione);
 
-    std::ofstream output_ir_pca;
-	output_ir_pca.open("output_ir_pca.csv");
-	for(auto & c :  ir_protein.getData())
-	{
-		output_ir_pca  << c.getX() << "," << c.getY() << "," << c.getZ()  << std::endl;
-	}
 
     ir_protein.sortData();
     CALLGRIND_START_INSTRUMENTATION;
